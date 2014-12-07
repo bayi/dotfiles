@@ -1,3 +1,6 @@
 [submodule ".bayi-shell/oh-my-zsh"]
 	path = .bayi-shell/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".bayi-shell/zsh-syntax-highlighting"]
+	path = .bayi-shell/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
