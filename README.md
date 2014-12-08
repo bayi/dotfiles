@@ -5,12 +5,14 @@
  - xorg-xrandr
  - xorg-xset
  - xterm
+
 # WM:
  - i3
  - conky
  - vim/gvim
  - mc
  - pcmanfm-qt
+
 #optional packages:
  - pulseaudio: volumeicon
  - vim/gvim: vim-airline
