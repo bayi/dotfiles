@@ -16,7 +16,7 @@ set ruler
 set number
 
 " Hatter
-colorscheme solarized
+"colorscheme solarized
 set background=dark
 
 " Parancs mutatas
