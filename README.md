@@ -13,7 +13,7 @@
  - mc
  - pcmanfm-qt
 
-#optional packages:
+# optional packages:
  - pulseaudio: volumeicon
  - vim/gvim: vim-airline
 
