@@ -1,17 +1,18 @@
 # xorg needed packages:
  - xorg-xinit
- - xorg-xsetroot
  - xorg-setxkbmap
  - xorg-xrandr
  - xorg-xset
  - xterm
+ - hsetroot
+ - compton
 
 # WM:
  - i3
  - conky
  - vim/gvim
  - mc
- - pcmanfm-qt
+ - pcmanfm
 
 # optional packages:
  - pulseaudio: volumeicon
