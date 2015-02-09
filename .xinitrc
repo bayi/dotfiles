@@ -22,7 +22,10 @@ export PAGER=$EDITOR
 
 # Monitorok
 
-xrandr --output HDMI2 --mode 1920x1080 --primary --output VGA1 --mode 1680x1050 --left-of HDMI2 &
+#xrandr --output HDMI2 --mode 1920x1080 --primary --output VGA1 --mode 1920x1080 --right-of HDMI2 --output HDMI1 --mode 1920x1080 --left-of HDMI2 &
+xrandr --output HDMI2 --primary --output VGA1 --left-of HDMI2 --output HDMI1 --right-of HDMI2
+# sleep .25
+
 
 # i3
 
