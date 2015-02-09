@@ -71,6 +71,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
+bindsym $mod+shift+f fullscreen global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -103,9 +104,9 @@ bindsym $mod+0 workspace 10
 
 # Nehany workspace monitorokra
 workspace 21 output HDMI1
-exec --no-startup-id i3-msg rename workspace 21 to "bal"
+exec --no-startup-id i3-msg rename workspace 21 to "jobb"
 workspace 22 output VGA1
-exec --no-startup-id i3-msg rename workspace 22 to "jobb"
+exec --no-startup-id i3-msg rename workspace 22 to "bal"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
