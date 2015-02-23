@@ -16,7 +16,9 @@ set ruler
 set number
 
 " Hatter
-"colorscheme solarized
+if has('gui_running')
+    colorscheme solarized
+endif
 set background=dark
 
 " Parancs mutatas
@@ -64,3 +66,4 @@ set guioptions-=T  "remove toolbar
 " Powerline
 let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 set laststatus=2
+
