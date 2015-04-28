@@ -12,7 +12,6 @@
  - conky
  - vim/gvim
  - mc
- - pcmanfm
 
 # optional packages:
  - pulseaudio: volumeicon
