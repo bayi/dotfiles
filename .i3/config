@@ -164,7 +164,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Hangouts a sajat workspacebe es float
-for_window [title="Hangouts"] move container to workspace 10
+for_window [title="Hangouts"] move container to workspace com
 
 # Popup ablakok (mint pl. Hangouts) alapbol float
 for_window [window_role="pop-up"] floating enabled
