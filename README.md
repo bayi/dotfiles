@@ -6,6 +6,7 @@
  - xterm
  - hsetroot
  - compton
+ - ttf-symbola (unicode icons in bar)
 
 # WM:
  - i3
