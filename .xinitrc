@@ -24,10 +24,6 @@ export PAGER=$EDITOR
 
 xrandr --output HDMI2 --primary --output VGA1 --left-of HDMI2 --output HDMI1 --right-of HDMI2
 
-# Billentyuzet
-
-setxkbmap hu
-
 # i3
 
 exec i3
