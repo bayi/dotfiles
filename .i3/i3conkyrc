@@ -13,11 +13,38 @@ cpu_avg_samples 1
 
 TEXT
 [
-{ "full_text" : "CPU: $cpubar ${cpu cpu0}% ${loadavg 1}", "color" : "\#B58900"},
-{ "full_text" : "RAM: $membar ${mem}", "color" : ${if_match ${memperc}<90}"\#268BD2"${else}"\#ff0000"${endif} },
-{ "full_text" : "/:${fs_free /} /home:${fs_free /home} /mnt/data:${fs_free /mnt/data}" , "color" : "\#00b589" },
-{ "full_text" : "IP:${addrs enp0s25}" , "color" : "\#278bd2"},
-{ "full_text" : "VOL:${exec amixer -c 1 get Master | grep Mono: | cut -d " " -f6}" , "color" : "\#27d28b" },
-{ "full_text" : "Up $uptime_short" , "color" : "\#666666" },
-{ "full_text" : "$time" , "color" : "\#ffffff" }
+{ "full_text" : "▣ ${cpu cpu0}%", "separator": false, "color":
+${if_match ${cpu cpu0}<90}"\#268bd2"${else}"\#cb4b16"${endif}},
+{ "full_text" : "🌡 ${acpitemp} °C", "separator": false, "color":
+${if_match ${acpitemp}<75}"\#268bd2"${else}"\#cb4b16"${endif}},
+{ "full_text" : "📈 ${mem}", "separator": false, "color":
+${if_match ${memperc}<85}"\#268bd2"${else}"\#dc322f"${endif}},
+{ "full_text" : "🔘 /${fs_free /}", "separator": false,
+"color": "\#719e07"},
+${if_mounted /home} { "full_text" : "🔘 /${fs_free /home}", "separator": false,
+"color": "\#719e07"},${endif}
+${if_mounted /mnt/data} { "full_text" : "🔘 /${fs_free /mnt/data}", "separator": false,
+"color": "\#719e07"},${endif}
+${if_up wlp2s0} { "full_text" : "📶 ${addrs wlp2s0}@${wireless_essid wlp2s0} 📡${wireless_link_qual_perc wlp2s0}%"
+,"separator": false, "color" : "\#b58900"}, ${endif}
+${if_up enp4s0} { "full_text" : "⛼ ${addrs enp4s0}" , "separator": false,
+"color" : "\#ffff99"}, ${endif}
+${if_up br0} { "full_text" : "⛼ ${addrs br0}", "separator": false,
+"color" :"\#ffff99"}, ${endif}
+${if_existing /sys/class/power_supply/ADP1/online 1}
+    { "full_text" : "🔌 ${battery_short BAT1}", "separator": false,
+    "color": "\#cb4b16"},
+${else}
+    ${if_existing /sys/class/power_supply/BAT1/present 1}
+        { "full_text" : "🔋 ${battery_short BAT1}", "separator": false,
+        "color": "\#cb4b16"},
+    ${else}
+        { "full_text" : "", "separator": false,
+        "color": "\#cb4b16"},
+    $endif
+$endif
+{ "full_text" : 
+"🔊 ${exec pacmd list-sinks | grep "volume" | head -n1 | cut -d: -f3 | cut -d% -f1 | cut -d/ -f2 | tr -d "[:space:]"}%",
+"color" : "\#2aa198", "separator": false },
+{ "full_text" : "📅 ${time %y %A %b %d}. 🕐 ${time %H:%M} " , "color" :"\#93a1a1", "separator": false}
 ],
