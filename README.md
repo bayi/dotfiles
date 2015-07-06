@@ -4,8 +4,6 @@
  - xorg-xrandr
  - xorg-xset
  - xterm
- - hsetroot
- - compton
  - ttf-symbola (unicode icons in bar)
 
 # WM:
