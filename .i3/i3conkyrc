@@ -46,5 +46,5 @@ $endif
 { "full_text" : 
 "🔊 ${exec pacmd list-sinks | grep "volume" | head -n1 | cut -d: -f3 | cut -d% -f1 | cut -d/ -f2 | tr -d "[:space:]"}%",
 "color" : "\#2aa198", "separator": false },
-{ "full_text" : "📅 ${time %y %A %b %d}. 🕐 ${time %H:%M} " , "color" :"\#93a1a1", "separator": false}
+{ "full_text" : "🕑 ${time %y %A %b %d}. 🕐 ${time %H:%M} " , "color" :"\#93a1a1", "separator": false}
 ],
