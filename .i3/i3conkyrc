@@ -43,8 +43,16 @@ ${else}
         "color": "\#cb4b16"},
     $endif
 $endif
-{ "full_text" : 
+{ "full_text" :
+${if_empty ${exec pacmd list-sinks | grep -i muted: | cut -d' ' -f2 | grep -i no}}
+"🔇 -",
+${else}
+${if_match ${exec pacmd list-sinks | grep "volume" | head -n1 | cut -d: -f3 | cut -d% -f1 | cut -d/ -f2 | tr -d "[:space:]"}<70}
+"🔉 ${exec pacmd list-sinks | grep "volume" | head -n1 | cut -d: -f3 | cut -d% -f1 | cut -d/ -f2 | tr -d "[:space:]"}%",
+${else}
 "🔊 ${exec pacmd list-sinks | grep "volume" | head -n1 | cut -d: -f3 | cut -d% -f1 | cut -d/ -f2 | tr -d "[:space:]"}%",
+${endif}
+${endif}
 "color" : "\#2aa198", "separator": false },
 { "full_text" : "📅 ${time %y %A %b %d}. 🕑 ${time %H:%M} " , "color" :"\#93a1a1", "separator": false}
 ],
