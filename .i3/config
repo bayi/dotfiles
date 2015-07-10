@@ -226,6 +226,11 @@ bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 # Lockscreen
 bindsym $mod+Pause exec --no-startup-id "i3lock --color 000000"
 
+# Hangero
+bindsym XF86AudioRaiseVolume exec pactl set-sink-mute 0 0 && pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-mute 0 0 && pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+
 # Remove borders.
 hide_edge_borders vertical
 
