@@ -427,7 +427,7 @@ shell/i/.svg
 
 include/image
 	#Open=/usr/lib/mc/ext.d/Image.sh open ALL_FORMATS
-	Open=(gpicview %f > /dev/null 2>&1 &)
+	Open=(viewnior %f > /dev/null 2>&1 &)
 	View=%view{ascii} /usr/lib/mc/ext.d/image.sh view ALL_FORMATS
 
 
