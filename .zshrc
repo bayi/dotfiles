@@ -6,7 +6,7 @@ plugins=(git adb archlinux common-aliases cp zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 typeset -U path
-path=(~/bin /opt/android-sdk/tools /opt/android-sdk/platform-tools ~/maple-gcc/arm/bin $path)
+path=(~/bin /opt/android-sdk/tools /opt/android-sdk/platform-tools $path)
 
 bindkey "^[[H" beginning-of-line
 bindkey "^[[2~" overwrite-mode
