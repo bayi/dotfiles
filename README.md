@@ -11,6 +11,7 @@
  - conky
  - vim/gvim
  - mc
+ - udiskie
 
 # optional packages:
  - pulseaudio: volumeicon
