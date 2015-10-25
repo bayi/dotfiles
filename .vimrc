@@ -42,8 +42,8 @@ set listchars=tab:>·,trail:·
 set showfulltag
 set completeopt=menu,longest,preview
 
-" Szeretjuk a 80 oszlopot :)
-set textwidth=80
+" Szeretjuk a 80 oszlopot :) ... vagy nem
+" set textwidth=80
 
 " Tab
 set autoindent
@@ -51,6 +51,11 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
+set shiftround
+set smartindent
+
+" Ha egy fajl megvaltozott csak toltsd be, ne kerdezd
+set autoread
 
 " Ctrl+c masolas a vagolapra
 vnoremap <C-c> "*y
@@ -67,3 +72,7 @@ set guioptions-=T  "remove toolbar
 let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 set laststatus=2
 
+" Airline tabline felul a nyitott pufferekkel
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_powerline_fonts = 1
