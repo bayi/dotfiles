@@ -8,7 +8,7 @@ xterm*dynamicColors: true
 !Font
 !xterm*FaceName: Ubuntu Mono derivative Powerline
 xterm*FaceName: DejaVu Sans Mono for Powerline
-xterm*FaceSize: 12
+xterm*FaceSize: 11
 xterm*font: fixed
 xterm*boldFont: fixed
 
