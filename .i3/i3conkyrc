@@ -21,9 +21,9 @@ ${if_match ${acpitemp}<75}"\#268bd2"${else}"\#cb4b16"${endif}},
 ${if_match ${memperc}<85}"\#268bd2"${else}"\#dc322f"${endif}},
 { "full_text" : "🔘 /${fs_free /}", "separator": false,
 "color": "\#719e07"},
-${if_mounted /home} { "full_text" : "🔘 /${fs_free /home}", "separator": false,
+${if_mounted /home} { "full_text" : "🔘 /home ${fs_free /home}", "separator": false,
 "color": "\#719e07"},${endif}
-${if_mounted /mnt/data} { "full_text" : "🔘 /${fs_free /mnt/data}", "separator": false,
+${if_mounted /mnt/data} { "full_text" : "🔘 /mnt/data ${fs_free /mnt/data}", "separator": false,
 "color": "\#719e07"},${endif}
 ${if_up wlp2s0} { "full_text" : "📶 ${addrs wlp2s0}@${wireless_essid wlp2s0} 📡${wireless_link_qual_perc wlp2s0}%"
 ,"separator": false, "color" : "\#b58900"}, ${endif}
