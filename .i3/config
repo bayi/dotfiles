@@ -180,6 +180,7 @@ bindsym $mod+Shift+s mode "shutdown"
 
 # Hangouts a sajat workspacebe es float
 for_window [class="google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] move container to workspace com
+for_window [class="google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] border normal
 
 # Popup ablakok (mint pl. Hangouts) alapbol float
 for_window [window_role="pop-up"] floating enabled
