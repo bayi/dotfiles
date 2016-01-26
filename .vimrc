@@ -17,7 +17,7 @@ set number
 set relativenumber
 
 " Hatter
-colorscheme torte
+colorscheme industry
 
 " Parancs mutatas
 set showcmd
