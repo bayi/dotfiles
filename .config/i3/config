@@ -198,7 +198,7 @@ for_window [class="Kodi"] move container to workspace V
 # finds out, if available)
 bar {
         position top
-        status_command $HOME/.i3/i3conky
+        status_command $HOME/.config/conky/statusbar
         workspace_buttons yes
         tray_output primary
         font pango:DejaVu Sans Mono 10
