@@ -17,10 +17,7 @@ set number
 set relativenumber
 
 " Hatter
-if has('gui_running')
-    colorscheme solarized
-endif
-set background=dark
+colorscheme torte
 
 " Parancs mutatas
 set showcmd
