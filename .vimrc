@@ -74,3 +74,6 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
 let g:airline_powerline_fonts = 1
+
+" Taglista jobbra
+let Tlist_Use_Right_Window   = 1
