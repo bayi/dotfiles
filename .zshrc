@@ -1,4 +1,4 @@
-ZSH=$HOME/.bayi-shell/oh-my-zsh
+ZSH=$HOME/.config/oh-my-zsh
 ZSH_THEME="agnoster"
 
 plugins=(git adb archlinux common-aliases cp zsh-syntax-highlighting)
