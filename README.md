@@ -11,7 +11,7 @@
  - conky            -> Status bar
  - gvim             -> Text editor
  - udiskie          -> Volume manager
- - pcmanfm-qt       -> File manager
+ - pcmanfm          -> File manager
 
 # optional packages:
  - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-taglist vim-syntastic vim-spell-hu
