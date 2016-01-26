@@ -8,6 +8,7 @@
 
 # WM:
  - i3               -> Window manager
+ - i3lock           -> Lockscreen
  - conky            -> Status bar
  - gvim             -> Text editor
  - udiskie          -> Volume manager
