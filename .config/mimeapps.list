@@ -1,0 +1,15 @@
+[Added Associations]
+image/jpeg=viewnior.desktop
+image/gif=viewnior.desktop
+image/png=viewnior.desktop
+application/pdf=google-chrome.desktop
+
+[Removed Associations]
+application/pdf=gimp.desktop
+
+[Default Applications]
+image/jpeg=viewnior.desktop
+image/gif=viewnior.desktop
+image/png=viewnior.desktop
+application/pdf=google-chrome.desktop
+inode/directory=pcmanfm-qt.desktop
