@@ -1,21 +1,20 @@
 # xorg needed packages:
  - xorg-xinit
- - xorg-setxkbmap
- - xorg-xrandr
+ - xorg-setxkbmap   -> Keyboard language management
+ - xorg-xrandr      -> Multi monitor management
  - xorg-xset
- - xterm
- - ttf-symbola (unicode icons in bar)
+ - xterm            -> Terminal
+ - ttf-symbola      -> Unicode icons in bar
 
 # WM:
- - i3
- - conky
- - vim/gvim
- - mc
- - udiskie
+ - i3               -> Window manager
+ - conky            -> Status bar
+ - gvim             -> Text editor
+ - udiskie          -> Volume manager
+ - pcmanfm-qt       -> File manager
 
 # optional packages:
- - pulseaudio: volumeicon
- - vim/gvim: vim-airline
+ - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-taglist vim-syntastic vim-spell-hu
 
 
 > Set Path in .zshrc path=
