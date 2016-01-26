@@ -14,6 +14,7 @@ set ruler
 
 " Sorszamok bal oldalt
 set number
+set relativenumber
 
 " Hatter
 if has('gui_running')
