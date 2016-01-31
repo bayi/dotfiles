@@ -1,3 +1,7 @@
+" UTF-8 az alap fájlé s a config fájl formátum
+scriptencoding utf-8
+set encoding=utf-8
+
 " Kod kiemeles
 syntax on
 
