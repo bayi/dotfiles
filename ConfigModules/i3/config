@@ -111,6 +111,7 @@ workspace 21 output HDMI1
 exec --no-startup-id i3-msg rename workspace 21 to "jobb"
 workspace 22 output VGA1
 exec --no-startup-id i3-msg rename workspace 22 to "bal"
+workspace com output VGA1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -254,6 +255,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 conky"
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 conky"
 
+# Windows - Linux input váltás
+bindsym Ctrl+F2 exec usb-to-win
+bindsym Ctrl+F3 exec usb-to-linux
+
 # Remove borders.
 hide_edge_borders vertical
 
@@ -266,3 +271,5 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pulseaudio --start
 
 exec --no-startup-id udiskie -s -A -n
+
+exec --no-startup-id g15-desktop-service
