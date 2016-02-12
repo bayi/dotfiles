@@ -8,3 +8,4 @@ echo "Creating/Updating symlinks for: Xorg"
 ln -s $dir/Xorg/.fonts ~/.fonts
 ln -s $dir/Xorg/.Xdefaults ~/.Xdefaults
 ln -s $dir/Xorg/.Xresources ~/.Xresources
+ln -s $dir/Xorg/.xinitrc ~/.xinitrc
