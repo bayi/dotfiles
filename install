@@ -4,3 +4,7 @@ dir=~/.dotfiles
 
 echo "Creating/Updating symlink for: vim"
 ln -s $dir/vim/.vimrc ~/.vimrc
+echo "Creating/Updating symlinks for: Xorg"
+ln -s $dir/Xorg/.fonts ~/.fonts
+ln -s $dir/Xorg/.Xdefaults ~/.Xdefaults
+ln -s $dir/Xorg/.Xresources ~/.Xresources
