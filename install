@@ -22,6 +22,8 @@ for module in $modules; do
     echo -e "[\e[32m$module\e[39m] installálva"
 done
 
+mkdir -p ~/.config
+
 for confmodule in $confmodules; do
     echo -e "[\e[32m.config/$confmodule\e[39m] .config modul installálása ..."
     homefile=~/.config/$confmodule
