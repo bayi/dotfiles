@@ -1,3 +1,7 @@
+
+# Important!
+Install to: ~/.dotfiles
+
 # xorg needed packages:
  - xorg-xinit
  - xorg-setxkbmap   -> Keyboard language management
