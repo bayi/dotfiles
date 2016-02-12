@@ -1,6 +1,9 @@
 
 # Important!
-Install to: ~/.dotfiles
+Install to: ~/.dotfiles or edit `install` file and change the path.
+
+# Installation
+To install/update the config files, run: ./install
 
 # xorg needed packages:
  - xorg-xinit
