@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Ezeket a modulokat installálja
-modules="Shell git vim Xorg"
+modules="Shell Zsh git vim Xorg"
 # Ez a mappa amibe a dotfile-ok repo van
 dir=~/.dotfiles
 
