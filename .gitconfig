@@ -10,8 +10,13 @@
 [difftool]
 	prompt = false
 [alias]
-	d = difftool
+    d = difftool
+    cm = !git add -A && git commit -m
+    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    amend = commit -a --amend
+    ls = log --pretty=format:"%C(green)%ad\\ %C(yellow)%h%Cred%d\\ %Cblue[%cn]\\ %Creset%s" --decorate --date=short
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 [credential]
 	helper = cache --timeout=604800
 [pull]
-	rebase = true
+	rebase = preserve
