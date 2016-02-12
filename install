@@ -25,7 +25,7 @@ done
 for confmodule in $confmodules; do
     echo -e "[\e[32m.config/$confmodule\e[39m] .config modul installálása ..."
     homefile=~/.config/$confmodule
-    repofile="$dir/.config/$confmodule"
+    repofile="$dir/ConfigModules/$confmodule"
 
     if [ -e $homeilfe ]; then
             echo -e " * \e[31mTörlés\e[39m: $homefile"
