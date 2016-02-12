@@ -1,14 +1,22 @@
 #!/bin/sh
 
+# Ezeket a modulokat installálja
+modules="Shell git vim Xorg"
+# Ez a mappa amibe a dotfile-ok repo van
 dir=~/.dotfiles
 
-echo "Creating/Updating symlink for: git"
-ln -s $dir/git/gitconfig ~/.gitconfig
+for module in $modules; do
+    echo -e "[\e[32m$module\e[39m] Installing module ..."
+    for file in `ls $dir/$module/`; do
+        homefile=~/.$file
+        repofile="$dir/$module/$file"
+        if [ -e $homefile ]; then
+            echo -e " * \e[31mTörlés\e[39m: $homefile"
+            rm -rf $homefile || true
+        fi
+        echo -e " * \e[33mLinkelés\e[39m: $repofile -> $homefile"
+        ln -s $repofile $homefile
+    done
+    echo -e "[\e[32m$module\e[39m] Installed"
+done
 
-echo "Creating/Updating symlink for: vim"
-ln -s $dir/vim/.vimrc ~/.vimrc
-echo "Creating/Updating symlinks for: Xorg"
-ln -s $dir/Xorg/.fonts ~/.fonts
-ln -s $dir/Xorg/.Xdefaults ~/.Xdefaults
-ln -s $dir/Xorg/.Xresources ~/.Xresources
-ln -s $dir/Xorg/.xinitrc ~/.xinitrc
