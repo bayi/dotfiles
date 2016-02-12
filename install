@@ -1,0 +1,6 @@
+#!/bin/sh
+
+dir=~/.dotfiles
+
+echo "Creating/Updating symlink for: vim"
+ln -s $dir/vim/.vimrc ~/.vimrc
