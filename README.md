@@ -1,9 +1,12 @@
 
 # Important!
-Install to: ~/.dotfiles or edit `install` file and change the path.
+Install to: `~/.dotfiles` or edit `install` file and change the path.
 
 # Installation
-To install/update the config files, run: ./install
+To install/update the config files, run: `./install`
+
+# Configuration
+To enable/disable modules edit `install` file. Also if you want you can set the `path=` variable in `Zsh/zshrc`.
 
 # xorg needed packages:
  - xorg-xinit
@@ -24,4 +27,3 @@ To install/update the config files, run: ./install
 # optional packages:
  - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-taglist vim-syntastic vim-spell-hu
 
-> Set Path in .zshrc path=
