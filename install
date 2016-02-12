@@ -2,6 +2,9 @@
 
 dir=~/.dotfiles
 
+echo "Creating/Updating symlink for: git"
+ln -s $dir/git/gitconfig ~/.gitconfig
+
 echo "Creating/Updating symlink for: vim"
 ln -s $dir/vim/.vimrc ~/.vimrc
 echo "Creating/Updating symlinks for: Xorg"
