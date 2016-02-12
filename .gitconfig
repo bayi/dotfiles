@@ -1,0 +1,17 @@
+[user]
+	email = bayi@bayi.hu
+	name = Bayi
+[push]
+	default = simple
+[color]
+	ui = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+[credential]
+	helper = cache --timeout=604800
+[pull]
+	rebase = true
