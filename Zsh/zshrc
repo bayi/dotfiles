@@ -14,3 +14,5 @@ bindkey "^[[3~" delete-char
 bindkey "^[[F" end-of-line
 bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward
+
+alias mondd='espeak -vhu+f2'
