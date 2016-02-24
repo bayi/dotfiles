@@ -23,7 +23,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - gvim             -> Text editor
  - udiskie          -> Volume manager
  - pcmanfm          -> File manager
- - pavucontro       -> Sound management
+ - pavucontror      -> Sound management
 
 # optional packages:
  - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-taglist vim-syntastic vim-spell-hu
