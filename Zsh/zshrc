@@ -16,3 +16,4 @@ bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward
 
 alias mondd='espeak -vhu+f2'
+alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'

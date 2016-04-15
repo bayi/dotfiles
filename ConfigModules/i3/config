@@ -107,11 +107,11 @@ bindsym $mod+x workspace www
 bindsym $mod+c workspace V
 
 # Nehany workspace monitorokra
-workspace 21 output HDMI1
+workspace 21 output HDMI-1
 exec --no-startup-id i3-msg rename workspace 21 to "jobb"
-workspace 22 output VGA1
+workspace 22 output VGA-1
 exec --no-startup-id i3-msg rename workspace 22 to "bal"
-workspace com output VGA1
+workspace com output VGA-1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1

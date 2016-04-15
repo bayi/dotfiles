@@ -23,7 +23,7 @@ export PAGER=$EDITOR
 # Monitorok
 
 # Gép
-xrandr --output HDMI2 --primary --output VGA1 --left-of HDMI2 --output HDMI1 --right-of HDMI2
+xrandr --output HDMI-2 --primary --output VGA-1 --left-of HDMI-2 --output HDMI-1 --right-of HDMI-2
 
 # Lapotop
 # xrandr --output LVDS1 --primary
