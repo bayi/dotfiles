@@ -268,8 +268,6 @@ exec --no-startup-id gnome-keyring-daemon
 
 exec --no-startup-id nm-applet
 
-exec --no-startup-id pulseaudio --start
-
 exec --no-startup-id udiskie -s -A -n
 
 exec --no-startup-id g15-desktop-service
