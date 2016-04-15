@@ -25,6 +25,10 @@ export PAGER=$EDITOR
 # Gép
 xrandr --output HDMI-2 --primary --output VGA-1 --left-of HDMI-2 --output HDMI-1 --right-of HDMI-2
 
+# Színek
+xrandr --output HDMI-1 --set "Broadcast RGB" "Full"
+xrandr --output HDMI-2 --set "Broadcast RGB" "Full"
+
 # Lapotop
 # xrandr --output LVDS1 --primary
 
