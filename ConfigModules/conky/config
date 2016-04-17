@@ -3,7 +3,7 @@ own_window no
 out_to_console yes
 background no
 max_text_width 0
-update_interval 1.0
+update_interval 0.5
 total_run_times 0
 short_units yes
 if_up_strictness address
@@ -13,6 +13,7 @@ cpu_avg_samples 1
 
 TEXT
 [
+{ "full_text" : "   ${exec xprop -id $(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}') | awk '/^WM_NAME/{$1=$2="";print}' | tr -s ' ' | awk '{print substr($0, 3, length($0) - 3)}'}   ", "separator": false, "color": "\#F6BF7F"},
 { "full_text" : "▣ ${cpu cpu0}%", "separator": false, "color":
 ${if_match ${cpu cpu0}<90}"\#268bd2"${else}"\#cb4b16"${endif}},
 { "full_text" : "🌡 ${acpitemp} °C", "separator": false, "color":
