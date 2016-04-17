@@ -112,6 +112,7 @@ exec --no-startup-id i3-msg rename workspace 21 to "jobb"
 workspace 22 output VGA-1
 exec --no-startup-id i3-msg rename workspace 22 to "bal"
 workspace com output VGA-1
+workspace V output HDMI-2
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -180,8 +181,8 @@ mode "shutdown" {
 bindsym $mod+Shift+s mode "shutdown"
 
 # Hangouts a sajat workspacebe es float
-for_window [class="google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] move container to workspace com
-for_window [class="google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] border normal
+for_window [class="chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] move container to workspace com
+for_window [class="chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] border normal
 
 # Popup ablakok (mint pl. Hangouts) alapbol float
 for_window [window_role="pop-up"] floating enabled
@@ -190,7 +191,7 @@ for_window [window_role="pop-up"] floating enabled
 for_window [class="TeamSpeak 3"] move container to workspace com
 
 # Chrome a www desktopra
-for_window [class="google-chrome" instance="google-chrome"] move container to workspace www
+for_window [class="chromium" instance="chromium"] move container to workspace www
 
 # Kodi a V desktopra
 for_window [class="Kodi"] move container to workspace V
