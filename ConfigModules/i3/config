@@ -265,6 +265,8 @@ hide_edge_borders vertical
 
 # Progik
 
+exec --no-startup-id systemctl --user start pulseaudio.service
+
 exec --no-startup-id gnome-keyring-daemon
 
 exec --no-startup-id nm-applet
