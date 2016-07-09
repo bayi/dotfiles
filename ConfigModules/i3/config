@@ -274,3 +274,10 @@ exec --no-startup-id nm-applet
 exec --no-startup-id udiskie -s -A -n
 
 exec --no-startup-id g15-desktop-service
+
+exec --no-startup-id feh --bg-scale /home/bayi/Képek/fasza-hatter.jpg
+
+exec --no-startup-id owncloud
+
+exec --no-startup-id dropbox
+
