@@ -36,6 +36,9 @@ set smartcase
 " Keresesi talalatok kiemelese
 set hlsearch
 
+" Kereséshez ugrás gépelés közbe
+set incsearch
+
 " Nem lathato karakterek muTatasa ( de csak sorvegi space es tab )
 set list
 set listchars=tab:>·,trail:·
