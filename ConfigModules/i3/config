@@ -105,6 +105,7 @@ bindsym $mod+0 workspace 10
 bindsym $mod+y workspace com
 bindsym $mod+x workspace www
 bindsym $mod+c workspace V
+bindsym $mod+g workspace im
 
 # Nehany workspace monitorokra
 workspace 21 output HDMI-1
@@ -179,6 +180,9 @@ mode "shutdown" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+s mode "shutdown"
+
+# Franz az im workspace-re
+for_window [class="Franz"] move container to workspace im
 
 # Hangouts a sajat workspacebe es float
 for_window [class="chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] move container to workspace com
