@@ -48,7 +48,7 @@ set showfulltag
 set completeopt=menuone,longest
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Tab
+" Tab és behúzások
 set autoindent
 set tabstop=4
 set shiftwidth=4
@@ -79,6 +79,9 @@ let g:airline_powerline_fonts = 1
 
 " Taglista jobbra
 let Tlist_Use_Right_Window   = 1
+
+" NerdTree help szöveg és bookmarkok eltöntetése
+let NERDTreeMinimalUI = 1
 
 " NerdTree automatikus indítása
 autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
