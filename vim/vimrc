@@ -45,10 +45,8 @@ set listchars=tab:>·,trail:·
 
 " Kod kiegeszites (Ctrl+P)
 set showfulltag
-set completeopt=menu,longest,preview
-
-" Szeretjuk a 80 oszlopot :) ... vagy nem
-" set textwidth=80
+set completeopt=menuone,longest
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Tab
 set autoindent
