@@ -62,9 +62,6 @@ set smartindent
 " Ha egy fajl megvaltozott csak toltsd be, ne kerdezd
 set autoread
 
-" Ctrl+c masolas a vagolapra
-vnoremap <C-c> "*y
-
 " Jelenlegi sor szinezese
 set cul
 hi CursorLine term=none cterm=none ctermbg=8
