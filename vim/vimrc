@@ -44,9 +44,13 @@ set list
 set listchars=tab:>·,trail:·
 
 " Kod kiegeszites (Ctrl+P)
+set omnifunc=syntaxcomplete#Complete
 set showfulltag
 set completeopt=menuone,longest
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Supertab omini -t használja
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " Tab és behúzások
 set autoindent
