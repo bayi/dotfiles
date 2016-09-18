@@ -26,5 +26,5 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - pavucontror      -> Sound management
 
 # optional packages:
- - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-taglist vim-syntastic vim-spell-hu
+ - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-taglist vim-syntastic vim-spell-hu vim-supertab vim-ultisnips
 
