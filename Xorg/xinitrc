@@ -18,7 +18,7 @@ fi
 # Szerkeszto
 
 export EDITOR="vim"
-export PAGER=$EDITOR
+export PAGER="most"
 
 # Monitorok
 
@@ -34,7 +34,12 @@ xrandr --output HDMI-2 --set "Broadcast RGB" "Full"
 
 # i3
 
+setxkbmap hu
+xset -dpms
+xset s off
+
 exec i3
+# exec gnome-session
 
 # exec gnome-session
 # exec startkde

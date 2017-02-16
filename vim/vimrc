@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 " UTF-8 az alap fájlé s a config fájl formátum
 scriptencoding utf-8
 set encoding=utf-8
@@ -21,7 +23,11 @@ set number
 set relativenumber
 
 " Hatter
-colorscheme industry
+let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
+"colorscheme industry
+colorscheme solarized
 
 " Parancs mutatas
 set showcmd
@@ -103,3 +109,22 @@ augroup CloseIfOnlyControlWinLeft
   au!
   au BufEnter * call s:CloseIfOnlyControlWinLeft()
 augroup END
+
+let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
+let g:padawan#composer_command = "composer"
+
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" " Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+
+let g:neocomplete#force_omni_input_patterns = {}
+let g:neocomplete#force_omni_input_patterns.php = '\h\w*\|[^- \t]->\w*'
+
+au BufReadPost *.vue set syntax=javascript
+
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+

@@ -19,7 +19,7 @@ ${if_match ${cpu cpu0}<90}"\#268bd2"${else}"\#cb4b16"${endif}},
 { "full_text" : "🌡 ${acpitemp} °C", "separator": false, "color":
 ${if_match ${acpitemp}<75}"\#268bd2"${else}"\#cb4b16"${endif}},
 { "full_text" : "📈 ${mem}", "separator": false, "color":
-${if_match ${memperc}<85}"\#268bd2"${else}"\#dc322f"${endif}},
+${if_match ${memperc}<94}"\#268bd2"${else}"\#dc322f"${endif}},
 { "full_text" : "🔘 /${fs_free /}", "separator": false,
 "color": "\#719e07"},
 ${if_mounted /home} { "full_text" : "🔘 /home ${fs_free /home}", "separator": false,

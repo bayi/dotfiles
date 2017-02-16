@@ -6,7 +6,7 @@ plugins=(git adb archlinux common-aliases cp zsh-syntax-highlighting catimg lara
 source $ZSH/oh-my-zsh.sh
 
 typeset -U path
-path=(~/.Bin /opt/android-sdk/tools /opt/android-sdk/platform-tools $path)
+path=(~/.Bin /opt/android-sdk/tools /opt/android-sdk/platform-tools ~/.composer/vendor/bin $path)
 
 bindkey "^[[H" beginning-of-line
 bindkey "^[[2~" overwrite-mode
@@ -15,5 +15,21 @@ bindkey "^[[F" end-of-line
 bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward
 
-alias mondd='espeak -vhu+f2'
+#alias mondd='espeak -vhu+f2'
+alias mondd='espeak -vhu'
 alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'
+alias artisan="php artisan"
+alias kepmegosztas="x11vnc -viewonly -forever -loop -shared -clip 1920x1080+1920+0 -cursor arrow -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord"
+
+alias gg="git pull && git push"
+
+#Magyar bill wayland alatt
+export XKB_DEFAULT_LAYOUT=hu
+#Sötét GTK téma
+export GTK_THEME=Adwaita:dark
+
+function git_diff() {
+    git diff --no-ext-diff -w "$@" | vim -R -
+}
+
+stty -ixon

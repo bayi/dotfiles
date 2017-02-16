@@ -28,7 +28,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-bindsym $mod+Return exec --no-startup-id uxterm
+bindsym $mod+Return exec --no-startup-id gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -105,7 +105,7 @@ bindsym $mod+0 workspace 10
 bindsym $mod+y workspace com
 bindsym $mod+x workspace www
 bindsym $mod+c workspace V
-bindsym $mod+g workspace im
+bindsym $mod+m workspace mail
 
 # Nehany workspace monitorokra
 workspace 21 output HDMI-1
@@ -114,6 +114,7 @@ workspace 22 output VGA-1
 exec --no-startup-id i3-msg rename workspace 22 to "bal"
 workspace com output VGA-1
 workspace V output HDMI-2
+workspace mail output VGA-1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -128,6 +129,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+y move container to workspace com
 bindsym $mod+Shift+x move container to workspace www
+bindsym $mod+Shift+m move container to workspace mail
 
 # Jelenlegi atnevezese
 bindsym $mod+Shift+d exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'Új Név: '
@@ -181,8 +183,8 @@ mode "shutdown" {
 }
 bindsym $mod+Shift+s mode "shutdown"
 
-# Franz az im workspace-re
-for_window [class="Franz"] move container to workspace im
+# Franz az com workspace-re
+for_window [class="Franz"] move container to workspace com
 
 # Hangouts a sajat workspacebe es float
 for_window [class="chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] move container to workspace com
@@ -199,6 +201,9 @@ for_window [class="chromium" instance="chromium"] move container to workspace ww
 
 # Kodi a V desktopra
 for_window [class="Kodi"] move container to workspace V
+
+# Geary a mail desktopra
+for_window [class="Geary"] move container to workspace mail
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -242,10 +247,10 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 
 # Fekete Hatter
-exec --no-startup-id xsetroot -solid "#000000"
+# exec --no-startup-id xsetroot -solid "#000000"
 
 # Billentyu kiosztas
-exec --no-startup-id setxkbmap hu
+# exec --no-startup-id setxkbmap hu
 
 # Gombok
 

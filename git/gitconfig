@@ -6,7 +6,9 @@
 [color]
 	ui = true
 [diff]
-	tool = vimdiff
+    external = git_diff_wrapper
+[pager]
+    diff = 
 [difftool]
 	prompt = false
 [alias]
