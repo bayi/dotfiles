@@ -34,29 +34,17 @@ bindsym $mod+Return exec --no-startup-id gnome-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id qdmenu
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -91,6 +79,15 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $workspaceWeb ""
+set $workspaceChat ""
+set $workspaceMail ""
+set $workspaceMedia " "
+set $workspaceFiles ""
+set $workspaceTerm ""
+set $workspaceWin ""
+set $workspaceMisc ""
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -102,19 +99,23 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-bindsym $mod+y workspace com
-bindsym $mod+x workspace www
-bindsym $mod+c workspace V
-bindsym $mod+m workspace mail
+bindsym $mod+y workspace $workspaceChat
+bindsym $mod+x workspace $workspaceWeb
+bindsym $mod+c workspace $workspaceMedia
+bindsym $mod+m workspace $workspaceMail
+bindsym $mod+g workspace $workspaceFiles
+bindsym $mod+t workspace $workspaceTerm
+bindsym $mod+z workspace $workspaceWin
+bindsym $mod+u workspace $workspaceMisc
 
 # Nehany workspace monitorokra
 workspace 21 output HDMI-1
 exec --no-startup-id i3-msg rename workspace 21 to "jobb"
 workspace 22 output VGA-1
 exec --no-startup-id i3-msg rename workspace 22 to "bal"
-workspace com output VGA-1
-workspace V output HDMI-2
-workspace mail output VGA-1
+workspace $workspaceChat output VGA-1
+workspace $workspaceMedia output HDMI-2
+workspace $workspaceMail output VGA-1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -127,15 +128,20 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+y move container to workspace com
-bindsym $mod+Shift+x move container to workspace www
-bindsym $mod+Shift+m move container to workspace mail
+bindsym $mod+Shift+y move container to workspace $workspaceChat
+bindsym $mod+Shift+x move container to workspace $workspaceWeb
+bindsym $mod+Shift+c move container to workspace $workspaceMedia
+bindsym $mod+Shift+m move container to workspace $workspaceMail
+bindsym $mod+Shift+g move container to workspace $workspaceFiles
+bindsym $mod+Shift+t move container to workspace $workspaceTerm
+bindsym $mod+Shift+z move container to workspace $workspaceWin
+bindsym $mod+Shift+u move container to workspace $workspaceMisc
 
 # Jelenlegi atnevezese
 bindsym $mod+Shift+d exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'Új Név: '
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -184,29 +190,42 @@ mode "shutdown" {
 bindsym $mod+Shift+s mode "shutdown"
 
 # Franz az com workspace-re
-for_window [class="Franz"] move container to workspace com
+for_window [class="Franz"] move container to workspace $workspaceChat
 
 # Hangouts a sajat workspacebe es float
-for_window [class="chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] move container to workspace com
-for_window [class="chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] border normal
+#for_window [class="chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] move container to workspace $workspaceChat
+#for_window [class="chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] border normal
 
 # Popup ablakok (mint pl. Hangouts) alapbol float
 for_window [window_role="pop-up"] floating enabled
 
 # TS is a com destkopra
-for_window [class="TeamSpeak 3"] move container to workspace com
+for_window [class="TeamSpeak 3"] move container to workspace $workspaceChat
 
 # Chrome a www desktopra
-for_window [class="chromium" instance="chromium"] move container to workspace www
+# for_window [class="chromium" instance="chromium"] move container to workspace $workspaceWeb
+assign [class="Chromium"] $workspaceWeb
 
 # Kodi a V desktopra
-for_window [class="Kodi"] move container to workspace V
+for_window [class="Kodi"] move container to workspace $workspaceMedia
+assign [class="Kodi"] $workspaceMedia
 
 # Geary a mail desktopra
-for_window [class="Geary"] move container to workspace mail
+#for_window [class="Geary"] move container to workspace $workspaceMail
+assign [class="Geary"] $workspaceMail
+
+assign [class="Nautilus"] $workspaceFiles
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+set $bg-color       #000000
+set $active-color   #333333
+set $text-color     #acacac
+set $inactive-text-color #686868
+set $inactive-bg-color #000000
+set $urgent-bg-color #1793d1
+
 bar {
         position top
         status_command $HOME/.config/conky/statusbar
@@ -215,15 +234,14 @@ bar {
         font pango:DejaVu Sans Mono 10
         colors {
             # Szinek
-            background #000000
-            statusline #ffffff
+            background $bg-color
             separator  #666666
 
             # Type             border  background font
-            focused_workspace  #008fff #007fbf #ffffff
-            active_workspace   #333333 #3f474a #ffffff
-            inactive_workspace #333333 #222222 #888888
-            urgent_workspace   #aa0000 #990000 #ffffff
+            focused_workspace  $bg-color $bg-color $text-color
+            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+            active_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+            urgent_workspace   $urgent-bg-color $urgent-bg-color $text-color
         }
 }
 
@@ -290,3 +308,6 @@ exec --no-startup-id owncloud
 
 exec --no-startup-id dropbox
 
+exec --no-startup-id geary
+
+exec_always compton

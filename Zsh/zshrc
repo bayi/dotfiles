@@ -6,7 +6,7 @@ plugins=(git adb archlinux common-aliases cp zsh-syntax-highlighting catimg lara
 source $ZSH/oh-my-zsh.sh
 
 typeset -U path
-path=(~/.Bin /opt/android-sdk/tools /opt/android-sdk/platform-tools ~/.composer/vendor/bin $path)
+path=(~/.Bin /opt/android-sdk/tools ~/Work/_Android_/Sdk/platform-tools/ ~/.composer/vendor/bin $path)
 
 bindkey "^[[H" beginning-of-line
 bindkey "^[[2~" overwrite-mode
@@ -22,6 +22,7 @@ alias artisan="php artisan"
 alias kepmegosztas="x11vnc -viewonly -forever -loop -shared -clip 1920x1080+1920+0 -cursor arrow -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord"
 
 alias gg="git pull && git push"
+alias sf="php app/console"
 
 #Magyar bill wayland alatt
 export XKB_DEFAULT_LAYOUT=hu
