@@ -3,7 +3,7 @@
 # Ezeket a modulokat installálja
 modules="Shell Zsh git vim Xorg"
 # Ezek a modulok a .config/ mappába mennek
-confmodules="conky i3 mc mimeapps.list"
+confmodules="i3 mc mimeapps.list"
 # Ez a mappa amibe a dotfile-ok repo van
 dir=~/.dotfiles
 

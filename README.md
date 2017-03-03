@@ -35,6 +35,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - networkmanager   -> Networking
  - network-manager-applet
  - pulseaudio       -> Audio
+ - most             -> Pager
 
 # optional packages:
  - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-pathogen vim-taglist vim-surround vim-syntastic vim-syntastic vim-spell-hu vim-supertab vim-ultisnips

@@ -1,16 +1,16 @@
 [user]
-	email = bayi@bayi.hu
-	name = Bayi
+    email = bayi@bayi.hu
+    name = Bayi
 [push]
-	default = simple
+    default = simple
 [color]
-	ui = true
+    ui = true
 [diff]
     external = git_diff_wrapper
 [pager]
-    diff = 
+    diff =
 [difftool]
-	prompt = false
+    prompt = false
 [alias]
     d = difftool
     cm = !git add -A && git commit -m
@@ -19,6 +19,6 @@
     ls = log --pretty=format:"%C(green)%ad\\ %C(yellow)%h%Cred%d\\ %Cblue[%cn]\\ %Creset%s" --decorate --date=short
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 [credential]
-	helper = cache --timeout=604800
+    helper = cache --timeout=604800
 [pull]
-	rebase = preserve
+    rebase = preserve
