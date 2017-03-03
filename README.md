@@ -1,6 +1,6 @@
 
 # Important!
-Install to: `~/.dotfiles` or edit `install` file and change the path.
+Install to: `~/.dotfiles` or edit `install` file and change the path and in Zsh/zshrc change the path also.
 
 # Installation
 To install/update the config files, run: `./install`
@@ -12,19 +12,30 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - xorg-xinit
  - xorg-setxkbmap   -> Keyboard language management
  - xorg-xrandr      -> Multi monitor management
- - xorg-xset
- - xterm            -> Terminal
- - ttf-symbola      -> Unicode icons in bar
+ - xorg-xset        -> X power management
 
-# WM:
- - i3               -> Window manager
+# Fonts:
+ - ttf-dejavu       -> Font
+ - ttf-font-awesome -> Icon font
+ - powerline-fonts  -> Powerline icons
+
+# Apps:
+ - zsh              -> Shell
+ - i3wm             -> Window manager
+ - compton          -> Composite manager
  - i3lock           -> Lockscreen
  - conky            -> Status bar
  - gvim             -> Text editor
  - udiskie          -> Volume manager
- - pcmanfm          -> File manager
- - pavucontror      -> Sound management
+ - nautilus         -> File manager
+ - qdmenu           -> App launcher
+ - scrot            -> Screenshot
+ - gnome-terminal   -> Terminal
+ - feh              -> Changing background
+ - networkmanager   -> Networking
+ - network-manager-applet
+ - pulseaudio       -> Audio
 
 # optional packages:
- - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-taglist vim-syntastic vim-spell-hu vim-supertab vim-ultisnips
+ - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-pathogen vim-taglist vim-surround vim-syntastic vim-syntastic vim-spell-hu vim-supertab vim-ultisnips
 
