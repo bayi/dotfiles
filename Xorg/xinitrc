@@ -15,6 +15,10 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+# X modmap
+
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
 # Szerkeszto
 
 export EDITOR="vim"
@@ -40,8 +44,3 @@ xset s off
 
 exec i3
 # exec gnome-session
-
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
