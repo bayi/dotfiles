@@ -2,4 +2,4 @@
 echo '{"version":1}'
 echo '['
 echo '[],'
-exec conky -c $HOME/.config/conky/config
+exec conky -c $HOME/.dotfiles/Conky/config
