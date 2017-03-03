@@ -3,7 +3,9 @@
 Install to: `~/.dotfiles` or edit `install` file and change the path and in Zsh/zshrc change the path also.
 
 # Installation
-To install/update the config files, run: `./install`
+- git submodule init
+- git submodule update
+- To install/update the config files, run: `./install`
 
 # Configuration
 To enable/disable modules edit `install` file. Also if you want you can set the `path=` variable in `Zsh/zshrc`.
