@@ -1,11 +1,15 @@
 [submodule "Zsh/oh-my-zsh"]
-	path = Zsh/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
+    path = Zsh/oh-my-zsh
+    url = https://github.com/robbyrussell/oh-my-zsh.git
 
 [submodule "vim/vim/bundle/padawan.vim"]
-	path = vim/vim/bundle/padawan.vim
-	url = https://github.com/mkusher/padawan.vim.git
+    path = vim/vim/bundle/padawan.vim
+    url = https://github.com/mkusher/padawan.vim.git
 
 [submodule "vim/vim/bundle/vim-colors-solarized"]
-	path = vim/vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
+    path = vim/vim/bundle/vim-colors-solarized
+    url = https://github.com/altercation/vim-colors-solarized.git
+
+[submodule "vim/vim/bundle/nerdtree"]
+    path = vim/vim/bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree.git

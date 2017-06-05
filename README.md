@@ -10,6 +10,9 @@ Install to: `~/.dotfiles` or edit `install` file and change the path and in Zsh/
 # Configuration
 To enable/disable modules edit `install` file. Also if you want you can set the `path=` variable in `Zsh/zshrc`.
 
+# VIM requirements:
+ - vim-pathogen         -> For installing pathogen plugins
+
 # xorg needed packages:
  - xorg-xinit
  - xorg-setxkbmap   -> Keyboard language management
@@ -41,5 +44,5 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - mpv              -> Media Player
 
 # optional packages:
- - vim plugins: vim-airline vim-fugitive vim-nerdtree vim-pathogen vim-taglist vim-surround vim-syntastic vim-syntastic vim-spell-hu vim-supertab vim-ultisnips
+ - vim plugins: vim-airline vim-fugitive vim-taglist vim-surround vim-syntastic vim-syntastic vim-spell-hu vim-supertab vim-ultisnips
 
