@@ -26,7 +26,7 @@ ${if_mounted /home} { "full_text" : "🔘 /home ${fs_free /home}", "separator": 
 "color": "\#719e07"},${endif}
 ${if_mounted /mnt/data} { "full_text" : "🔘 /mnt/data ${fs_free /mnt/data}", "separator": false,
 "color": "\#719e07"},${endif}
-${if_up wlp2s0} { "full_text" : "📶 ${addrs wlp2s0}@${wireless_essid wlp2s0} 📡${wireless_link_qual_perc wlp2s0}%"
+${if_up wlp2s0} { "full_text" : "📶 ${addrs wlp2s0}@${wireless_essid wlp2s0} ${wireless_link_qual_perc wlp2s0}%"
 ,"separator": false, "color" : "\#b58900"}, ${endif}
 ${if_up enp4s0} { "full_text" : "🜷 ${addrs enp4s0}" , "separator": false,
 "color" : "\#b58900"}, ${endif}
