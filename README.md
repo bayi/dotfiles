@@ -46,3 +46,9 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 # optional packages:
  - vim plugins: vim-airline vim-fugitive vim-taglist vim-surround vim-syntastic vim-syntastic vim-spell-hu vim-supertab vim-ultisnips
 
+# Example arch linux install:
+```
+ pacman -S vim vim-pathogen zsh
+ git clone https://github.com/bayi/dotfiles.git ~/.dotfiles
+
+```
