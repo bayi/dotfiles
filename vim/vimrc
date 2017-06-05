@@ -128,3 +128,7 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
+" Acme symtax
+autocmd BufNewFile,BufRead *.asm set syntax=acme.vim
+autocmd BufNewFile,BufRead *.a set syntax=acme.vim
+let g:loaded_syntastic_asm_gcc_checker = 0

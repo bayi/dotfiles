@@ -34,3 +34,5 @@ function git_diff() {
 }
 
 stty -ixon
+
+export PATH="$HOME/.yarn/bin:$PATH"
