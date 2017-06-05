@@ -50,5 +50,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 ```
  pacman -S vim vim-pathogen zsh
  git clone https://github.com/bayi/dotfiles.git ~/.dotfiles
-
+ cd .dotfiles
+ git submodule init
+ git submodule update
 ```
