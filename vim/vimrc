@@ -132,3 +132,6 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 autocmd BufNewFile,BufRead *.asm set syntax=acme.vim
 autocmd BufNewFile,BufRead *.a set syntax=acme.vim
 let g:loaded_syntastic_asm_gcc_checker = 0
+
+" Emmet gomb a ,,
+let g:user_emmet_leader_key=','
