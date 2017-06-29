@@ -120,7 +120,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
 let g:neocomplete#force_omni_input_patterns = {}
-let g:neocomplete#force_omni_input_patterns.php = '\h\w*\|[^- \t]->\w*'
+" let g:neocomplete#force_omni_input_patterns.php = '\h\w*\|[^- \t]->\w*'
 
 au BufReadPost *.vue set syntax=javascript
 
@@ -135,3 +135,7 @@ let g:loaded_syntastic_asm_gcc_checker = 0
 
 " Emmet gomb a ,,
 let g:user_emmet_leader_key=','
+
+" Ale oldalcsikja mindig ott legyen
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
