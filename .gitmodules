@@ -52,3 +52,6 @@
 [submodule "vim/vim/bundle/phpcd.vim"]
 	path = vim/vim/bundle/phpcd.vim
 	url = https://github.com/lvht/phpcd.vim.git
+[submodule "Zsh/zsh-syntax-highlighting"]
+	path = Zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

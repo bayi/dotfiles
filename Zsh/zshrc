@@ -1,7 +1,7 @@
 ZSH=$HOME/.dotfiles/Zsh/oh-my-zsh
 ZSH_THEME="agnoster"
 
-plugins=(git adb archlinux common-aliases cp zsh-syntax-highlighting catimg laravel)
+plugins=(git adb archlinux common-aliases cp catimg laravel)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,3 +36,5 @@ function git_diff() {
 stty -ixon
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+source .dotfiles/Zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
