@@ -124,9 +124,16 @@ let g:neocomplete#force_omni_input_patterns = {}
 
 au BufReadPost *.vue set syntax=javascript
 
+" Ctl+S menti a fájlt
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
+
+" Ctrl+T newtab
+noremap <C-t> :tabnew<CR>
+
+" Ctrl+q kilép
+noremap <C-q> :q<CR>
 
 " Acme symtax
 autocmd BufNewFile,BufRead *.asm set syntax=acme.vim
@@ -139,3 +146,6 @@ let g:user_emmet_leader_key=','
 " Ale oldalcsikja mindig ott legyen
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
+
+" Nerdtree shift+T -re uj tabba nyissa meg a fajlt
+let NERDTreeMapOpenInTab='<T>'
