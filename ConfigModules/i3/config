@@ -102,6 +102,10 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# Move between workspaces
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Shift+Tab workspace prev_on_output
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3/reboot/shutdown (logs you out of your X session)
