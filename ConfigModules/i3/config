@@ -245,8 +245,8 @@ assign [class="Geary"] $workspaceMail
 assign [class="Nautilus"] $workspaceFiles
 
 # Zene
-for_window [title="cmus"] move container to workspace $workspaceMusic
-assign [title="cmus"] $workspaceMusic
+for_window [title="^cmus"] move container to workspace $workspaceMusic
+assign [title="^cmus"] $workspaceMusic
 
 # Start applications
 exec --no-startup-id systemctl --user start pulseaudio.service
