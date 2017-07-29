@@ -155,6 +155,12 @@ bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ t
 bindsym Ctrl+F2 exec usb-to-win
 bindsym Ctrl+F3 exec usb-to-linux
 
+# Media
+bindsym XF86AudioPlay exec zene-lejatszo
+bindsym XF86AudioStop exec zene-lejatszo-allj
+bindsym XF86AudioNext exec zene-lejatszo-kovi
+bindsym XF86AudioPrev exec zene-lejatszo-elozo
+
 ## Workspaces
 set $workspaceWeb ""
 set $workspaceChat ""
@@ -164,6 +170,7 @@ set $workspaceFiles ""
 set $workspaceTerm ""
 set $workspaceWin ""
 set $workspaceMisc ""
+set $workspaceMusic ""
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -184,6 +191,7 @@ bindsym $mod+g workspace $workspaceFiles
 bindsym $mod+t workspace $workspaceTerm
 bindsym $mod+z workspace $workspaceWin
 bindsym $mod+u workspace $workspaceMisc
+bindsym $mod+l workspace $workspaceMusic
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -213,6 +221,7 @@ exec --no-startup-id i3-msg rename workspace 22 to "bal"
 workspace $workspaceChat output VGA-1
 workspace $workspaceMedia output HDMI-2
 workspace $workspaceMail output VGA-1
+workspace $workspaceMusic output VGA-1
 
 ## Windows & Monitors
 
@@ -235,6 +244,9 @@ assign [class="Geary"] $workspaceMail
 # Files
 assign [class="Nautilus"] $workspaceFiles
 
+# Zene
+for_window [title="cmus"] move container to workspace $workspaceMusic
+assign [title="cmus"] $workspaceMusic
 
 # Start applications
 exec --no-startup-id systemctl --user start pulseaudio.service
