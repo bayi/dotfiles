@@ -239,7 +239,7 @@ for_window [class="Kodi"] move container to workspace $workspaceMedia
 assign [class="Kodi"] $workspaceMedia
 
 # Mail
-assign [class="Geary"] $workspaceMail
+assign [class="Thunderbird"] $workspaceMail
 
 # Files
 assign [class="Nautilus"] $workspaceFiles
@@ -264,7 +264,5 @@ exec --no-startup-id feh --bg-scale /home/bayi/Képek/fasza-hatter.jpg
 exec --no-startup-id owncloud
 
 exec --no-startup-id dropbox
-
-exec --no-startup-id geary
 
 exec_always compton

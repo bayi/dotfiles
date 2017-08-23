@@ -149,3 +149,6 @@ let g:airline#extensions#ale#enabled = 1
 
 " Nerdtree shift+T -re uj tabba nyissa meg a fajlt
 let NERDTreeMapOpenInTab='<T>'
+
+" Swap könyvtár
+set directory=$HOME/.vim/swapfiles//
