@@ -6,7 +6,7 @@ plugins=(git adb archlinux common-aliases cp catimg laravel)
 source $ZSH/oh-my-zsh.sh
 
 typeset -U path
-path=(~/.Bin /opt/android-sdk/tools ~/Work/_Android_/Sdk/platform-tools/ ~/.composer/vendor/bin $path)
+path=(~/.Bin /opt/android-sdk/tools ~/Work/_Android_/Sdk/platform-tools/ ~/.composer/vendor/bin ~/.yarn/bin $path)
 
 bindkey "^[[H" beginning-of-line
 bindkey "^[[2~" overwrite-mode
@@ -15,26 +15,35 @@ bindkey "^[[F" end-of-line
 bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward
 
+function gitdiff() {
+    git diff --no-ext-diff -w "$@" | vim -R -
+}
+function kepmegosztas() {
+    x11vnc -viewonly -display :0 -noxwarppointer -forever -loop -shared -clip 1920x1080+1920+0 -cursor most -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord -scale $@ -noncache -xrandr -noclipboard -norc
+}
+alias kepmegosztashd="kepmegosztas 1776x1000"
+alias kepmegosztasld="kepmegosztas 128x720"
 #alias mondd='espeak -vhu+f2'
 alias mondd='espeak -vhu'
 alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'
 alias artisan="php artisan"
-alias kepmegosztas="x11vnc -viewonly -forever -loop -shared -clip 1920x1080+1920+0 -cursor arrow -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord"
-
 alias gg="git pull && git push"
 alias sf="php bin/console"
+alias artisan="php artisan"
+alias kiafasztamad="sudo netstat -ntu | awk '{print $5}' | grep -iv \"[address|server]\" | grep -v ::1 | grep -v 127.0.0.1 | grep -v 10.0. | cut -d: -f1 | sort | uniq -c | sort -n"
+alias muzsika="curl -sLN http://ai-radio.org/320.opus | opusdec - - | aplay -qfdat"
+alias gitupdate='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
+alias pp='ps uxaf | most'
+alias ffs='sudo `fc -n -l -1`'
+alias randomscreen='hexdump -C < /dev/urandom | grep "ca fe"'
 
 #Magyar bill wayland alatt
 export XKB_DEFAULT_LAYOUT=hu
 #Sötét GTK téma
 export GTK_THEME=Adwaita:dark
 
-function git_diff() {
-    git diff --no-ext-diff -w "$@" | vim -R -
-}
-
+# Ctrl+S -re ne csinaljon semmit a terminal
 stty -ixon
 
-export PATH="$HOME/.yarn/bin:$PATH"
-
+# Oh my zsh betöltése
 source .dotfiles/Zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

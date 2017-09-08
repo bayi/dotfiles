@@ -6,7 +6,6 @@
 [color]
     ui = true
 [diff]
-    external = git_diff_wrapper
 	tool = meld
 [pager]
     diff =
