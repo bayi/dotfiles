@@ -163,14 +163,14 @@ bindsym XF86AudioPrev exec zene-lejatszo-elozo
 
 ## Workspaces
 set $workspaceWeb ""
-set $workspaceChat ""
+set $workspaceChat ""
 set $workspaceMail ""
-set $workspaceMedia " "
+set $workspaceMedia ""
 set $workspaceFiles ""
 set $workspaceTerm ""
 set $workspaceWin ""
 set $workspaceMisc ""
-set $workspaceMusic ""
+set $workspaceMusic ""
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -247,6 +247,10 @@ assign [class="Nautilus"] $workspaceFiles
 # Zene
 for_window [title="^cmus"] move container to workspace $workspaceMusic
 assign [title="^cmus"] $workspaceMusic
+
+# Slack
+for_window [class="Slack"] move container to workspace $workspaceChat
+assign [class="Slack"] $workspaceChat
 
 # Start applications
 exec --no-startup-id systemctl --user start pulseaudio.service
