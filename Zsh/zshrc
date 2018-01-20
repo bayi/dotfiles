@@ -6,7 +6,7 @@ plugins=(git adb archlinux common-aliases cp catimg laravel)
 source $ZSH/oh-my-zsh.sh
 
 typeset -U path
-path=(~/.Bin /opt/android-sdk/tools ~/Work/_Android_/Sdk/platform-tools/ ~/.composer/vendor/bin ~/.yarn/bin $path)
+path=(~/.Bin ~/Work/_Android_/Sdk/tools/ ~/Work/_Android_/Sdk/tools/bin/ ~/Work/_Android_/Sdk/platform-tools/ ~/.composer/vendor/bin ~/.yarn/bin $path)
 
 bindkey "^[[H" beginning-of-line
 bindkey "^[[2~" overwrite-mode
@@ -21,8 +21,11 @@ function gitdiff() {
 function kepmegosztas() {
     x11vnc -viewonly -display :0 -noxwarppointer -forever -loop -shared -clip 1920x1080+1920+0 -cursor most -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord -scale $@ -noncache -xrandr -noclipboard -norc
 }
+function kepmegosztasjo() {
+    x11vnc -display :0 -noxwarppointer -multiptr -forever -loop -shared -clip 1920x1080+1920+0 -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord -scale 1776x1000 -noncache -xrandr -noclipboard -norc -scale_cursor 1 -nolookup -nossl -input M,M
+}
 alias kepmegosztashd="kepmegosztas 1776x1000"
-alias kepmegosztasld="kepmegosztas 128x720"
+alias kepmegosztasld="kepmegosztas 1280x720"
 #alias mondd='espeak -vhu+f2'
 alias mondd='espeak -vhu'
 alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'
@@ -42,8 +45,10 @@ export XKB_DEFAULT_LAYOUT=hu
 #Sötét GTK téma
 export GTK_THEME=Adwaita:dark
 
+export ANDROID_HOME=/home/bayi/Work/_Android_/Sdk
+
 # Ctrl+S -re ne csinaljon semmit a terminal
 stty -ixon
 
 # Oh my zsh betöltése
-source .dotfiles/Zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.dotfiles/Zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
