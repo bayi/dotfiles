@@ -13,11 +13,12 @@ cpu_avg_samples 1
 
 TEXT
 [
-{ "full_text" : "▣ ${cpu cpu0}%", "separator": false, "color":
+{ "full_text": "\uf1d1${exec sensors | grep 'fan2' | cut -c16-19}", "separator": false, "color": "\#9e8f07" },
+{ "full_text" : "▣${cpu cpu0}%", "separator": false, "color":
 ${if_match ${cpu cpu0}<90}"\#268bd2"${else}"\#cb4b16"${endif}},
-{ "full_text" : "🌡 ${acpitemp} °C", "separator": false, "color":
+{ "full_text" : "🌡${acpitemp} °C", "separator": false, "color":
 ${if_match ${acpitemp}<75}"\#268bd2"${else}"\#cb4b16"${endif}},
-{ "full_text" : "📈 ${mem}", "separator": false, "color":
+{ "full_text" : "📈${mem}", "separator": false, "color":
 ${if_match ${memperc}<94}"\#268bd2"${else}"\#dc322f"${endif}},
 { "full_text" : "🔘 /${fs_free /}", "separator": false,
 "color": "\#719e07"},
