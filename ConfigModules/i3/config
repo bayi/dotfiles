@@ -12,7 +12,7 @@ set $urgent-color           #1793d1
 set $urgent-text-color      #ffffff
 
 # Default font
-font pango:DejaVu Sans Mono 8
+font pango:Fira Code Medium 8
 
 # Color theme               Border              Background          Text            Indicator
 client.focused              $focused-color      $focused-color      $text-color
@@ -33,7 +33,7 @@ new_float normal
 bar {
         position top
         tray_output primary
-        status_command ~/.dotfiles/Conky/statusbar
+        status_command i3blocks -c ~/.config/i3/blocks
 
         colors {
             background $bg-color
@@ -55,7 +55,8 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -172,6 +173,10 @@ set $workspaceWin ""
 set $workspaceMisc ""
 set $workspaceMusic ""
 
+## Scrathpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -214,14 +219,12 @@ bindsym $mod+Shift+z move container to workspace $workspaceWin
 bindsym $mod+Shift+u move container to workspace $workspaceMisc
 
 # Monitors
-workspace 21 output HDMI-1
-exec --no-startup-id i3-msg rename workspace 21 to "jobb"
-workspace 22 output VGA-1
-exec --no-startup-id i3-msg rename workspace 22 to "bal"
-workspace $workspaceChat output VGA-1
-workspace $workspaceMedia output HDMI-2
-workspace $workspaceMail output VGA-1
-workspace $workspaceMusic output VGA-1
+workspace "jobb" output HDMI1
+workspace "bal" output VGA1
+workspace $workspaceChat output VGA1
+workspace $workspaceMedia output HDMI2
+workspace $workspaceMail output VGA1
+workspace $workspaceMusic output VGA1
 
 ## Windows & Monitors
 
@@ -253,6 +256,11 @@ for_window [class="Slack"] move container to workspace $workspaceChat
 assign [class="Slack"] $workspaceChat
 
 # Start applications
+
+# exec --no-startup-id xrandr --output HDMI-2 --primary --output VGA-1 --left-of HDMI-2 --output HDMI-1 --right-of HDMI-2 --output HDMI-1 --set "Broadcast RGB" "Full" --output HDMI-2 --set "Broadcast RGB" "Full"
+
+# exec --no-startup-id xset s off dpms 0 0 0
+
 exec --no-startup-id systemctl --user start pulseaudio.service
 
 exec --no-startup-id gnome-keyring-daemon
@@ -261,12 +269,12 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id udiskie -s -A -n
 
-exec --no-startup-id g15-desktop-service
+exec --no-startup-id sudo g15-desktop-service
 
 exec --no-startup-id feh --bg-scale /home/bayi/Képek/fasza-hatter.jpg
 
-exec --no-startup-id owncloud
+# exec --no-startup-id owncloud
 
-exec --no-startup-id dropbox
+# exec --no-startup-id dropbox
 
-exec_always compton
+exec_always -no-startup-id compton
