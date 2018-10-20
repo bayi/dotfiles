@@ -257,10 +257,6 @@ assign [class="Slack"] $workspaceChat
 
 # Start applications
 
-# exec --no-startup-id xrandr --output HDMI-2 --primary --output VGA-1 --left-of HDMI-2 --output HDMI-1 --right-of HDMI-2 --output HDMI-1 --set "Broadcast RGB" "Full" --output HDMI-2 --set "Broadcast RGB" "Full"
-
-# exec --no-startup-id xset s off dpms 0 0 0
-
 exec --no-startup-id systemctl --user start pulseaudio.service
 
 exec --no-startup-id gnome-keyring-daemon
@@ -269,12 +265,8 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id udiskie -s -A -n
 
-exec --no-startup-id sudo g15-desktop-service
+exec --no-startup-id g15-desktop-service
 
 exec --no-startup-id feh --bg-scale /home/bayi/Képek/fasza-hatter.jpg
-
-# exec --no-startup-id owncloud
-
-# exec --no-startup-id dropbox
 
 exec_always -no-startup-id compton

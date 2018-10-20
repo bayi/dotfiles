@@ -19,10 +19,5 @@ fi
 
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
-# Szerkeszto
-
-export EDITOR="vim"
-export PAGER="most"
-
 exec i3
 # exec gnome-session
