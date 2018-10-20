@@ -54,6 +54,8 @@ set omnifunc=syntaxcomplete#Complete
 set showfulltag
 set completeopt=menuone,longest
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|vendor\|git|bower_components|iisnode'
 
 " Supertab omini -t használja
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
