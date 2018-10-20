@@ -32,7 +32,7 @@ ${if_up enp4s0} { "full_text" : "🜷 ${addrs enp4s0}" , "separator": false,
 "color" : "\#b58900"}, ${endif}
 ${if_up br0} { "full_text" : "🜷 ${addrs br0}", "separator": false,
 "color" :"\#b58900"}, ${endif}
-${if_existing /sys/class/backlight/intel_backlight} { "full_text": " ${exec awk "BEGIN {print int($(cat /sys/class/backlight/intel_backlight/brightness) / 4648 * 100)}"}", "separator": false, "color" : "\#b58900"},${endif}
+${if_existing /sys/class/backlight/intel_backlight} { "full_text": "${exec awk "BEGIN {print int($(cat /sys/class/backlight/intel_backlight/brightness) / 4648 * 100)}"}", "separator": false, "color" : "\#b58900"},${endif}
 ${if_existing /sys/class/power_supply/ADP1/online 1}
     { "full_text" : "🔌 ${battery_short BAT1}", "separator": false,
     "color": "\#cb4b16"},
