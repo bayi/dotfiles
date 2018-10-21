@@ -89,23 +89,23 @@ command=/usr/lib/i3blocks/disk 3
 label=🔘 /home
 color=#719e07
 interval=30
-separator=false
+separator=true
 
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+[wifi]
+label=📶
+color=#b58900
+instance=wlp2s0
+interval=10
+separator=false
+
 [iface]
 #instance=wlan0
 label=🜷
 color=#b58900
-interval=10
-separator=true
-
-[wifi]
-label=📶
-color=#b58900
-#instance=wlp3s0
 interval=10
 separator=true
 
@@ -120,10 +120,10 @@ separator=true
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT
-#label=⚡
-instance=1
-interval=30
+color=#cb4b16
+label=⚡
+instance=0
+interval=60
 
 
 # Volume indicator
