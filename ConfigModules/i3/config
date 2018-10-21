@@ -257,16 +257,16 @@ assign [class="Slack"] $workspaceChat
 
 # Start applications
 
-exec --no-startup-id systemctl --user start pulseaudio.service
+#exec --no-startup-id systemctl --user start pulseaudio.service
 
-exec --no-startup-id gnome-keyring-daemon
+#exec --no-startup-id gnome-keyring-daemon
 
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
-exec --no-startup-id udiskie -s -A -n
+#exec --no-startup-id udiskie -s -A -n
 
-exec --no-startup-id g15-desktop-service
+#exec --no-startup-id g15-desktop-service
 
-exec --no-startup-id feh --bg-scale /home/bayi/Képek/fasza-hatter.jpg
+exec --no-startup-id gnome-flashback
 
-exec_always -no-startup-id compton
+#exec_always -no-startup-id compton

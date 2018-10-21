@@ -55,7 +55,7 @@ alias icat='kitty +kitten icat'
 #Magyar bill wayland alatt
 export XKB_DEFAULT_LAYOUT=hu
 #Sötét GTK téma
-export GTK_THEME=Adwaita:dark
+#export GTK_THEME=Adwaita:dark
 
 export ANDROID_HOME=/home/bayi/Work/_Android_/Sdk
 export XDG_CURRENT_DESKTOP=GNOME
