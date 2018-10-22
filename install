@@ -1,38 +1,30 @@
 #!/bin/sh
 
-# Ezeket a modulokat installálja
-modules="Shell Zsh"
 # Folder where this repository is
 DIR=~/.dotfiles
 
-#for module in $modules; do
-#    echo -e "[\e[32m$module\e[39m] modul installálása ..."
-#    for file in `ls $dir/$module/`; do
-#        homefile=~/.$file
-#        repofile="$dir/$module/$file"
-#        if [ -e $homefile ]; then
-#            echo -e " * \e[31mTörlés\e[39m: $homefile"
-#            rm -rf $homefile || true
-#        fi
-#        echo -e " * \e[33mLinkelés\e[39m: $repofile -> $homefile"
-#        ln -s $repofile $homefile
-#    done
-#    echo -e "[\e[32m$module\e[39m] installálva"
-#done
+function installfile {
+    SOURCE=$1
+    TARGET=$2
+
+    if [ -e $TARGET ]; then
+        echo -e " * \e[31mDelete\e[39m: $TARGET"
+        rm -f $TARGET || true
+    fi
+
+    echo -e " * \e[33mLinking\e[39m: $SOURCE \t->\t $TARGET"
+   ln -s $SOURCE $TARGET
+}
+
+for ENTRY in "$DIR/home"/*; do
+    echo -e "[\e[32mhome\e[39m] installing $ENTRY"
+    installfile $ENTRY ~/.${ENTRY##*/}
+done
 
 mkdir -p ~/.config
 
 for ENTRY in "$DIR/config"/*; do
     echo -e "[\e[32m.config\e[39m] installing $ENTRY"
-    HOMEFILE=~/.config/${ENTRY##*/}
-
-    if [ -e $HOMEFILE ]; then
-            echo -e " * \e[31mDelete\e[39m: $HOMEFILE"
-            rm -f $HOMEFILE || true
-    fi
-
-    echo -e " * \e[33mLinkelés\e[39m: $ENTRY \t->\t $HOMEFILE"
-    ln -s $ENTRY $HOMEFILE
-
+    installfile $ENTRY ~/.config/${ENTRY##*/}
 done
 
