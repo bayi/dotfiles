@@ -226,6 +226,7 @@ workspace $workspaceChat output VGA1
 workspace $workspaceMedia output HDMI2
 workspace $workspaceMail output VGA1
 workspace $workspaceMusic output VGA1
+workspace $workspaceDiscord output VGA1
 
 ## Windows & Monitors
 
