@@ -172,6 +172,7 @@ set $workspaceTerm ""
 set $workspaceWin ""
 set $workspaceMisc ""
 set $workspaceMusic ""
+set $workspaceDiscord ""
 
 ## Scrathpad
 bindsym $mod+Shift+minus move scratchpad
@@ -252,8 +253,12 @@ for_window [title="^cmus"] move container to workspace $workspaceMusic
 assign [title="^cmus"] $workspaceMusic
 
 # Slack
-for_window [class="Slack"] move container to workspace $workspaceChat
-assign [class="Slack"] $workspaceChat
+for_window [class="Slack"] move container to workspace $workspaceDiscord
+assign [class="Slack"] $workspaceDiscord
+
+# Discord
+for_window [class="discord"] move container to workspace $workspaceDiscord
+assign [class="discord"] $workspaceDiscord
 
 # Start applications
 
