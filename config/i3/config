@@ -142,10 +142,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Prin screen
-bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+#bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindsym Print exec --no-startup-id "gnome-screenshot -i"
 
 # Lockscreen
-bindsym $mod+Pause exec --no-startup-id " dbus-send --session --dest=org.gnome.ScreenSaver --type=method_call --print-reply --reply-timeout=20000 /org/gnome/ScreenSaver org.gnome.ScreenSaver.SetActive boolean:true"
+bindsym $mod+Pause exec --no-startup-id "dbus-send --session --dest=org.gnome.ScreenSaver --type=method_call --print-reply --reply-timeout=20000 /org/gnome/ScreenSaver org.gnome.ScreenSaver.SetActive boolean:true"
 
 # Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +5%"
