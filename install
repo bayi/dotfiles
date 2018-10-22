@@ -13,7 +13,7 @@ function installfile {
     fi
 
     echo -e " * \e[33mLinking\e[39m: $SOURCE \t->\t $TARGET"
-   ln -s $SOURCE $TARGET
+    ln -s $SOURCE $TARGET
 }
 
 for ENTRY in "$DIR/home"/*; do
