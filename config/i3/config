@@ -145,7 +145,7 @@ bindsym $mod+r mode "resize"
 bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Lockscreen
-bindsym $mod+Pause exec --no-startup-id "i3lock --color 000000"
+bindsym $mod+Pause exec --no-startup-id "gnome-screensaver-command -l"
 
 # Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +5%"
