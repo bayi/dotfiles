@@ -1,42 +1,38 @@
 #!/bin/sh
 
 # Ezeket a modulokat installálja
-modules="Shell Zsh git vim Xorg"
-# Ezek a modulok a .config/ mappába mennek
-confmodules="i3 mc mimeapps.list"
-# Ez a mappa amibe a dotfile-ok repo van
-dir=~/.dotfiles
+modules="Shell Zsh"
+# Folder where this repository is
+DIR=~/.dotfiles
 
-for module in $modules; do
-    echo -e "[\e[32m$module\e[39m] modul installálása ..."
-    for file in `ls $dir/$module/`; do
-        homefile=~/.$file
-        repofile="$dir/$module/$file"
-        if [ -e $homefile ]; then
-            echo -e " * \e[31mTörlés\e[39m: $homefile"
-            rm -rf $homefile || true
-        fi
-        echo -e " * \e[33mLinkelés\e[39m: $repofile -> $homefile"
-        ln -s $repofile $homefile
-    done
-    echo -e "[\e[32m$module\e[39m] installálva"
-done
+#for module in $modules; do
+#    echo -e "[\e[32m$module\e[39m] modul installálása ..."
+#    for file in `ls $dir/$module/`; do
+#        homefile=~/.$file
+#        repofile="$dir/$module/$file"
+#        if [ -e $homefile ]; then
+#            echo -e " * \e[31mTörlés\e[39m: $homefile"
+#            rm -rf $homefile || true
+#        fi
+#        echo -e " * \e[33mLinkelés\e[39m: $repofile -> $homefile"
+#        ln -s $repofile $homefile
+#    done
+#    echo -e "[\e[32m$module\e[39m] installálva"
+#done
 
 mkdir -p ~/.config
 
-for confmodule in $confmodules; do
-    echo -e "[\e[32m.config/$confmodule\e[39m] .config modul installálása ..."
-    homefile=~/.config/$confmodule
-    repofile="$dir/ConfigModules/$confmodule"
+for ENTRY in "$DIR/config"/*; do
+    echo -e "[\e[32m.config\e[39m] installing $ENTRY"
+    HOMEFILE=~/.config/${ENTRY##*/}
 
-    if [ -e $homeilfe ]; then
-            echo -e " * \e[31mTörlés\e[39m: $homefile"
-            rm -rf $homefile || true
+    if [ -e $HOMEFILE ]; then
+            echo -e " * \e[31mDelete\e[39m: $HOMEFILE"
+            rm -f $HOMEFILE || true
     fi
 
-    echo -e " * \e[33mLinkelés\e[39m: $repofile -> $homefile"
-    ln -s $repofile $homefile
+    echo -e " * \e[33mLinkelés\e[39m: $ENTRY \t->\t $HOMEFILE"
+    ln -s $ENTRY $HOMEFILE
 
-    echo -e "[\e[32m.config/$confmodule\e[39m] installálva"
 done
 

@@ -1,4 +1,4 @@
-ZSH=$HOME/.dotfiles/Zsh/oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 plugins=(git adb archlinux common-aliases cp catimg laravel symfony2)
