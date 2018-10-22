@@ -68,4 +68,4 @@ export TERMINAL=kitty
 stty -ixon
 
 # Oh my zsh betöltése
-source ~/.dotfiles/Zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
