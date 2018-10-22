@@ -1,0 +1,156 @@
+execute pathogen#infect()
+
+" UTF-8 az alap fájlé s a config fájl formátum
+scriptencoding utf-8
+set encoding=utf-8
+
+" Kod kiemeles
+syntax on
+
+" Filetipus erzekeles
+filetype on
+filetype indent on
+filetype plugin on
+
+" Eger
+set mouse=a
+
+" Sorszam mutatasa alul
+set ruler
+
+" Sorszamok bal oldalt
+set number
+set relativenumber
+
+" Hatter
+let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
+"colorscheme industry
+colorscheme solarized
+
+" Parancs mutatas
+set showcmd
+
+" Zarojel parok mutatasa
+set showmatch
+
+" Leszarja a kisnagybetuket kereseskor
+set ignorecase
+set smartcase
+
+" Keresesi talalatok kiemelese
+set hlsearch
+
+" Kereséshez ugrás gépelés közbe
+set incsearch
+
+" Nem lathato karakterek muTatasa ( de csak sorvegi space es tab )
+set list
+set listchars=tab:>·,trail:·
+
+" Kod kiegeszites (Ctrl+P)
+set omnifunc=syntaxcomplete#Complete
+set showfulltag
+set completeopt=menuone,longest
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|vendor\|git|bower_components|iisnode'
+
+" Supertab omini -t használja
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" Tab és behúzások
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set shiftround
+set smartindent
+
+" Ha egy fajl megvaltozott csak toltsd be, ne kerdezd
+set autoread
+
+" Jelenlegi sor szinezese
+set cul
+hi CursorLine term=none cterm=none ctermbg=8
+
+" GUI Menu es Toolbar eltuntetese
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+
+" Powerline
+let $PYTHONPATH='/usr/lib/python3.4/site-packages'
+set laststatus=2
+
+" Airline tabline felul a nyitott pufferekkel
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_powerline_fonts = 1
+
+" Taglista jobbra
+let Tlist_Use_Right_Window   = 1
+
+" NerdTree help szöveg és bookmarkok eltöntetése
+let NERDTreeMinimalUI = 1
+
+" NerdTree automatikus indítása
+" autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | wincmd p | endif
+
+function! s:CloseIfOnlyControlWinLeft()
+  if winnr("$") != 1
+    return
+  endif
+  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+        \ || &buftype == 'quickfix'
+    q
+  endif
+endfunction
+augroup CloseIfOnlyControlWinLeft
+  au!
+  au BufEnter * call s:CloseIfOnlyControlWinLeft()
+augroup END
+
+let $PATH=$PATH . ':' . expand('~/.composer/vendor/bin')
+let g:padawan#composer_command = "composer"
+
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" " Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+
+let g:neocomplete#force_omni_input_patterns = {}
+" let g:neocomplete#force_omni_input_patterns.php = '\h\w*\|[^- \t]->\w*'
+
+au BufReadPost *.vue set syntax=javascript
+
+" Ctl+S menti a fájlt
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
+" Ctrl+T newtab
+noremap <C-t> :tabnew<CR>
+
+" Ctrl+q kilép
+noremap <C-q> :q<CR>
+
+" Acme symtax
+autocmd BufNewFile,BufRead *.asm set syntax=acme.vim
+autocmd BufNewFile,BufRead *.a set syntax=acme.vim
+let g:loaded_syntastic_asm_gcc_checker = 0
+
+" Emmet gomb a ,,
+let g:user_emmet_leader_key=','
+
+" Ale oldalcsikja mindig ott legyen
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+
+" Nerdtree shift+T -re uj tabba nyissa meg a fajlt
+let NERDTreeMapOpenInTab='<T>'
+
+" Swap könyvtár
+set directory=$HOME/.vim/swapfiles//

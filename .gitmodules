@@ -1,57 +1,57 @@
-[submodule "Zsh/oh-my-zsh"]
-    path = Zsh/oh-my-zsh
+[submodule "home/.oh-my-zsh"]
+    path = home/.oh-my-zsh
     url = https://github.com/robbyrussell/oh-my-zsh.git
 
-[submodule "vim/vim/bundle/padawan.vim"]
-    path = vim/vim/bundle/padawan.vim
+[submodule "home/.vim/bundle/padawan.vim"]
+    path = home/.vim/bundle/padawan.vim
     url = https://github.com/mkusher/padawan.vim.git
 
-[submodule "vim/vim/bundle/vim-colors-solarized"]
-    path = vim/vim/bundle/vim-colors-solarized
+[submodule "home/.vim/bundle/vim-colors-solarized"]
+    path = home/.vim/bundle/vim-colors-solarized
     url = https://github.com/altercation/vim-colors-solarized.git
 
-[submodule "vim/vim/bundle/nerdtree"]
-    path = vim/vim/bundle/nerdtree
+[submodule "home/.vim/bundle/nerdtree"]
+    path = home/.vim/bundle/nerdtree
     url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/vim/bundle/emmet-vim"]
-	path = vim/vim/bundle/emmet-vim
+[submodule "home/.vim/bundle/emmet-vim"]
+	path = home/.vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
-[submodule "vim/vim/bundle/neocomplete.vim"]
-	path = vim/vim/bundle/neocomplete.vim
+[submodule "home/.vim/bundle/neocomplete.vim"]
+	path = home/.vim/bundle/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule "vim/vim/bundle/ultisnips"]
-	path = vim/vim/bundle/ultisnips
+[submodule "home/.vim/bundle/ultisnips"]
+	path = home/.vim/bundle/ultisnips
 	url = git://github.com/SirVer/ultisnips.git
-[submodule "vim/vim/bundle/vim-snipplets"]
-	path = vim/vim/bundle/vim-snipplets
+[submodule "home/.vim/bundle/vim-snipplets"]
+	path = home/.vim/bundle/vim-snipplets
 	url = https://github.com/honza/vim-snippets
-[submodule "vim/vim/bundle/supertab"]
-	path = vim/vim/bundle/supertab
+[submodule "home/.vim/bundle/supertab"]
+	path = home/.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "vim/vim/bundle/vim-surround"]
-	path = vim/vim/bundle/vim-surround
+[submodule "home/.vim/bundle/vim-surround"]
+	path = home/.vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/vim/bundle/syntastic"]
-	path = vim/vim/bundle/syntastic
+[submodule "home/.vim/bundle/syntastic"]
+	path = home/.vim/bundle/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
-[submodule "vim/vim/bundle/ctrlp"]
-	path = vim/vim/bundle/ctrlp
+[submodule "home/.vim/bundle/ctrlp"]
+	path = home/.vim/bundle/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim.git bundle/ctrlp.vim
-[submodule "vim/vim/bundle/vimproc"]
-	path = vim/vim/bundle/vimproc
+[submodule "home/.vim/bundle/vimproc"]
+	path = home/.vim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
-[submodule "vim/vim/bundle/phpcomplete-extended"]
-	path = vim/vim/bundle/phpcomplete-extended
+[submodule "home/.vim/bundle/phpcomplete-extended"]
+	path = home/.vim/bundle/phpcomplete-extended
 	url = https://github.com/m2mdas/phpcomplete-extended.git
-[submodule "vim/vim/bundle/vim-vue"]
-	path = vim/vim/bundle/vim-vue
+[submodule "home/.vim/bundle/vim-vue"]
+	path = home/.vim/bundle/vim-vue
 	url = https://github.com/posva/vim-vue.git
-[submodule "vim/vim/bundle/ale"]
-	path = vim/vim/bundle/ale
+[submodule "home/.vim/bundle/ale"]
+	path = home/.vim/bundle/ale
 	url = https://github.com/w0rp/ale.git
-[submodule "vim/vim/bundle/phpcd.vim"]
-	path = vim/vim/bundle/phpcd.vim
+[submodule "home/.vim/bundle/phpcd.vim"]
+	path = home/.vim/bundle/phpcd.vim
 	url = https://github.com/lvht/phpcd.vim.git
-[submodule "Zsh/zsh-syntax-highlighting"]
-	path = Zsh/zsh-syntax-highlighting
+[submodule "home/.zsh-syntax-highlighting"]
+	path = home/.zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
