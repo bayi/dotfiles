@@ -23,7 +23,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 
 # Apps:
  - zsh              -> Shell
- - i3-wm            -> Window manager
+ - i3-gaps          -> Window manager
  - i3blocks         -> Status bar
  - vim/neovim       -> Text editor
  - nautilus         -> File manager
@@ -36,6 +36,6 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 
 # All in one desktop package installer
 ```
- pacman -S vim zsh i3-wm i3blocks nautilus most mpv kitty gnome-calculator gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-photos gnome-screenshot gnome-shell gnome-shell-extensions gnome-software-packagekit-plugin gnome-system-monitor gnome-todo gnome-tweaks gnome-user-share chromium gdm lxappearance gnumeric file-roller abiword xorg-xrandr xorg-setxkbmap
+ pacman -S vim zsh i3-gaps i3blocks nautilus most mpv kitty gnome-calculator gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-photos gnome-screenshot gnome-shell gnome-shell-extensions gnome-software-packagekit-plugin gnome-system-monitor gnome-todo gnome-tweaks gnome-user-share chromium gdm lxappearance gnumeric file-roller abiword xorg-xrandr xorg-setxkbmap
  aurman -S qdmenu i3-gnome otf-fira-code-git
 ```
