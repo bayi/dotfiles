@@ -154,3 +154,6 @@ let NERDTreeMapOpenInTab='<T>'
 
 " Swap könyvtár
 set directory=$HOME/.vim/swapfiles//
+
+" vim kitty background fix
+let &t_ut=''

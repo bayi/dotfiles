@@ -1,48 +1,52 @@
 ## Appearance
-set $bg-color               #000000
-set $active-color           #333333
-set $text-color             #acacac
-set $inactive-text-color    #686868
-set $inactive-bg-color      #000000
-set $urgent-bg-color        #133b59
-set $separator-color        #666666
-set $focused-color          #004060
-set $unfocused-color        #001020
-set $urgent-color           #1793d1
-set $urgent-text-color      #ffffff
-
 # Default font
 font pango:Fira Code Medium 8
 
-# Color theme               Border              Background          Text            Indicator
-client.focused              $focused-color      $focused-color      $text-color
-client.unfocused            $unfocused-color    $unfocused-color    $text-color
-client.focused_inactive     $unfocused-color    $unfocused-color    $text-color
-client.urgent               $urgent-color       $urgent-color       $text-color
+# Colors
+set $bg-color               #000000
+set $separator-color        #666666
+
+# Color theme               Border      Background  Text        Indicator
+client.focused              #444444     #666666     #111111     #444444
+client.focused_inactive     #333333     #222222     #666666     #333333
+client.unfocused            #222222     #111111     #444444     #222222
+client.urgent               #285577     #285577     #111111     #285577
+client.background           $bg-color
 
 # Remove borders
-hide_edge_borders both
+hide_edge_borders smart
 
-# No borders for new windows
-new_window none
+# 2px smart border no title
+default_border pixel 2
 
-# Borders for float windows
-new_float normal
+# Center window titles
+title_align center
+
+# Exit fullscreen on popups
+popup_during_fullscreen leave_fullscreen
+
+# Gaps
+gaps inner 2
+gaps outer 2
+smart_gaps on
+smart_borders on
 
 # Bar
 bar {
         position top
         status_command i3blocks -c ~/.config/i3/blocks
+        strip_workspace_numbers yes
 
         colors {
             background $bg-color
             separator $separator-color
 
             # Type                  Border                  Background              Text
-            focused_workspace       $bg-color               $bg-color               $text-color
-            inactive_workspace      $inactive-bg-color      $inactive-bg-color      $inactive-text-color
-            active_workspace        $inactive-bg-color      $inactive-bg-color      $inactive-text-color
-            urgent_workspace        $urgent-bg-color        $urgent-bg-color        $urgent-text-color
+            focused_workspace       #444444                 #111111                 #AAAAAA
+            active_workspace        #222222                 #000000                 #AAAAAA
+            inactive_workspace      #222222                 #000000                 #888888
+            urgent_workspace        #444444                 #285577                 #FFFFFF
+            binding_mode            #444444                 #285577                 #FFFFFF
         }
 }
 
@@ -110,8 +114,8 @@ bindsym $mod+Shift+Tab workspace prev_on_output
 bindsym $mod+Shift+r restart
 # exit i3/reboot/shutdown (logs you out of your X session)
 mode "sysmenu" {
-    bindsym h exec 'shutdown -h now'; mode 'default'
-    bindsym r exec 'reboot'; mode 'default'
+    bindsym p exec 'systemctl poweroff'; mode 'default'
+    bindsym r exec 'systemctl reboot'; mode 'default'
     bindsym x exec i3-msg exit
 
     bindsym Return mode "default"
@@ -141,7 +145,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Prin screen
-#bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym Print exec --no-startup-id "gnome-screenshot -i"
 
 # Lockscreen
@@ -163,70 +166,55 @@ bindsym XF86AudioNext exec zene-lejatszo-kovi
 bindsym XF86AudioPrev exec zene-lejatszo-elozo
 
 ## Workspaces
-set $workspaceWeb ""
-set $workspaceChat ""
-set $workspaceMail ""
-set $workspaceMedia ""
-set $workspaceFiles ""
-set $workspaceTerm ""
-set $workspaceWin ""
-set $workspaceMisc ""
-set $workspaceMusic ""
-set $workspaceDiscord ""
+set $workspaceWeb 1:<span foreground="#5f88f0"></span>
+set $workspaceVNC 6:<span foreground="#cf7354"></span>
+set $workspaceFiles 7:<span foreground="#c05e2c"></span>
+set $workspaceMedia 8:<span foreground="#2c7e0a"></span>
+set $workspaceMusic 9:<span foreground="#6cbe4a"></span>
+set $workspaceChat 10:<span foreground="#00c6ff"></span>
+set $workspaceMisc 11:<span foreground="#ffc600"></span>
+set $workspaceTerm 12:<span foreground="#aaaaaa"></span>
+set $workspaceWin 13:<span foreground="#e06626"></span>
 
 ## Scrathpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # switch to workspace
-bindsym $mod+1 workspace 1
+bindsym $mod+1 workspace $workspaceWeb
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+odiaeresis workspace 10
-bindsym $mod+y workspace $workspaceChat
-bindsym $mod+x workspace $workspaceWeb
-bindsym $mod+c workspace $workspaceMedia
-bindsym $mod+m workspace $workspaceMail
-bindsym $mod+g workspace $workspaceFiles
+bindsym $mod+6 workspace $workspaceVNC
+bindsym $mod+7 workspace $workspaceFiles
+bindsym $mod+8 workspace $workspaceMedia
+bindsym $mod+9 workspace $workspaceMusic
+bindsym $mod+odiaeresis workspace $workspaceChat
+bindsym $mod+u workspace $workspaceMisc
 bindsym $mod+t workspace $workspaceTerm
 bindsym $mod+z workspace $workspaceWin
-bindsym $mod+u workspace $workspaceMisc
-bindsym $mod+l workspace $workspaceMusic
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+1 move container to workspace $workspaceWeb
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+odiaeresis move container to workspace 10
-bindsym $mod+Shift+y move container to workspace $workspaceChat
-bindsym $mod+Shift+x move container to workspace $workspaceWeb
-bindsym $mod+Shift+c move container to workspace $workspaceMedia
-bindsym $mod+Shift+m move container to workspace $workspaceMail
-bindsym $mod+Shift+g move container to workspace $workspaceFiles
+bindsym $mod+Shift+6 move container to workspace $workspaceVNC
+bindsym $mod+Shift+7 move container to workspace $workspaceFiles
+bindsym $mod+Shift+8 move container to workspace $workspaceMedia
+bindsym $mod+Shift+9 move container to workspace $workspaceMusic
+bindsym $mod+Shift+odiaeresis move container to workspace $workspaceChat
+bindsym $mod+Shift+u move container to workspace $workspaceMisc
 bindsym $mod+Shift+t move container to workspace $workspaceTerm
 bindsym $mod+Shift+z move container to workspace $workspaceWin
-bindsym $mod+Shift+u move container to workspace $workspaceMisc
 
 # Monitors
-workspace "jobb" output HDMI1
-workspace "bal" output VGA1
-workspace $workspaceChat output VGA1
-workspace $workspaceMedia output HDMI2
-workspace $workspaceMail output VGA1
-workspace $workspaceMusic output VGA1
-workspace $workspaceDiscord output VGA1
+workspace 6 output HDMI1
+workspace 10 output VGA1
+workspace 8 output HDMI2
+workspace 9 output VGA1
 
 ## Windows & Monitors
 
@@ -234,7 +222,9 @@ workspace $workspaceDiscord output VGA1
 for_window [window_role="pop-up"] floating enabled
 
 # TS
+assign [class="Teamspeak 3"] $workspaceChat
 for_window [class="TeamSpeak 3"] move container to workspace $workspaceChat
+for_window [class="TeamSpeak 3"] layout tabbed
 
 # Chrome
 assign [class="Chromium"] $workspaceWeb
@@ -242,9 +232,6 @@ assign [class="Chromium"] $workspaceWeb
 # Kodi
 for_window [class="Kodi"] move container to workspace $workspaceMedia
 assign [class="Kodi"] $workspaceMedia
-
-# Mail
-assign [class="Thunderbird"] $workspaceMail
 
 # Files
 assign [class="Nautilus"] $workspaceFiles
@@ -254,25 +241,14 @@ for_window [title="^cmus"] move container to workspace $workspaceMusic
 assign [title="^cmus"] $workspaceMusic
 
 # Slack
-for_window [class="Slack"] move container to workspace $workspaceDiscord
-assign [class="Slack"] $workspaceDiscord
+for_window [class="Slack"] move container to workspace $workspaceChat
+for_window [class="Slack"] layout tabbed
+assign [class="Slack"] $workspaceChat
 
 # Discord
-for_window [class="discord"] move container to workspace $workspaceDiscord
-assign [class="discord"] $workspaceDiscord
+for_window [class="discord"] move container to workspace $workspaceChat
+for_window [class="discord"] layout tabbed
+assign [class="discord"] $workspaceChat
 
 # Start applications
-
-#exec --no-startup-id systemctl --user start pulseaudio.service
-
-#exec --no-startup-id gnome-keyring-daemon
-
-#exec --no-startup-id nm-applet
-
-#exec --no-startup-id udiskie -s -A -n
-
-#exec --no-startup-id g15-desktop-service
-
 exec --no-startup-id gnome-flashback
-
-#exec_always -no-startup-id compton

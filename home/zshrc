@@ -51,6 +51,7 @@ alias pd='popd'
 alias gitkurvanagyfileok="git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2 | cut --complement --characters=13-40 | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
 alias helyfoglalas='du -cha --max-depth=1 / | grep -E "M|G"'
 alias icat='kitty +kitten icat'
+alias valtozottfileok='git diff --name-only --relative'
 
 #Magyar bill wayland alatt
 export XKB_DEFAULT_LAYOUT=hu
@@ -69,3 +70,4 @@ stty -ixon
 
 # Oh my zsh betöltése
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/nvm/init-nvm.sh
