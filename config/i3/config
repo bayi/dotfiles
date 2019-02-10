@@ -252,3 +252,6 @@ assign [class="discord"] $workspaceChat
 
 # Start applications
 exec --no-startup-id gnome-flashback
+
+# Compton
+exec --no-startup-id compton
