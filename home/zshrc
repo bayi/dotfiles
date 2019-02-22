@@ -1,5 +1,20 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
+DISABLE_UPDATE_PROMPT=true
+DISABLE_AUTO_UPDATE=true
+
+# Compinit csak egyszer naponta
+autoload -Uz compinit
+setopt EXTENDEDGLOB
+for dump in $ZSH_COMPDUMP(#qN.m1); do
+  compinit
+  if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+    zcompile "$dump"
+  fi
+  echo "Initializing Completions..."
+done
+unsetopt EXTENDEDGLOB
+compinit -C
 
 plugins=(git adb archlinux common-aliases cp catimg laravel symfony2)
 
