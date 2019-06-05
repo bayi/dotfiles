@@ -157,3 +157,8 @@ set directory=$HOME/.vim/swapfiles//
 
 " vim kitty background fix
 let &t_ut=''
+
+" Sudo mentés
+" command W w !sudo tee "%" > /dev/null
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
