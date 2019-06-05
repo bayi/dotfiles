@@ -145,7 +145,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Prin screen
-bindsym Print exec --no-startup-id "gnome-screenshot -i"
+bindsym $mod+Print exec --no-startup-id "gnome-screenshot -i"
 
 # Lockscreen
 bindsym $mod+Pause exec --no-startup-id "dbus-send --session --dest=org.gnome.ScreenSaver --type=method_call --print-reply --reply-timeout=20000 /org/gnome/ScreenSaver org.gnome.ScreenSaver.SetActive boolean:true"
@@ -220,6 +220,9 @@ workspace 9 output VGA1
 
 # Popups are floats
 for_window [window_role="pop-up"] floating enabled
+# Cheese
+for_window [class="Cheese"] floating enabled
+for_window [class="guvcview"] floating enabled
 
 # TS
 assign [class="Teamspeak 3"] $workspaceChat
@@ -254,4 +257,4 @@ assign [class="discord"] $workspaceChat
 exec --no-startup-id gnome-flashback
 
 # Compton
-exec --no-startup-id compton
+#exec --no-startup-id compton
