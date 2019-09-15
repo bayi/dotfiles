@@ -75,7 +75,7 @@ interval=10
 comamnd=scripts/battery
 color=#cb4b16
 label=⚡
-instance=0
+#instance=0
 interval=60
 
 # Hang
