@@ -5,21 +5,23 @@ set -a
 
 AUDIO_HIGH_SYMBOL=${AUDIO_HIGH_SYMBOL:-' '}
 
-AUDIO_MED_THRESH=${AUDIO_MED_THRESH:-50}
+AUDIO_MED_THRESH=${AUDIO_MED_THRESH:-65}
 AUDIO_MED_SYMBOL=${AUDIO_MED_SYMBOL:-' '}
 
-AUDIO_LOW_THRESH=${AUDIO_LOW_THRESH:-0}
+AUDIO_LOW_THRESH=${AUDIO_LOW_THRESH:-25}
 AUDIO_LOW_SYMBOL=${AUDIO_LOW_SYMBOL:-' '}
 
-AUDIO_MUTED_SYMBOL=${AUDIO_MUTED_SYMBOL:-' '}
+AUDIO_MUTED_SYMBOL=${AUDIO_MUTED_SYMBOL:-''}
 
 AUDIO_DELTA=${AUDIO_DELTA:-5}
 
-DEFAULT_COLOR=${DEFAULT_COLOR:-"#ffffff"}
-MUTED_COLOR=${MUTED_COLOR:-"#a0a0a0"}
+DEFAULT_COLOR=${DEFAULT_COLOR:-"#719e07"}
+MUTED_COLOR=${MUTED_COLOR:-"#444444"}
+HIGH_COLOR=${HIGH_COLOR:-"#b58900"}
+MAX_COLOR=${MAX_COLOR:-"#cb4b16"}
 
-LONG_FORMAT=${LONG_FORMAT:-'${SYMB} ${VOL}%'}
-SHORT_FORMAT=${SHORT_FORMAT:-'${SYMB} ${VOL}% [${INDEX}]'}
+SHORT_FORMAT=${SHORT_FORMAT:-'${SYMB} <span color="${COLOR}">${VOL}%</span>'}
+LONG_FORMAT=${LONG_FORMAT:-'${SYMB} ${VOL}% [${INDEX}]'}
 USE_ALSA_NAME=${USE_ALSA_NAME:-0}
 USE_DESCRIPTION=${USE_DESCRIPTION:-0}
 
@@ -114,7 +116,7 @@ case "$BLOCK_BUTTON" in
 esac
 
 function print_format {
-    echo "$1" | envsubst '${SYMB}${VOL}${INDEX}${NAME}'
+    echo "$1" | envsubst '${SYMB}${VOL}${INDEX}${NAME}${COLOR}'
 }
 
 function print_block {
@@ -150,21 +152,15 @@ sed 's/.*= "\(.*\)".*/\1/')
 
     if [[ $MUTED =~ "no" ]] ; then
         SYMB=$AUDIO_HIGH_SYMBOL
-        [[ $VOL -le $AUDIO_MED_THRESH ]] && SYMB=$AUDIO_MED_SYMBOL
-        [[ $VOL -le $AUDIO_LOW_THRESH ]] && SYMB=$AUDIO_LOW_SYMBOL
-        COLOR=$DEFAULT_COLOR
+        COLOR=$MAX_COLOR
+        [[ $VOL -le $AUDIO_MED_THRESH ]] && SYMB=$AUDIO_MED_SYMBOL COLOR=$HIGH_COLOR
+        [[ $VOL -le $AUDIO_LOW_THRESH ]] && SYMB=$AUDIO_LOW_SYMBOL COLOR=$DEFAULT_COLOR
     else
         SYMB=$AUDIO_MUTED_SYMBOL
         COLOR=$MUTED_COLOR
     fi
 
-    if [[ $SUBSCRIBE == 1 ]] ; then
-        print_format "$LONG_FORMAT"
-    else
-        print_format "$LONG_FORMAT"
-        print_format "$SHORT_FORMAT"
-        echo "$COLOR"
-    fi
+    print_format "$SHORT_FORMAT"
 }
 
 print_block

@@ -71,8 +71,6 @@ interval=60
 #
 [volume]
 command=scripts/volume
-color=#2aa198
-DEFAULT_COLOR=#2aa198
 interval=persist
 SUBSCRIBE=1
 signal=1
