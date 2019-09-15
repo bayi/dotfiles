@@ -34,8 +34,8 @@ STATUS = {
     'vnc': {
         'icon': '',
         'color': GRAY,
-        'start': 'sudo systemctl start httpd',
-        'stop': 'sudo systemctl stop httpd',
+        'start': 'systemctl --user start vnc',
+        'stop': 'systemctl --user stop vnc',
         'status': 'unknown',
     },
 }
@@ -51,6 +51,17 @@ def check():
     else:
         STATUS['docker']['color'] = ORANGE
     STATUS['docker']['status'] = docker
+
+    vnc = subprocess.check_output('systemctl --user show -p SubState vnc | cut -d\'=\' -f2',
+                                     universal_newlines=True,
+                                     shell=True).rstrip()
+    if vnc == 'running':
+        STATUS['vnc']['color'] = GREEN
+    elif vnc == 'dead':
+        STATUS['vnc']['color'] = GRAY
+    else:
+        STATUS['vnc']['color'] = ORANGE
+    STATUS['vnc']['status'] = vnc
 
 def refresh():
 
