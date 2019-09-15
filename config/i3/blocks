@@ -9,7 +9,7 @@ full_text=⛛
 color=#268bd2
 
 # CPU Fan
-# 
+#
 [fan]
 command=scripts/fanspeed
 interval=5
@@ -75,16 +75,6 @@ signal=1
 
 # Date Time
 #
-[time]
-color=#93a1a1
-label=📅
-command=date '+%y %A %b %d.'
-interval=30
-
-[time]
-color=#93a1a1
-label=🕑
-command=date '+%H:%M'
+[datetime]
+command=scripts/datetime
 interval=10
-
-
