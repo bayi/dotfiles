@@ -58,8 +58,6 @@ interval=10
 
 [wifi]
 command=scripts/wifi
-label=📶
-color=#b58900
 instance=wlp2s0
 interval=10
 
