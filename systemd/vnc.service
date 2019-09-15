@@ -1,0 +1,10 @@
+[Unit]
+Description=Share screen of VNC
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/x11vnc -display :0 -noxwarppointer -multiptr -forever -loop -shared -clip 1920x1080+1920+0 -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord -scale 1776x1000 -noncache -xrandr -noclipboard -norc -scale_cursor 1 -nolookup -nossl -input M,M -viewonly -accept 'zenity --question --text "Biztosan <span size=\'xx-large\'>engedélyezed</span> az új <b>VNC kapcsolatot</b>?" --title "Új VNC kapcsolat" --ok-label="Ja" --cancel-label="Nee"' -gone 'zenity --info --text "Kliens távozott" --title "VNC"'
+Restart=always
+
+[Install]
+WantedBy=default.target

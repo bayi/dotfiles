@@ -1,0 +1,7 @@
+[Unit]
+Description=Chrome Slice Memory Limited
+Before=slices.target
+
+[Slice]
+MemoryAccounting=true
+MemoryLimit=512M
