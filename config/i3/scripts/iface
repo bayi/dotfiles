@@ -66,5 +66,5 @@ esac
 
 #------------------------------------------------------------------------
 
-echo "$LABEL$IPADDR" # full text
-echo "$LABEL$IPADDR" # short text
+echo " $LABEL$IPADDR" # full text
+echo " $LABEL$IPADDR" # short text

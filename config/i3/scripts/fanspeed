@@ -1,0 +1,4 @@
+#!/bin/sh
+SPEED=`sensors | grep 'fan2' | cut -c16-19`
+printf "\uf1d1RPM $SPEED\n"
+test ${SPEED%?} -le 1000 && exit 0 || exit 0
