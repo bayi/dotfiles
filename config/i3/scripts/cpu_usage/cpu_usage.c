@@ -6,8 +6,9 @@
 #include <unistd.h>
 #include <getopt.h>
 
-#define RED "#FF7373"
-#define ORANGE "#FFA500"
+#define GREEN "#719e07"
+#define RED "#cb4b16"
+#define ORANGE "#b58900"
 
 typedef unsigned long long int ulli;
 
@@ -30,11 +31,11 @@ void display(const char *label, double used,
              int const warning, int const critical, int const decimals)
 {
   if (critical != 0 && used > critical) {
-    printf("%s<span color='%s'>", label, RED);
+    printf("%s<span color='%s' weight='bold'>", label, RED);
   } else if (warning != 0 && used > warning) {
     printf("%s<span color='%s'>", label, ORANGE);
   } else {
-    printf("%s<span>", label);
+    printf("%s<span color='%s'>", label, GREEN);
   }
 
   printf("%*.*lf%%</span>\n", decimals + 3 + 1, decimals, used);
@@ -74,9 +75,13 @@ int main(int argc, char *argv[])
   envvar = getenv("WARN_PERCENT");
   if (envvar)
     warning = atoi(envvar);
+  else
+    warning = 5;
   envvar = getenv("CRIT_PERCENT");
   if (envvar)
     critical = atoi(envvar);
+  else
+    critical = 8;
   envvar = getenv("DECIMALS");
   if (envvar)
     decimals = atoi(envvar);
