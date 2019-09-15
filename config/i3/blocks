@@ -18,16 +18,12 @@ interval=5
 #
 [cpu_usage]
 command=scripts/cpu_usage/cpu_usage
-LABEL=▣
 interval=persist
-color=#268bd2
-min_width=▣ 100.00%
 
 # Hőmérséklet
 #
 [temperature]
 command=scripts/temperature
-color=#268bd2
 interval=5
 
 # RAM

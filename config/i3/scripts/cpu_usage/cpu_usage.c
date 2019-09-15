@@ -9,6 +9,7 @@
 #define GREEN "#719e07"
 #define RED "#cb4b16"
 #define ORANGE "#b58900"
+#define LABEL "▣"
 
 typedef unsigned long long int ulli;
 
@@ -65,7 +66,7 @@ ulli get_usage(ulli *used_jiffies)
 int main(int argc, char *argv[])
 {
   int warning = 50, critical = 80, t = 1, decimals = 2;
-  char *label = "CPU ";
+  char *label = LABEL;
   int c;
   char *envvar = NULL;
 
@@ -76,12 +77,12 @@ int main(int argc, char *argv[])
   if (envvar)
     warning = atoi(envvar);
   else
-    warning = 5;
+    warning = 60;
   envvar = getenv("CRIT_PERCENT");
   if (envvar)
     critical = atoi(envvar);
   else
-    critical = 8;
+    critical = 90;
   envvar = getenv("DECIMALS");
   if (envvar)
     decimals = atoi(envvar);
