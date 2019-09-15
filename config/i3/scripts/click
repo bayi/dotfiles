@@ -17,13 +17,6 @@ BLUE = '#268bd2'
 OUTPUT = {'full_text': ''}
 INPUT = {'button': 0}
 STATUS = {
-    'launcher': {
-        'icon': '',
-        'color': GREEN,
-        'start': 'qdmenu',
-        'stop': 'qdmenu',
-        'status': 'running',
-    },
     'docker': {
         'icon': '',
         'color': GRAY,
@@ -37,6 +30,13 @@ STATUS = {
         'start': 'systemctl --user start vnc',
         'stop': 'systemctl --user stop vnc',
         'status': 'unknown',
+    },
+    'launcher': {
+        'icon': '',
+        'color': GREEN,
+        'start': 'qdmenu',
+        'stop': 'qdmenu',
+        'status': 'running',
     },
 }
 

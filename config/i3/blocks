@@ -74,13 +74,6 @@ interval=persist
 SUBSCRIBE=1
 signal=1
 
-# Menu
-#
-[click]
-command=scripts/click
-interval=persist
-format=json
-
 # Date Time
 #
 [datetime]
@@ -89,3 +82,9 @@ interval=10
 min_width=272
 align=right
 
+# Menu
+#
+[click]
+command=scripts/click
+interval=persist
+format=json
