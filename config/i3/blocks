@@ -1,7 +1,7 @@
 # Global properties
 #
 separator_block_width=15
-markup=none
+markup=pango
 separator=false
 separator_block_width=5
 align=center
@@ -12,8 +12,7 @@ color=#268bd2
 # 
 [fan]
 command=scripts/fanspeed
-color=#9e8f07
-interval=3
+interval=5
 
 # CPU Usage
 #
@@ -21,7 +20,6 @@ interval=3
 command=scripts/cpu_usage/cpu_usage
 LABEL=▣
 interval=persist
-markup=pango
 color=#268bd2
 min_width=▣ 100.00%
 
@@ -46,12 +44,10 @@ interval=30
 
 [disk]
 command=scripts/disk /
-markup=pango
 interval=60
 
 [disk]
 command=scripts/disk /home
-markup=pango
 interval=60
 
 # Hálózat
