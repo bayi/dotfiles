@@ -99,6 +99,7 @@ alias gitkurvanagyfileok="git rev-list --objects --all | git cat-file --batch-ch
 alias helyfoglalas='du -cha --max-depth=1 / | grep -E "M|G"'
 alias icat='kitty +kitten icat'
 alias valtozottfileok='git diff --name-only --relative'
+alias openports='sudo netstat -lnpt'
 
 #Magyar bill wayland alatt
 export XKB_DEFAULT_LAYOUT=hu

@@ -253,6 +253,9 @@ for_window [class="discord"] move container to workspace $workspaceChat
 for_window [class="discord"] layout tabbed
 assign [class="discord"] $workspaceChat
 
+# Start GNOME Settings Daemon
+exec --no-startup-id /usr/lib/gsd-xsettings
+
 # Start applications
 exec --no-startup-id gnome-flashback
 
