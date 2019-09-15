@@ -27,9 +27,8 @@ min_width=▣ 100.00%
 #
 [temperature]
 command=scripts/temperature
-label=🌡
 color=#268bd2
-interval=3
+interval=5
 
 # RAM
 #

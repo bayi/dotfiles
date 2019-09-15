@@ -25,10 +25,11 @@ use Getopt::Long;
 binmode(STDOUT, ":utf8");
 
 # default values
-my $t_warn = $ENV{T_WARN} || 70;
+my $t_warn = $ENV{T_WARN} || 60;
 my $t_crit = $ENV{T_CRIT} || 90;
 my $chip = $ENV{SENSOR_CHIP} || "";
 my $temperature = -9999;
+my $label = "🌡";
 
 sub help {
     print "Usage: temperature [-w <warning>] [-c <critical>] [--chip <chip>]\n";
@@ -55,15 +56,16 @@ close(SENSORS);
 
 $temperature eq -9999 and die 'Cannot find temperature';
 
-# Print short_text, full_text
-print "$temperature°C\n" x2;
-
-# Print color, if needed
 if ($temperature >= $t_crit) {
-    print "#FF0000\n";
+    # Print short_text, full_text
+    print "$label <span color='#cb4b16'>$temperature°C </span>\n" x2;
     exit 33;
 } elsif ($temperature >= $t_warn) {
-    print "#FFFC00\n";
+    # Print short_text, full_text
+    print "$label <span color='#b58900'>$temperature°C </span>\n" x2;
+} else {
+    # Print short_text, full_text
+    print "$label <span color='#719e07'>$temperature°C </span>\n" x2;
 }
 
 exit 0;
