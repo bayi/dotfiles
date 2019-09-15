@@ -35,9 +35,7 @@ interval=3
 #
 [memory]
 command=scripts/memory
-label=📈
-color=#268bd2
-interval=30
+interval=10
 
 # Lemezek
 #
