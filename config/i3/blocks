@@ -9,6 +9,12 @@ full_text=⛛
 color=#268bd2
 min_width=76
 
+# Active window
+#
+[window]
+command=xdotool getactivewindow getwindowname 2> /dev/null || echo "None"
+interval=1
+
 # CPU Fan
 #
 [fan]
