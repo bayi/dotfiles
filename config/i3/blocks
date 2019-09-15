@@ -52,8 +52,6 @@ interval=60
 #
 [iface]
 command=scripts/iface
-label=🜷
-color=#b58900
 interval=10
 
 [wifi]

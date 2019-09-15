@@ -18,7 +18,7 @@
 #------------------------------------------------------------------------
 
 # Use the provided interface, otherwise the device used for the default route.
-IF="${IFACE:-$BLOCK_INSTANCE}"
+IF="${IFACE:-$1}"
 IF="${IF:-$(ip route | awk '/^default/ { print $5 ; exit }')}"
 
 # Exit if there is no default route
@@ -51,9 +51,8 @@ for flag in "$1" "$2"; do
 done
 
 if [[ "$IF" = "" ]] || [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
-  echo "${LABEL}down" # full text
-  echo "${LABEL}down" # short text
-  echo \#FF0000 # color
+  echo "<span color='#cb1b16'>🜷 $LABEL</span>" # full text
+  echo "<span color='#cb1b16'>🜷 $LABEL</span>" # short text
   exit
 fi
 
@@ -66,5 +65,5 @@ esac
 
 #------------------------------------------------------------------------
 
-echo " $LABEL$IPADDR" # full text
-echo " $LABEL$IPADDR" # short text
+echo "🜷 <span color='#b58900'>$LABEL$IPADDR</span>" # full text
+echo "🜷 <span color='#b58900'>$LABEL$IPADDR</span>" # short text
