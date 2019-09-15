@@ -5,7 +5,7 @@ markup=pango
 separator=false
 separator_block_width=5
 align=center
-full_text=〉
+full_text=⛛
 color=#268bd2
 
 # CPU Fan
