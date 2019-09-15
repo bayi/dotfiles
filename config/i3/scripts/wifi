@@ -22,7 +22,10 @@ fi
 
 # As per #36 -- It is transparent: e.g. if the machine has no battery or wireless
 # connection (think desktop), the corresponding block should not be displayed.
-[[ ! -d /sys/class/net/${INTERFACE}/wireless ]] && exit
+if [[ ! -d /sys/class/net/${INTERFACE}/wireless ]]; then
+    echo ""
+    exit
+fi
 
 # If the wifi interface exists but no connection is active, "down" shall be displayed.
 if [[ "$(cat /sys/class/net/$INTERFACE/operstate)" = 'down' ]]; then
