@@ -51,13 +51,13 @@ interval=60
 # Hálózat
 #
 [iface]
-comamnd=scripts/iface
+command=scripts/iface
 label=🜷
 color=#b58900
 interval=10
 
 [wifi]
-comamnd=scripts/wifi
+command=scripts/wifi
 label=📶
 color=#b58900
 instance=wlp2s0
@@ -66,10 +66,7 @@ interval=10
 # Aksi
 #
 [battery]
-comamnd=scripts/battery
-color=#cb4b16
-label=⚡
-#instance=0
+command=scripts/battery
 interval=60
 
 # Hang
