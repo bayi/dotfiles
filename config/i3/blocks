@@ -4,7 +4,7 @@ separator_block_width=8
 markup=pango
 separator=false
 align=center
-full_text=⛛
+full_text=
 color=#268bd2
 min_width=64
 
@@ -73,6 +73,13 @@ command=scripts/volume
 interval=persist
 SUBSCRIBE=1
 signal=1
+
+# Menu
+#
+[click]
+command=scripts/click
+interval=persist
+format=json
 
 # Date Time
 #
