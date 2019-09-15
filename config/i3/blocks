@@ -74,3 +74,6 @@ signal=1
 [datetime]
 command=scripts/datetime
 interval=10
+min_width=300
+align=right
+
