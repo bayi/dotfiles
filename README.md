@@ -16,6 +16,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 # xorg needed packages:
  - xorg-setxkbmap   -> Keyboard language management
  - xorg-xrandr      -> Multi monitor management
+ - xdotool          -> Window title support
 
 # Fonts:
  - otf-fira-code    -> Font
