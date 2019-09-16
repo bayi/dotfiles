@@ -36,6 +36,8 @@ bar {
         position top
         status_command i3blocks -c ~/.config/i3/blocks
         strip_workspace_numbers yes
+        tray_output primary
+        tray_padding 1
 
         colors {
             background $bg-color
