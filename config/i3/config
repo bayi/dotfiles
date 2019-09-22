@@ -32,25 +32,25 @@ smart_gaps on
 smart_borders on
 
 # Bar
-bar {
-        position top
-        status_command i3blocks -c ~/.config/i3/blocks
-        strip_workspace_numbers yes
-        tray_output primary
-        tray_padding 1
-
-        colors {
-            background $bg-color
-            separator $separator-color
-
-            # Type                  Border                  Background              Text
-            focused_workspace       #444444                 #111111                 #AAAAAA
-            active_workspace        #222222                 #000000                 #AAAAAA
-            inactive_workspace      #222222                 #000000                 #888888
-            urgent_workspace        #444444                 #285577                 #FFFFFF
-            binding_mode            #444444                 #285577                 #FFFFFF
-        }
-}
+#bar {
+#        position top
+#        status_command i3blocks -c ~/.config/i3/blocks
+#        strip_workspace_numbers yes
+#        tray_output primary
+#        tray_padding 1
+#
+#        colors {
+#            background $bg-color
+#            separator $separator-color
+#
+#            # Type                  Border                  Background              Text
+#            focused_workspace       #444444                 #111111                 #AAAAAA
+#            active_workspace        #222222                 #000000                 #AAAAAA
+#            inactive_workspace      #222222                 #000000                 #888888
+#            urgent_workspace        #444444                 #285577                 #FFFFFF
+#            binding_mode            #444444                 #285577                 #FFFFFF
+#        }
+#}
 
 ## Keybindings
 # Modifier Key is SUPER(WIN) key
@@ -168,15 +168,25 @@ bindsym XF86AudioNext exec zene-lejatszo-kovi
 bindsym XF86AudioPrev exec zene-lejatszo-elozo
 
 ## Workspaces
-set $workspaceWeb 1:<span foreground="#5f88f0"></span>
-set $workspaceVNC 6:<span foreground="#cf7354"></span>
-set $workspaceFiles 7:<span foreground="#c05e2c"></span>
-set $workspaceMedia 8:<span foreground="#2c7e0a"></span>
-set $workspaceMusic 9:<span foreground="#6cbe4a"></span>
-set $workspaceChat 10:<span foreground="#00c6ff"></span>
-set $workspaceMisc 11:<span foreground="#ffc600"></span>
-set $workspaceTerm 12:<span foreground="#aaaaaa"></span>
-set $workspaceWin 13:<span foreground="#e06626"></span>
+#set $workspaceWeb 1:<span foreground="#5f88f0"></span>
+#set $workspaceVNC 6:<span foreground="#cf7354"></span>
+#set $workspaceFiles 7:<span foreground="#c05e2c"></span>
+#set $workspaceMedia 8:<span foreground="#2c7e0a"></span>
+#set $workspaceMusic 9:<span foreground="#6cbe4a"></span>
+#set $workspaceChat 10:<span foreground="#00c6ff"></span>
+#set $workspaceMisc 11:<span foreground="#ffc600"></span>
+#set $workspaceTerm 12:<span foreground="#aaaaaa"></span>
+#set $workspaceWin 13:<span foreground="#e06626"></span>
+
+set $workspaceWeb   1:
+set $workspaceVNC   6:
+set $workspaceFiles 7:
+set $workspaceMedia 8:
+set $workspaceMusic 9:
+set $workspaceChat 10:
+set $workspaceMisc 11:
+set $workspaceTerm 12:
+set $workspaceWin  13:
 
 ## Scrathpad
 bindsym $mod+Shift+minus move scratchpad
@@ -263,3 +273,5 @@ exec --no-startup-id gnome-flashback
 
 # Compton
 #exec --no-startup-id compton
+
+exec_always --no-startup-id ~/.config/i3/polybar.sh
