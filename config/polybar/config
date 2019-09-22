@@ -66,7 +66,7 @@ font-4 = Symbola:style=Regular;size=8;0
 
 modules-left = i3 mpd
 modules-center = xwindow
-modules-right = cpu fanspeed temperature memory filesystem xbacklight pulseaudio xkeyboard wlan eth battery date powermenu
+modules-right = cpu fanspeed temperature memory filesystem xbacklight pulseaudio xkeyboard wlan eth eth1 battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -119,11 +119,12 @@ mount-0 = /
 mount-1 = /home
 
 format-mounted = "🔘 <label-mounted>"
+format-unmounted = 
 
 label-mounted = [%mountpoint%] %free%
 label-mounted-foreground = ${colors.primary}
-label-unmounted =  %mountpoint%
-label-unmounted-foreground = ${colors.foreground-alt}
+label-unmounted =
+label-unmounted-foreground =
 
 
 ; Separator in between workspaces
@@ -197,19 +198,16 @@ label-foreground = ${colors.primary}
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
-label = BL
+format =  <label> <ramp>
+label = %percentage%%
+label-foreground = ${colors.primary}
+enable-scroll = true
 
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -252,11 +250,11 @@ label-foreground = ${colors.primary}
 
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.primary}
 label-connected = %essid%
 
 format-disconnected =
@@ -265,11 +263,14 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -290,6 +291,10 @@ format-disconnected-underline = ${colors.secondary}
 ;label-disconnected-foreground = ${colors.foreground-alt}
 ;
 format-packetloss-underline = {$colors.alert}
+
+[module/eth1]
+inherit = module/eth
+interface = enp4s0
 
 [module/date]
 type = internal/date
