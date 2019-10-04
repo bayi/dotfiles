@@ -31,10 +31,11 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - kitty            -> Terminal
  - pulseaudio       -> Audio
  - mpv              -> Media Player
+ - dunst            -> Notifications
  ... bunch of gnome apps
 
 # All in one desktop package installer
 ```
- pacman -S gvim zsh i3-gaps i3blocks nautilus mpv kitty gnome-calculator gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-photos gnome-screenshot gnome-shell gnome-shell-extensions gnome-software-packagekit-plugin gnome-usage gnome-tweaks gnome-user-share chromium gdm lxappearance file-roller xorg-xrandr xorg-setxkbmap
+ pacman -S gvim zsh i3-gaps i3blocks nautilus mpv kitty gnome-calculator gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-photos gnome-screenshot gnome-shell gnome-shell-extensions gnome-software-packagekit-plugin gnome-usage gnome-tweaks gnome-user-share chromium gdm lxappearance file-roller xorg-xrandr xorg-setxkbmap dunst
  aurman -S qdmenu i3-gnome-git otf-fira-code-git
 ```
