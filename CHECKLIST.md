@@ -1,0 +1,35 @@
+- Make sure discard is among the options in /etc/fstab for SSD
+- Configure the noop scheduler for non-rotational storage
+    - Make it permanent with tmpfiles
+- Configure makepkg flags
+    - See example from kionia
+- Install yay
+    - Either from the source code (requires Go compiler) (yayAUR)
+    - Or prebuilt (yay-binAUR)
+    - Consider setting a custom build directory: yay --save --builddir=/tmp -Syu
+- Install GNOME with the dependencies (like xorg)
+    - Install xf86-video-intel or another appropriate
+    - Test gdm starting, enable it permanently sudo systemctl enable gdm.service
+- Install chromium with bunch of suggested TTF fonts
+- Install gnome-tweaks
+    - Configure desired behaviour of the touchpad
+    - Configure theme (dark, light)
+    - Configure font rendering (subpixel)
+- Install powertop
+    - Tune the power consumption
+- Install networkmanager, nm-connection-editor
+- Install systemd-swap
+    - Configure the swap
+- Install openssh
+- Install pacman-contrib
+    - Add pacman hooks to clear the cache after upgrades: paccache-*
+- Limit journald size
+    - See 00-journal-size.conf
+- Install and enable earlyoom from earlyoomAUR
+- Configure tinc, add to one of my networks
+- Configure Hardware video acceleration
+    - Install libva, libva-utils, libva-intel-driver
+    - Add the user to the group video
+    - Test vainfo
+- Install pavucontrol
+- Configure multimedia keys
