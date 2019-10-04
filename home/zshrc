@@ -25,7 +25,7 @@ plugins=(git adb archlinux common-aliases cp catimg laravel symfony2)
 source $ZSH/oh-my-zsh.sh
 
 typeset -U path
-path=(~/.Bin ~/Work/_Android_/Sdk/tools/ ~/Work/_Android_/Sdk/tools/bin/ ~/Work/_Android_/Sdk/platform-tools/ ~/.composer/vendor/bin ~/.yarn/bin $path)
+path=(~/.Bin ~/.composer/vendor/bin ~/.yarn/bin $path)
 
 bindkey -e
 bindkey "^[OA" up-line-or-beginning-search

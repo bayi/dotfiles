@@ -274,4 +274,8 @@ exec --no-startup-id gnome-flashback
 # Compton
 #exec --no-startup-id compton
 
+# Notifications
+exec --no-startup-id dunst
+
 exec_always --no-startup-id ~/.config/i3/polybar.sh
+
