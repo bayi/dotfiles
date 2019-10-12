@@ -272,7 +272,7 @@ exec --no-startup-id /usr/lib/gsd-xsettings
 exec --no-startup-id gnome-flashback
 
 # Compton
-exec --no-startup-id compton -b
+#exec --no-startup-id compton -b
 
 exec_always --no-startup-id ~/.config/i3/polybar.sh
 
