@@ -32,7 +32,7 @@ height = 22
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 4.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 background-0 = #ff111111
@@ -68,14 +68,17 @@ modules-left = i3 mpd
 modules-center = xwindow
 modules-right = cpu fanspeed temperature memory filesystem xbacklight pulseaudio xkeyboard wlan eth eth1 battery date powermenu
 
-tray-position = right
-tray-padding = 2
+tray-position = ${env:TRAY:}
+tray-padding = 4
+tray-detached = false
+tray-maxsize = 16
+tray-scale = 1.0
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
 wm-restack = i3
 
-;override-redirect = true
+override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev

@@ -28,7 +28,8 @@ popup_during_fullscreen leave_fullscreen
 # Gaps
 gaps inner 2
 gaps outer 2
-smart_gaps on
+gaps top 20
+#smart_gaps on
 smart_borders on
 
 # Bar
@@ -274,5 +275,5 @@ exec --no-startup-id gnome-flashback
 # Compton
 #exec --no-startup-id compton -b
 
-exec_always --no-startup-id ~/.config/i3/polybar.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
