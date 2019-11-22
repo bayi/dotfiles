@@ -69,11 +69,11 @@ modules-center = xwindow
 modules-right = cpu fanspeed temperature memory filesystem xbacklight pulseaudio xkeyboard wlan eth eth1 battery date powermenu
 
 tray-position = ${env:TRAY:}
-tray-padding = 4
+tray-padding = 6
 tray-detached = false
 tray-maxsize = 16
 tray-scale = 1.0
-;tray-background = #0063ff
+tray-background = #00000000
 
 ;wm-restack = bspwm
 wm-restack = i3
