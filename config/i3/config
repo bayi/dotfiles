@@ -270,7 +270,7 @@ assign [class="discord"] $workspaceChat
 exec --no-startup-id /usr/lib/gsd-xsettings
 
 # Start applications
-exec --no-startup-id gnome-flashback
+exec_always --no-startup-id gnome-flashback
 
 # Compton
 #exec --no-startup-id compton -b
