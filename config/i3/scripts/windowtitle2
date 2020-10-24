@@ -28,9 +28,10 @@ if __name__ == "__main__":
         if title != prevtitle:
             try:
                 decoded = title.decode("utf-8")
+                decoded = decoded[:75] + (decoded[75:] and '..')
             except:
                 decoded = ""
-            print("<span>🔮 " + decoded + "</span>")
+            print("<span>🔮 <b>" + decoded + "</b></span>")
             prevtitle = title
             sys.stdout.flush()
         time.sleep(0.25)

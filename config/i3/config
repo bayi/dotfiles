@@ -36,7 +36,7 @@ smart_borders on
 bar {
         position top
         status_command i3blocks -c ~/.config/i3/blocks
-        strip_workspace_numbers yes
+        strip_workspace_numbers no
         tray_output primary
         tray_padding 1
 
