@@ -3,22 +3,22 @@
 separator_block_width=8
 markup=pango
 separator=false
-align=center
-full_text=
+align=right
 color=#268bd2
-min_width=64
+min_width=32
 
 # Active window
 #
 [window]
 command=scripts/windowtitle
 interval=persist
+align=center
 
 # CPU Fan
 #
-[fan]
-command=scripts/fanspeed
-interval=5
+#[fan]
+#command=scripts/fanspeed
+#interval=5
 
 # CPU Usage
 #
@@ -74,17 +74,17 @@ interval=persist
 SUBSCRIBE=1
 signal=1
 
-# Date Time
-#
-[datetime]
-command=scripts/datetime
-interval=10
-min_width=272
-align=right
-
 # Menu
 #
 [click]
 command=scripts/click
 interval=persist
 format=json
+
+# Date Time
+#
+[datetime]
+command=scripts/datetime
+interval=10
+align=right
+

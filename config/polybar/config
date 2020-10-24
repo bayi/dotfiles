@@ -28,10 +28,10 @@ alert = #cb4b16
 [bar/top]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 22
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 4.0
+radius = 2.0
 fixed-center = true
 
 background = ${colors.background}
@@ -46,7 +46,7 @@ background-7 = #20000000
 background-8 = #20000000
 foreground = ${colors.foreground}
 
-line-size = 1
+line-size = 2
 line-color = #f00
 
 border-size = 0
@@ -56,7 +56,7 @@ padding-left = 0
 padding-right = 0
 
 module-margin-left = 1
-module-margin-right = 1
+module-margin-right = 0
 
 font-0 = Fira Code Medium:style=Medium,Regular:size=9;0
 font-1 = Font Awesome 5 Brands Regular:style=Regular:size=9;0
@@ -66,12 +66,12 @@ font-4 = Symbola:style=Regular;size=8;0
 
 modules-left = i3 mpd
 modules-center = xwindow
-modules-right = cpu fanspeed temperature memory filesystem xbacklight pulseaudio xkeyboard wlan eth eth1 battery date powermenu
+modules-right = cpu temperature memory filesystem xbacklight wlan eth eth1 pulseaudio xkeyboard battery date powermenu
 
 tray-position = ${env:TRAY:}
-tray-padding = 6
+tray-padding = 8
 tray-detached = false
-tray-maxsize = 16
+tray-maxsize = 14
 tray-scale = 1.0
 tray-background = #00000000
 
@@ -91,13 +91,11 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %{F#666} %{F-} %title:0:64:...%
+label = %title:0:64:...%
 label-empty =
-label-maxlen = 128
+label-maxlen = 64
 label-foreground = ${colors.secondary}
-label-underline = ${colors.secondary}
 format = <label>
-format-underline = ${colors.secondary}
 click-left = qdmenu
 
 [module/xkeyboard]
@@ -109,9 +107,10 @@ format-prefix-foreground = ${colors.foreground}
 
 label-layout = %layout%
 label-layout-foreground = ${colors.primary}
+label-layout-underline = ${colors.foreground}
 
-label-indicator-padding = 1
-label-indicator-margin = 1
+label-indicator-padding = 0
+label-indicator-margin = 0
 label-indicator-background = ${colors.background-alt}
 label-indicator-underline = ${colors.secondary}
 
@@ -120,16 +119,17 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /home
+; mount-1 = /home
 
-format-mounted = "🔘 <label-mounted>"
-format-unmounted = 
+format-mounted = "<label-mounted>"
+format-unmounted = "<label-unmounted>"
 
-label-mounted = [%mountpoint%] %free%
+label-mounted = %mountpoint%%free%
 label-mounted-foreground = ${colors.primary}
-label-unmounted =
-label-unmounted-foreground =
-
+label-mounted-underline = ${colors.foreground}
+label-unmounted = %mountpoint%
+label-unmounted-foreground =${colors.secondary}
+label-unmounted-underline = ${colors.secondary}
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -140,7 +140,7 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 fuzzy-match = true
-strip-wsnumbers = true
+strip-wsnumbers = false
 
 ws-icon-0 = "1:;"
 ws-icon-1 = "2;2"
@@ -160,12 +160,12 @@ ws-icon-default = 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-foreground = ${colors.primary}
 label-focused-underline= ${colors.foreground}
@@ -202,7 +202,7 @@ label-foreground = ${colors.primary}
 [module/xbacklight]
 type = internal/xbacklight
 
-format =  <label> <ramp>
+format = <label> <ramp>
 label = %percentage%%
 label-foreground = ${colors.primary}
 enable-scroll = true
@@ -221,36 +221,21 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 1
-format = <ramp-load> <label>
-format-prefix = "▣"
-#format-underline = ${colors.foreground}
+format = <label>
+format-prefix = ""
+label-underline = ${colors.foreground}
 label = %percentage:2%%
 label-foreground = ${colors.primary}
 ramp-coreload-spacing = 0
-ramp-load-0 = ▁
-ramp-load-1 = ▂
-ramp-load-2 = ▃
-ramp-load-3 = ▄
-ramp-load-4 = ▅
-ramp-load-5 = ▆
-ramp-load-6 = ▇
-ramp-load-7 = █
 
 [module/memory]
 type = internal/memory
 interval = 2
-format = <ramp-used> <label>
-ramp-used-0 = ▁
-ramp-used-1 = ▂
-ramp-used-2 = ▃
-ramp-used-3 = ▄
-ramp-used-4 = ▅
-ramp-used-5 = ▆
-ramp-used-6 = ▇
-ramp-used-7 = █
-format-prefix = "📈 "
+format = <label>
+format-prefix = " "
 label = %gb_used%
 label-foreground = ${colors.primary}
+label-underline = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
@@ -280,17 +265,18 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type = internal/network
 interface = br0
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-foreground = ${colors.secondary}
-format-connected-prefix = " "
+interval = 10.0
+format-connected-prefix = 
 format-connected-prefix-foreground = ${colors.foreground}
+
+label-connected-underline = ${colors.foreground}
+format-connected-foreground = ${colors.primary}
 label-connected = %local_ip%
 
-format-disconnected =
+format-disconnected = 
+label-disconnected-foreground = ${colors.secondary}
 ;format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.secondary}
+label-disconnected-underline = ${colors.secondary}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 ;
@@ -304,31 +290,32 @@ interface = enp4s0
 type = internal/date
 interval = 1
 
-date =
-date-alt = " %Y %A %b %d."
+date = "%m.%d"
+date-alt = "%Y %A %b %d."
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 🕑
 format-foreground = ${colors.foreground-alt}
-format-underline = ${colors.foreground}
-
+label-underline = ${colors.foreground}
+format =  <label>
 label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
+label-volume-underline = ${colors.foreground}
 label-volume = %percentage%%
 label-volume-foreground = ${colors.primary}
 
-label-muted = 🔇
+label-muted = 
 label-muted-foreground = ${colors.foreground-alt}
+label-muted-underline = ${colors.secondary}
 
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 sink = alsa_output.pci-0000_00_1b.0.analog-stereo
 
@@ -362,13 +349,15 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-warn = <ramp> <label-warn>
+format-warn = <ramp><label-warn>
 format-warn-underline = ${colors.alert}
 
 label = %temperature-c%
 label-foreground = ${colors.primary}
 label-warn = 🌡 %temperature-c%
 label-warn-foreground = ${colors.secondary}
+label-underline = ${colors.foreground}
+label-warn-underline = ${colors.secondary}
 
 ramp-0 = 
 ramp-1 = 
@@ -411,27 +400,18 @@ port = 6600
 #password =
 
 interval = 1
-label-song = 🎜 %title%
+label-song =   %title%
 label-song-foreground = ${colors.primary}
-label-offline = 🎜
+label-offline = OFF
 
-icon-play = ⏵
-icon-pause = ⏸
-icon-stop = ⏹
-icon-prev = ⏮
-icon-next = ⏭
-icon-seekb = ⏪
-icon-seekf = ⏩
-icon-random = 🔀
-icon-repeat = 🔁
-icon-repeatone = 🔂
-icon-single = 🔂
-icon-consume = ✀
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
 
 bar-progress-width = 8
 bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
 bar-progress-fill-foreground = ${colors.foreground-alt}
 bar-progress-empty-foreground = ${colors.secondary}
 bar-progress-indicator-foreground = ${colors.primary}
@@ -439,7 +419,7 @@ bar-progress-indicator-foreground = ${colors.primary}
 toggle-on-foreground = #ff
 toggle-off-foreground = #55
 
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <bar-progress> <label-song>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song>
 
 [settings]
 screenchange-reload = true

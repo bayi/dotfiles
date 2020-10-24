@@ -9,7 +9,7 @@
 #define GREEN "#719e07"
 #define RED "#cb4b16"
 #define ORANGE "#b58900"
-#define LABEL "▣"
+#define LABEL "💻"
 
 typedef unsigned long long int ulli;
 

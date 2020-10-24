@@ -28,30 +28,30 @@ popup_during_fullscreen leave_fullscreen
 # Gaps
 gaps inner 2
 gaps outer 2
-gaps top 20
+gaps top 0
 #smart_gaps on
 smart_borders on
 
 # Bar
-#bar {
-#        position top
-#        status_command i3blocks -c ~/.config/i3/blocks
-#        strip_workspace_numbers yes
-#        tray_output primary
-#        tray_padding 1
-#
-#        colors {
-#            background $bg-color
-#            separator $separator-color
-#
-#            # Type                  Border                  Background              Text
-#            focused_workspace       #444444                 #111111                 #AAAAAA
-#            active_workspace        #222222                 #000000                 #AAAAAA
-#            inactive_workspace      #222222                 #000000                 #888888
-#            urgent_workspace        #444444                 #285577                 #FFFFFF
-#            binding_mode            #444444                 #285577                 #FFFFFF
-#        }
-#}
+bar {
+        position top
+        status_command i3blocks -c ~/.config/i3/blocks
+        strip_workspace_numbers yes
+        tray_output primary
+        tray_padding 1
+
+        colors {
+            background $bg-color
+            separator $separator-color
+
+            # Type                  Border                  Background              Text
+            focused_workspace       #444444                 #111111                 #AAAAAA
+            active_workspace        #222222                 #000000                 #AAAAAA
+            inactive_workspace      #222222                 #000000                 #888888
+            urgent_workspace        #444444                 #285577                 #FFFFFF
+            binding_mode            #444444                 #285577                 #FFFFFF
+        }
+}
 
 ## Keybindings
 # Modifier Key is SUPER(WIN) key
@@ -61,8 +61,8 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -159,8 +159,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
 # Windows - Linux input switch
-bindsym Ctrl+F2 exec usb-to-win
-bindsym Ctrl+F3 exec usb-to-linux
+# bindsym Ctrl+F2 exec usb-to-win
+# bindsym Ctrl+F3 exec usb-to-linux
 
 # Media
 bindsym XF86AudioPlay exec zene-lejatszo
@@ -169,25 +169,13 @@ bindsym XF86AudioNext exec zene-lejatszo-kovi
 bindsym XF86AudioPrev exec zene-lejatszo-elozo
 
 ## Workspaces
-#set $workspaceWeb 1:<span foreground="#5f88f0"></span>
-#set $workspaceVNC 6:<span foreground="#cf7354"></span>
-#set $workspaceFiles 7:<span foreground="#c05e2c"></span>
-#set $workspaceMedia 8:<span foreground="#2c7e0a"></span>
-#set $workspaceMusic 9:<span foreground="#6cbe4a"></span>
-#set $workspaceChat 10:<span foreground="#00c6ff"></span>
-#set $workspaceMisc 11:<span foreground="#ffc600"></span>
-#set $workspaceTerm 12:<span foreground="#aaaaaa"></span>
-#set $workspaceWin 13:<span foreground="#e06626"></span>
-
-set $workspaceWeb   1:
-set $workspaceVNC   6:
-set $workspaceFiles 7:
-set $workspaceMedia 8:
-set $workspaceMusic 9:
-set $workspaceChat 10:
-set $workspaceMisc 11:
-set $workspaceTerm 12:
-set $workspaceWin  13:
+set $workspaceWeb   1:🌍
+set $workspaceFiles 8:💾
+set $workspaceMedia 9:📽
+set $workspaceChat 10:👄
+set $workspaceMisc 11:🧀
+set $workspaceTerm 12:🖥
+set $workspaceWin  13:⭐️
 
 ## Scrathpad
 bindsym $mod+Shift+minus move scratchpad
@@ -199,10 +187,10 @@ bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace $workspaceVNC
-bindsym $mod+7 workspace $workspaceFiles
-bindsym $mod+8 workspace $workspaceMedia
-bindsym $mod+9 workspace $workspaceMusic
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace $workspaceFiles
+bindsym $mod+9 workspace $workspaceMedia
 bindsym $mod+odiaeresis workspace $workspaceChat
 bindsym $mod+u workspace $workspaceMisc
 bindsym $mod+t workspace $workspaceTerm
@@ -214,20 +202,17 @@ bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace $workspaceVNC
-bindsym $mod+Shift+7 move container to workspace $workspaceFiles
-bindsym $mod+Shift+8 move container to workspace $workspaceMedia
-bindsym $mod+Shift+9 move container to workspace $workspaceMusic
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace $workspaceFiles
+bindsym $mod+Shift+9 move container to workspace $workspaceMedia
 bindsym $mod+Shift+odiaeresis move container to workspace $workspaceChat
 bindsym $mod+Shift+u move container to workspace $workspaceMisc
 bindsym $mod+Shift+t move container to workspace $workspaceTerm
 bindsym $mod+Shift+z move container to workspace $workspaceWin
 
 # Monitors
-workspace 6 output HDMI1
-workspace 10 output VGA1
-workspace 8 output HDMI2
-workspace 9 output VGA1
+# workspace 9 output VGA1
 
 ## Windows & Monitors
 
@@ -253,8 +238,8 @@ assign [class="Kodi"] $workspaceMedia
 assign [class="Nautilus"] $workspaceFiles
 
 # Zene
-for_window [title="^cmus"] move container to workspace $workspaceMusic
-assign [title="^cmus"] $workspaceMusic
+for_window [title="^cmus"] move container to workspace $workspaceMedia
+assign [title="^cmus"] $workspaceMedia
 
 # Slack
 for_window [class="Slack"] move container to workspace $workspaceChat
@@ -272,8 +257,10 @@ exec --no-startup-id /usr/lib/gsd-xsettings
 # Start applications
 exec_always --no-startup-id gnome-flashback
 
+exec --no-startup-id nm-applet
+
 # Compton
 #exec --no-startup-id compton -b
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
 

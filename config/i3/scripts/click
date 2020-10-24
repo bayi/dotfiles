@@ -17,13 +17,13 @@ BLUE = '#268bd2'
 OUTPUT = {'full_text': ''}
 INPUT = {'button': 0}
 STATUS = {
-    'docker': {
-        'icon': '',
-        'color': GRAY,
-        'start': 'sudo systemctl start docker',
-        'stop': 'sudo systemctl stop docker',
-        'status': 'unknown',
-    },
+#    'docker': {
+#        'icon': '',
+#        'color': GRAY,
+#        'start': 'sudo systemctl start docker',
+#        'stop': 'sudo systemctl stop docker',
+#        'status': 'unknown',
+#    },
     'vnc': {
         'icon': '',
         'color': GRAY,
@@ -44,13 +44,13 @@ def check():
     docker = subprocess.check_output('systemctl show -p SubState docker | cut -d\'=\' -f2',
                                      universal_newlines=True,
                                      shell=True).rstrip()
-    if docker == 'running':
-        STATUS['docker']['color'] = GREEN
-    elif docker == 'dead':
-        STATUS['docker']['color'] = GRAY
-    else:
-        STATUS['docker']['color'] = ORANGE
-    STATUS['docker']['status'] = docker
+#    if docker == 'running':
+#        STATUS['docker']['color'] = GREEN
+#    elif docker == 'dead':
+#        STATUS['docker']['color'] = GRAY
+#    else:
+#        STATUS['docker']['color'] = ORANGE
+#    STATUS['docker']['status'] = docker
 
     vnc = subprocess.check_output('systemctl --user show -p SubState vnc | cut -d\'=\' -f2',
                                      universal_newlines=True,
@@ -69,9 +69,9 @@ def refresh():
     for button in STATUS:
         OUTPUT['full_text'] += '<span color="' + \
             STATUS[button]['color'] + \
-            '">(<span size="small">' + \
+            '"><span size="medium">' + \
             STATUS[button]['icon'] + \
-            '</span>)</span> '
+            '</span></span> '
 
     if INPUT['button'] != 0:
         INPUT['button'] = 0

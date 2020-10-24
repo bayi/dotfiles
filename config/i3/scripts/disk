@@ -1,7 +1,7 @@
 DIR="${DIR:-$1}"
 DIR="${DIR:-$HOME}"
 LOW="${LOW:-10}"
-LABEL="🔘"
+LABEL="💽"
 
 df -h -P -l "$DIR" | awk -v label="$LABEL<span color=\"#719e07\"> [$DIR] </span>" -v low=$LOW '
 /\/.*/ {
