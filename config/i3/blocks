@@ -3,14 +3,14 @@
 separator_block_width=8
 markup=pango
 separator=false
-align=right
+align=center
 color=#268bd2
 min_width=32
 
 # Active window
 #
 [window]
-command=scripts/windowtitle
+command=scripts/windowtitle2
 interval=persist
 align=center
 
@@ -18,7 +18,7 @@ align=center
 #
 #[fan]
 #command=scripts/fanspeed
-#interval=5
+#interval=30
 
 # CPU Usage
 #
@@ -30,13 +30,13 @@ interval=persist
 #
 [temperature]
 command=scripts/temperature
-interval=5
+interval=30
 
 # RAM
 #
 [memory]
 command=scripts/memory
-interval=10
+interval=30
 
 # Lemezek
 #
@@ -53,12 +53,12 @@ interval=60
 #
 [iface]
 command=scripts/iface
-interval=10
+interval=30
 
 [wifi]
 command=scripts/wifi
 instance=wlp2s0
-interval=10
+interval=30
 
 # Aksi
 #
@@ -85,6 +85,6 @@ format=json
 #
 [datetime]
 command=scripts/datetime
-interval=10
+interval=30
 align=right
 
