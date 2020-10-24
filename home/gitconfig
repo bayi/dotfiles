@@ -1,6 +1,7 @@
 [user]
-    email = bayi@bayi.hu
-    name = Bayi
+	email = bayi@bayi.hu
+	name = Bayi
+	signingKey = 383B9BA6C1F2F5643F1B3C30FC1B0679F450C368
 [push]
     default = simple
 [color]
@@ -23,3 +24,5 @@
 [pull]
 	rebase = true
 
+[commit]
+	gpgSign = true
