@@ -23,11 +23,12 @@ set number
 set relativenumber
 
 " Hatter
-let g:solarized_termcolors=256
-set t_Co=256
-set background=dark
+" let g:solarized_termcolors=256
+" set t_Co=256
+" set background=dark
 "colorscheme industry
-colorscheme solarized
+"colorscheme solarized
+colorscheme darcula
 
 " Parancs mutatas
 set showcmd
