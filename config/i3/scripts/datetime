@@ -3,4 +3,4 @@
 DATE=`date '+%y %b %d.'`
 TIME=`date '+%H:%M'`
 
-echo "📅 <span color='#93a1a1'>$DATE</span> 🕑 <span color='#93a1a1'>$TIME</span>"
+echo "📅 <span color='#93a1a1'>$DATE</span> 🕑 <span color='#93a1a1'>$TIME  </span>"

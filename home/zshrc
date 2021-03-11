@@ -119,3 +119,11 @@ stty -ixon
 # Oh my zsh betöltése
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/nvm/init-nvm.sh
+
+# Calculator
+function =
+{
+    set -o localoptions -o noglob
+    qalc -c \'"$@"\'
+}
+alias '?'='noglob ='
