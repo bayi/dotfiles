@@ -85,6 +85,6 @@ format=json
 #
 [datetime]
 command=scripts/datetime
-interval=30
+interval=45
 align=right
 
