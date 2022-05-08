@@ -61,8 +61,9 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -218,17 +219,36 @@ bindsym $mod+Shift+z move container to workspace $workspaceWin
 
 # Popups are floats
 for_window [window_role="pop-up"] floating enabled
+
 # Cheese
 for_window [class="Cheese"] floating enabled
 for_window [class="guvcview"] floating enabled
+
+# Steam ...
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="^Friends List$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
 
 # TS
 assign [class="Teamspeak 3"] $workspaceChat
 for_window [class="TeamSpeak 3"] move container to workspace $workspaceChat
 for_window [class="TeamSpeak 3"] layout tabbed
+# TeamSpeak new features window
+for_window [class="^TeamSpeak 3$" title="^New TeamSpeak Features"] floating enable
 
 # Chrome
 assign [class="Chromium"] $workspaceWeb
+assign [class="firefox"] $workspaceWeb
+# Chrome "Page unresponsible"
+for_window [title="Page Unresponsive"] floating enable
 
 # Kodi
 for_window [class="Kodi"] move container to workspace $workspaceMedia
