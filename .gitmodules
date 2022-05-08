@@ -31,7 +31,7 @@
 	url = https://github.com/vim-syntastic/syntastic.git
 [submodule "home/vim/bundle/vim-surround"]
 	path = home/vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
 [submodule "home/vim/bundle/supertab"]
 	path = home/vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
@@ -40,7 +40,7 @@
 	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "home/vim/bundle/ultisnips"]
 	path = home/vim/bundle/ultisnips
-	url = git://github.com/SirVer/ultisnips.git
+	url = https://github.com/SirVer/ultisnips.git
 [submodule "home/vim/bundle/vim-snipplets"]
 	path = home/vim/bundle/vim-snipplets
 	url = https://github.com/honza/vim-snippets
