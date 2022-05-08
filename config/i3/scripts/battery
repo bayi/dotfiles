@@ -97,11 +97,12 @@ else:
         return "#719e07"
 
     form =  '<span color="{}">{}%</span>'
-    fulltext += form.format(color(percentleft), percentleft)
+    if percentleft != 0:
+        fulltext += form.format(color(percentleft), percentleft)
     fulltext += timeleft
 
 print(fulltext)
 print(fulltext)
-if percentleft < 10:
+if percentleft < 10 and percentleft != 0:
     exit(33)
 
