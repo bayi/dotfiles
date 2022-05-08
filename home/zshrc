@@ -20,12 +20,12 @@ done
 unsetopt EXTENDEDGLOB
 compinit -C
 
-plugins=(git adb archlinux common-aliases cp catimg laravel symfony2)
+plugins=(git adb archlinux common-aliases cp catimg laravel symfony2 docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
 typeset -U path
-path=(~/.Bin ~/.composer/vendor/bin ~/.yarn/bin $path)
+path=(~/.Bin ~/.composer/vendor/bin ~/.yarn/bin ~/Projektek/FPGA/Xilinx/Vivado/2020.2/bin $path)
 
 bindkey -e
 bindkey "^[OA" up-line-or-beginning-search
@@ -106,19 +106,22 @@ export XKB_DEFAULT_LAYOUT=hu
 #Sötét GTK téma
 #export GTK_THEME=Adwaita:dark
 
-export ANDROID_HOME=/home/bayi/Work/_Android_/Sdk
+export ANDROID_HOME=/home/bayi/Android/Sdk
 export XDG_CURRENT_DESKTOP=GNOME
 
 export EDITOR=vim
 export PAGER=most
 export TERMINAL=kitty
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+#export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 
 # Ctrl+S -re ne csinaljon semmit a terminal
 stty -ixon
 
 # Oh my zsh betöltése
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/share/nvm/init-nvm.sh
+source /usr/share/nvm/init-nvm.sh
 
 # Calculator
 function =
