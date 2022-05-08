@@ -119,14 +119,21 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Ctrl+S -re ne csinaljon semmit a terminal
 stty -ixon
 
-# Oh my zsh betöltése
-source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/nvm/init-nvm.sh
+# Oh my zsh betöltése ( ha létezik )
+if [[ -f "~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+    source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+# NVM betöltése ( ha létezik )
+if [[ -f "/usr/share/nvm/init-nvm.sh" ]]; then
+    source /usr/share/nvm/init-nvm.sh
+fi
 
 # Calculator
-function =
-{
-    set -o localoptions -o noglob
-    qalc -c \'"$@"\'
-}
-alias '?'='noglob ='
+if type "qalc" > /dev/null; then
+    function =
+    {
+        set -o localoptions -o noglob
+        qalc -c \'"$@"\'
+    }
+    alias '?'='noglob ='
+fi
