@@ -284,7 +284,7 @@ exec_always --no-startup-id gnome-flashback
 exec --no-startup-id nm-applet --indicator
 
 # Picom
-exec --no-startup-id picom
+#exec --no-startup-id picom
 
 #exec_always --no-startup-id ~/.config/polybar/launch.sh
 
