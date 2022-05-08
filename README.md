@@ -1,6 +1,6 @@
 
 # Important!
-Install to: `~/.dotfiles` and edit `install` file and change the path. 
+Install to: `~/.dotfiles` and edit `install` file and change the path.
 
 # Installation
 - `git clone --recursive https://github.com/bayi/dotfiles.git ~/.dotfiles`
@@ -8,7 +8,7 @@ Install to: `~/.dotfiles` and edit `install` file and change the path.
 - To install/update the config files, run: `./install`
 
 # Update
-- git submodule foreach git pull origin master
+- git submodule foreach git pull origin master or run `./update-modules`
 
 # Configuration
 To enable/disable modules edit `install` file. Also if you want you can set the `path=` variable in `Zsh/zshrc`.
@@ -18,7 +18,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - xorg-xrandr      -> Multi monitor management
 
 # Fonts:
- - otf-fira-code    -> Font
+ - ttf-fira-code    -> Main font
  - ttf-font-awesome -> Icon font
 
 # Apps:
@@ -28,14 +28,23 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - vim/neovim       -> Text editor
  - nautilus         -> File manager
  - qdmenu           -> App launcher
- - kitty            -> Terminal
- - pulseaudio       -> Audio
+ - alacritty        -> Terminal
+ - pipewire         -> Audio
  - mpv              -> Media Player
- - dunst            -> Notifications
  ... bunch of gnome apps
 
-# All in one desktop package installer
+# Optional:
+ - libqalculate     -> Calculator support, used as an alias in the shell with "?"
+ - nvm              -> Node version manager
+
+# All in one desktop installer
+
+## Official repository
 ```
- pacman -S gvim zsh i3-gaps i3blocks nautilus mpv kitty gnome-calculator gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-photos gnome-screenshot gnome-shell gnome-shell-extensions gnome-software-packagekit-plugin gnome-usage gnome-tweaks gnome-user-share chromium gdm lxappearance file-roller xorg-xrandr xorg-setxkbmap dunst
- aurman -S qdmenu i3-gnome-git otf-fira-code-git
+pacman -S gvim zsh i3-gaps i3blocks nautilus mpv alacritty gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-screenshot gnome-shell gnome-usage gnome-user-share firefox gdm file-roller nautilus xorg-xrandr xorg-setxkbmap xorg-xhost xorg-xprop ttf-fira-code
+```
+
+## AUR
+```
+yay -S qdmenu i3-gnome-git
 ```
