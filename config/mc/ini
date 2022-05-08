@@ -109,6 +109,8 @@ editor_state_full_filename=false
 
 safe_overwrite=false
 
+shadows=true
+
 [Layout]
 message_visible=true
 keybar_visible=true
@@ -124,7 +126,7 @@ free_space=true
 
 horizontal_split=false
 vertical_equal=true
-left_panel_size=106
+left_panel_size=63
 horizontal_equal=true
 top_panel_size=38
 
