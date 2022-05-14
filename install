@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # Folder where this repository is
 DIR=~/.dotfiles
@@ -27,4 +27,3 @@ for ENTRY in "$DIR/config"/*; do
     echo -e "[\e[32m.config\e[39m] installing $ENTRY"
     installfile $ENTRY ~/.config/${ENTRY##*/}
 done
-

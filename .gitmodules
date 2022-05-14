@@ -44,3 +44,6 @@
 [submodule "home/vim/bundle/vim-snipplets"]
 	path = home/vim/bundle/vim-snipplets
 	url = https://github.com/honza/vim-snippets
+[submodule "home/zprezto"]
+	path = home/zprezto
+	url = https://github.com/sorin-ionescu/prezto.git
