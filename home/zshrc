@@ -85,8 +85,8 @@ function screen-share() {
     x11vnc -display :0 -noxwarppointer -multiptr -forever -loop -shared -clip 1920x1080+1920+0 -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord -scale $@ -noncache -xrandr -noclipboard -norc -scale_cursor 1 -nolookup -nossl -input M,M
 }
 
-alias screen-share-hd="kepmegosztas 1776x1000"
-alias screen-share-ld="kepmegosztas 1280x720"
+alias screen-share-hd="screen-share 1776x1000"
+alias screen-share-ld="screen-share 1280x720"
 alias say='espeak -vhu'
 alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'
 alias artisan="php artisan"
@@ -96,19 +96,21 @@ alias ffs='sudo `fc -n -l -1`'
 alias cpd='popd'
 alias large-files='sudo du -cha --max-depth=1 | grep --color=always -E "[0-9]+(M|G)"'
 
+## Random helpers
 alias random-screen='hexdump -e "64/1 \"%02x \" \"\n\"" < /dev/urandom'
 alias random-pw='cat /dev/urandom | tr -dc A-Za-z0-9@_-_ | head -c 16; echo " "'
 
+## Git helpers
 function git-diff-view() {
     git diff --no-ext-diff -w "$@" | vim -R -
 }
-
 alias gg="git pull && git push"
 alias git-log="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias git-update='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
 alias git-changed-files='git diff --name-only --relative'
 alias git-large-files="git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2 | cut --complement --characters=13-40 | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
 
+## Net helpers
 alias net-open-ports='sudo netstat -lnpt | grep --color=never -E "(tcp|udp)"'
 alias net-open-connections="sudo netstat -ntu"
 alias net-ddos-check="sudo netstat -ntu | awk '{print $5}' | grep -iv \"[address|server]\" | grep -v ::1 | grep -v 127.0.0.1 | grep -v 10.0. | cut -d: -f1 | sort | uniq -c | sort -n"
