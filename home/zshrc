@@ -25,7 +25,7 @@ plugins=(git adb archlinux common-aliases cp catimg laravel symfony2 docker-comp
 source $ZSH/oh-my-zsh.sh
 
 typeset -U path
-path=(~/.Bin ~/.composer/vendor/bin ~/.yarn/bin ~/Projektek/FPGA/Xilinx/Vivado/2020.2/bin $path)
+path=(~/.Bin ~/.composer/vendor/bin ~/.yarn/bin $path)
 
 bindkey -e
 bindkey "^[OA" up-line-or-beginning-search
@@ -59,11 +59,11 @@ bindkey "^[[F" end-of-line
 bindkey "^[[5~" history-beginning-search-backward
 bindkey "^[[6~" history-beginning-search-forward
 
-function gitdiff() {
+function git-diff-view() {
     git diff --no-ext-diff -w "$@" | vim -R -
 }
 
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias git-log="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 function kepmegosztas() {
     x11vnc -viewonly -display :0 -noxwarppointer -forever -loop -shared -clip 1920x1080+1920+0 -cursor most -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord -scale $@ -noncache -xrandr -noclipboard -norc
@@ -71,7 +71,7 @@ function kepmegosztas() {
 function kepmegosztasjo() {
     x11vnc -display :0 -noxwarppointer -multiptr -forever -loop -shared -clip 1920x1080+1920+0 -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord -scale 1776x1000 -noncache -xrandr -noclipboard -norc -scale_cursor 1 -nolookup -nossl -input M,M
 }
-function gitall() {
+function git-push-all() {
     git add .
     if [ "$1" != "" ]
     then
@@ -81,25 +81,60 @@ function gitall() {
     fi
     git push origin HEAD
 }
+
+# Aliases
+
 alias kepmegosztashd="kepmegosztas 1776x1000"
 alias kepmegosztasld="kepmegosztas 1280x720"
 #alias mondd='espeak -vhu+f2'
-alias mondd='espeak -vhu'
+alias say='espeak -vhu'
 alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'
 alias artisan="php artisan"
+alias tinker="php artisan tinker"
 alias gg="git pull && git push"
-alias kiafasztamad="sudo netstat -ntu | awk '{print $5}' | grep -iv \"[address|server]\" | grep -v ::1 | grep -v 127.0.0.1 | grep -v 10.0. | cut -d: -f1 | sort | uniq -c | sort -n"
 alias muzsika="curl -sLN http://ai-radio.org/320.opus | opusdec - - | aplay -qfdat"
-alias gitupdate='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
-alias pp='ps uxaf | most'
+alias git-update='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
+alias pp='ps uxaf'
 alias ffs='sudo `fc -n -l -1`'
-alias randomscreen='hexdump -C < /dev/urandom | grep "ca fe"'
-alias pd='popd'
-alias gitkurvanagyfileok="git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2 | cut --complement --characters=13-40 | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
-alias helyfoglalas='du -cha --max-depth=1 / | grep -E "M|G"'
-alias icat='kitty +kitten icat'
-alias valtozottfileok='git diff --name-only --relative'
-alias openports='sudo netstat -lnpt'
+alias random-screen='hexdump -e "64/1 \"%02x \" \"\n\"" < /dev/urandom'
+alias random-pw='cat /dev/urandom | tr -dc A-Za-z0-9@_-_ | head -c 16; echo " "'
+alias cpd='popd'
+alias git-large-files="git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2 | cut --complement --characters=13-40 | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
+alias large-files='sudo du -cha --max-depth=1 | grep --color=always -E "[0-9]+(M|G)"'
+alias git-changed-files='git diff --name-only --relative'
+alias net-open-ports='sudo netstat -lnpt | grep --color=never -E "(tcp|udp)"'
+alias net-open-connections="sudo netstat -ntu"
+alias net-ddos-check="sudo netstat -ntu | awk '{print $5}' | grep -iv \"[address|server]\" | grep -v ::1 | grep -v 127.0.0.1 | grep -v 10.0. | cut -d: -f1 | sort | uniq -c | sort -n"
+
+# Optional aliases
+
+if type "kitty" > /dev/null; then
+    alias icat='kitty +kitten icat'
+fi
+
+if type "entr" > /dev/null; then
+    alias watch-c='find . -type f -regex ".*[ch]$" | entr make'
+fi
+
+if type "exa" > /dev/null; then
+    alias ls="exa"
+    alias ll="exa -alh"
+    alias tree="exa --tree"
+fi
+
+if type "bat" > /dev/null; then
+    alias cat="bat -p"
+fi
+
+if type "rg" > /dev/null; then
+    alias rgrep="rg"
+fi
+
+if type "zoxide" > /dev/null; then
+    eval "$(zoxide init zsh)"
+    #alias cd="z"
+    #alias z="z -"
+fi
 
 #Magyar bill wayland alatt
 export XKB_DEFAULT_LAYOUT=hu
@@ -119,10 +154,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Ctrl+S -re ne csinaljon semmit a terminal
 stty -ixon
 
-# Oh my zsh betöltése ( ha létezik )
-if [[ -f "~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-    source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
 # NVM betöltése ( ha létezik )
 if [[ -f "/usr/share/nvm/init-nvm.sh" ]]; then
     source /usr/share/nvm/init-nvm.sh
@@ -136,4 +167,9 @@ if type "qalc" > /dev/null; then
         qalc -c \'"$@"\'
     }
     alias '?'='noglob ='
+fi
+
+# ZSH Syntax highlighting ( ha létezik, mindig a legutolsó kell hogy legyen )
+if [[ -f "$HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+    source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
