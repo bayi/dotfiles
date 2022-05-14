@@ -20,6 +20,7 @@ export PAGER=most
 export TERMINAL=kitty
 export _JAVA_AWT_WM_NONREPARENTING=1
 export XKB_DEFAULT_LAYOUT=hu
+export DEFAULT_USER=bayi
 
 # Disable CTRL+S in terminals
 stty -ixon
