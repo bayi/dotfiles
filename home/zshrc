@@ -76,6 +76,10 @@ if type "entr" > /dev/null; then
     alias watch-c='find . -type f -regex ".*[ch]$" | entr make'
 fi
 
+if type "btm" > /dev/null; then
+    alias top='btm'
+fi
+
 # Calculator
 if type "qalc" > /dev/null; then
     function =
