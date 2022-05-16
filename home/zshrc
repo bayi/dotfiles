@@ -77,7 +77,7 @@ if type "entr" > /dev/null; then
 fi
 
 if type "btm" > /dev/null; then
-    alias top='btm'
+    alias top='btm --color nord'
 fi
 
 # Calculator
