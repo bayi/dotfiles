@@ -69,7 +69,7 @@ interval=60
 # Hang
 #
 [volume]
-command=scripts/volume
+command=scripts/volume-pipewire
 interval=persist
 SUBSCRIBE=1
 signal=1
