@@ -69,7 +69,7 @@ interval=60
 # Hang
 #
 [volume]
-command=scripts/volume-pipewire
+command=scripts/volume-pipewire-2 -F "\${SYMB} \${VOL}% [\${INDEX}]"
 interval=persist
 SUBSCRIBE=1
 signal=1
