@@ -19,9 +19,14 @@
     amend = commit -a --amend
     ls = log --pretty=format:"%C(green)%ad\\ %C(yellow)%h%Cred%d\\ %Cblue[%cn]\\ %Creset%s" --decorate --date=short
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 [credential]
     helper = cache --timeout=604800
 [pull]
     rebase = true
 [commit]
     gpgSign = true
+[pack]
+	windowMemory = 100m
+	packSizeLimit = 100m
+	threads = 1
