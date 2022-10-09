@@ -7,20 +7,25 @@ set $bg-color               #000000
 set $separator-color        #666666
 
 # Color theme               Border      Background  Text        Indicator
-client.focused              #444444     #666666     #111111     #444444
+client.focused              #AA4444     #666666     #111111     #444444
 client.focused_inactive     #333333     #222222     #666666     #333333
 client.unfocused            #222222     #111111     #444444     #222222
 client.urgent               #285577     #285577     #111111     #285577
 client.background           $bg-color
 
-# Remove borders
-hide_edge_borders smart
 
-# 2px smart border no title
-default_border pixel 2
+# 1px border no title
+default_border pixel 1
+for_window [class=.*] border pixel 1
+
+# Remove borders for single windows
+hide_edge_borders smart
 
 # Center window titles
 title_align center
+
+# Display window icon
+for_window [all] title_window_icon padding 8px
 
 # Exit fullscreen on popups
 popup_during_fullscreen leave_fullscreen
@@ -29,8 +34,8 @@ popup_during_fullscreen leave_fullscreen
 gaps inner 2
 gaps outer 2
 gaps top 0
-#smart_gaps on
-smart_borders on
+smart_gaps inverse_outer
+smart_borders no_gaps
 
 # Bar
 bar {
