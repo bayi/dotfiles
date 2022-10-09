@@ -116,6 +116,9 @@ function git-diff-view() {
 }
 alias gg="git pull && git push"
 alias git-log="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias git-tree="git log --all --decorate --oneline --graph --date=relative --abbrev-commit"
+alias git-tree-long="git log --graph --abbrev-commit --decorate --date=relative --all"
+alias git-graph="git graphviz --first-parent master  | xdot -"
 alias git-update='(for l in `find . -name .git | xargs -i dirname {}` ; do cd $l; pwd; git pull; cd -; done)'
 alias git-changed-files='git diff --name-only --relative'
 alias git-large-files="git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2 | cut --complement --characters=13-40 | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
