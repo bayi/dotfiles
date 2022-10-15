@@ -7,7 +7,7 @@ set $bg-color               #000000
 set $separator-color        #666666
 
 # Color theme               Border      Background  Text        Indicator
-client.focused              #AA4444     #666666     #111111     #444444
+client.focused              #444444     #666666     #111111     #444444
 client.focused_inactive     #333333     #222222     #666666     #333333
 client.unfocused            #222222     #111111     #444444     #222222
 client.urgent               #285577     #285577     #111111     #285577
