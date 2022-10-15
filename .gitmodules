@@ -39,3 +39,6 @@
 	path = home/zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
     ignore = dirty
+[submodule "home/vim/bundle/vim-wakatime"]
+	path = home/vim/bundle/vim-wakatime
+	url = https://github.com/wakatime/vim-wakatime.git
