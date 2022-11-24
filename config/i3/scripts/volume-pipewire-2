@@ -118,7 +118,7 @@ function print_format {
 }
 
 function print_block {
-    ACTIVE=$(pactl list sinks  | grep "State\: RUNNING" -B4 -A55 | grep "Name:\|Volume: \(front-left\|mono\)\|Mute:\|api.alsa.pcm.card = \|node.nick = ")
+    ACTIVE=$(pactl list sinks  | grep "State: RUNNING" -B4 -A55 | grep "Name:\|Volume: \(front-left\|mono\)\|Mute:\|api.alsa.pcm.card = \|node.nick = ")
     for Name in NAME MUTED VOL INDEX NICK; do
         read $Name
     done < <(echo "$ACTIVE")
@@ -135,7 +135,7 @@ head -n1 |\
 sed 's/.*= "\(.*\)".*/\1/')
         NAME=${ALSA_NAME:-$NAME}
     elif [[ $USE_DESCRIPTION == 1 ]] ; then
-        DESCRIPTION=$(pactl list sinks  | grep "State\: RUNNING" -B4 -A55 | grep 'Description: ' | sed 's/^.*: //')
+        DESCRIPTION=$(pactl list sinks  | grep "State: RUNNING" -B4 -A55 | grep 'Description: ' | sed 's/^.*: //')
         NAME=${DESCRIPTION:-$NAME}
     fi
 
