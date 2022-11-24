@@ -31,13 +31,13 @@ STATUS = {
         'stop': 'systemctl --user stop vnc',
         'status': 'unknown',
     },
-    'launcher': {
-        'icon': '',
-        'color': GREEN,
-        'start': 'qdmenu',
-        'stop': 'qdmenu',
-        'status': 'running',
-    },
+#   'launcher': {
+#       'icon': '',
+#       'color': GREEN,
+#       'start': 'qdmenu',
+#       'stop': 'qdmenu',
+#       'status': 'running',
+#   },
 }
 
 def check():
