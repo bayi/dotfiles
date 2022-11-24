@@ -5,7 +5,7 @@ markup=pango
 separator=false
 align=center
 color=#268bd2
-min_width=32
+min_width=8
 
 # Active window
 #
@@ -69,7 +69,7 @@ interval=60
 # Hang
 #
 [volume]
-command=scripts/volume-pipewire-2 -F "\${SYMB} \${VOL}% [\${INDEX}]"
+command=scripts/volume-pipewire-2 -F "\${SYMB}\${VOL}% \${NAME}"
 interval=persist
 SUBSCRIBE=1
 signal=1
