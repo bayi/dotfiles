@@ -80,6 +80,7 @@ signal=1
 command=scripts/click
 interval=persist
 format=json
+align=right
 
 # Date Time
 #
@@ -87,4 +88,3 @@ format=json
 command=scripts/datetime
 interval=45
 align=right
-
