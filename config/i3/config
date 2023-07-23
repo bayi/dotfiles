@@ -154,7 +154,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Prin screen
-bindsym $mod+Print exec --no-startup-id "gnome-screenshot -i"
+#bindsym $mod+Print exec --no-startup-id "gnome-screenshot -i"
+bindsym Print exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
+bindsym Shift+Print exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
 
 # Lockscreen
 bindsym $mod+Pause exec --no-startup-id "dbus-send --session --dest=org.gnome.ScreenSaver --type=method_call --print-reply --reply-timeout=20000 /org/gnome/ScreenSaver org.gnome.ScreenSaver.SetActive boolean:true"
@@ -260,7 +262,7 @@ for_window [class="Kodi"] move container to workspace $workspaceMedia
 assign [class="Kodi"] $workspaceMedia
 
 # Files
-assign [class="Nautilus"] $workspaceFiles
+#assign [class="Nautilus"] $workspaceFiles
 
 # Zene
 for_window [title="^cmus"] move container to workspace $workspaceMedia
