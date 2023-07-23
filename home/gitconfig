@@ -21,12 +21,14 @@
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 [credential]
-	helper = /usr/lib/git-core/git-credential-libsecret
+    helper = /usr/lib/git-core/git-credential-libsecret
 [pull]
     rebase = true
 [commit]
     gpgSign = true
 [pack]
-	windowMemory = 100m
-	packSizeLimit = 100m
-	threads = 1
+    windowMemory = 100m
+    packSizeLimit = 100m
+    threads = 1
+[init]
+    defaultBranch = main
