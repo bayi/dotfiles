@@ -20,4 +20,4 @@
     ignore = dirty
 [submodule "config/nvim"]
 	path = config/nvim
-	url = https://github.com/bayi/neovim-config
+	url = https://github.com/bayi/neovim-config.git
