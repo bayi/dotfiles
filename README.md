@@ -31,6 +31,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - alacritty        -> Terminal
  - pipewire         -> Audio
  - mpv              -> Media Player
+ - maim             -> Screenshots
  ... bunch of gnome apps
 
 # Optional:
@@ -41,7 +42,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 
 ## Official repository
 ```
-pacman -S gvim zsh i3-gaps i3-gnome i3blocks nautilus mpv alacritty gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-screenshot gnome-shell gnome-usage gnome-user-share firefox gdm file-roller nautilus xorg-xrandr xorg-setxkbmap xorg-xhost xorg-xprop ttf-fira-code exa bat zoxide ripgrep fzf entr bottom
+pacman -S neovim neovim-symlinks zsh i3-wm i3-gnome i3blocks nautilus mpv alacritty gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-screenshot gnome-shell gnome-usage gnome-user-share firefox gdm file-roller nautilus xorg-xrandr xorg-setxkbmap xorg-xhost xorg-xprop ttf-fira-code exa bat zoxide ripgrep fzf entr bottom maim
 ```
 
 ## AUR
