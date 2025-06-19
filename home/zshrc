@@ -41,13 +41,6 @@ if type "exa" > /dev/null; then
     alias tree="exa --tree"
 fi
 
-if type "bat" > /dev/null; then
-    alias cat="bat -p"
-else
-    if type "batcat" > /dev/null; then
-        alias cat="batcat -p"
-    fi
-fi
 
 if type "rg" > /dev/null; then
     alias rgrep="rg"
