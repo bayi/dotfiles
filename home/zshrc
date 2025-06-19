@@ -70,12 +70,6 @@ if type "qalc" > /dev/null; then
     alias '?'='noglob ='
 fi
 
-function screen-share() {
-    x11vnc -display :0 -noxwarppointer -multiptr -forever -loop -shared -clip 1920x1080+1920+0 -nopw -ncache 10 -ncache_cr -nobell -noxdamage -noxfixes -noxrecord -scale $@ -noncache -xrandr -noclipboard -norc -scale_cursor 1 -nolookup -nossl -input M,M
-}
-
-alias screen-share-hd="screen-share 1776x1000"
-alias screen-share-ld="screen-share 1280x720"
 alias say='espeak -vhu'
 alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'
 alias artisan="php artisan"
