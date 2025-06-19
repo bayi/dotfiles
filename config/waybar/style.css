@@ -1,0 +1,103 @@
+* {
+  font-family: "FiraCode Nerd Font Propo", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+window#waybar {
+  border-bottom: 1px solid #444;
+  border-image: linear-gradient(to right, #222, #888, #222) 100;
+  background: transparent;
+  background-color: rgba(0.2,0.2,0.2,0.5);
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar > box {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+label.module {
+  margin: 0 4px;
+}
+
+.enabled {
+  color: #00f0a0;
+}
+
+.modules-center label {
+  color: #00a0f0;
+  font-weight: bold;
+}
+
+/* #cpu { color: #00a0f0; } */
+#cpu.low { color: #00f0a0; }
+#cpu.normal { color: #f0a000; }
+#cpu.high { color: #a04020; }
+#cpu.critical { color: #f04040; }
+
+/* #memory { color: #00a0f0; } */
+#memory.low { color: #00f0a0; }
+#memory.normal { color: #f0a000; }
+#memory.high { color: #a04020; }
+#memory.critical { color: #f04040; }
+
+/* #temperature { color: #00f0a0; } */
+#temperature.critical { color: #f04040; }
+
+/* #disk { color: #00a0f0; } */
+/* #disk.low { color: #00f0a0; } */
+/* #disk. { color: #f0a000; } */
+#disk.high { color: #f04040; }
+
+/* Idle Inhibitor */
+#idle_inhibitor {
+  font-weight: bold;
+  opacity: 0.8;
+  transition-property: color;
+  transition-duration: .5s;
+}
+
+#idle_inhibitor.activated {
+  opacity: 0.8;
+  color: #f04040;
+}
+
+/* Tray */
+#tray {
+  margin-top: -2px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* Clock */
+
+#clock {
+   font-weight: bold;
+   padding: 0px 8px 0px 8px;
+   color: #00a0f0;
+   opacity: 0.8;
+}
+
+/* Workspaces */
+#workspaces button.active, #workspaces button.focused {
+  color: #00a0f0;
+}
+
+#workspaces button.visible {
+  border-bottom: 1px solid #00a0fd;
+}
+
+#workspaces button.hidden {
+  color: #444;
+}
+
+#workspaces button.urgent {
+  color: #f04040;
+}

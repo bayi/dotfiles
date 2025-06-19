@@ -1,0 +1,183 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    // "height": 32, // Waybar height (to be removed for auto height)
+    "spacing": 2, // Gaps between modules (4px)
+    "modules-left": [
+        "custom/apps",
+        "hyprland/workspaces",
+        "hyprland/submap",
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "temperature",
+        "disk",
+        "backlight",
+        "battery",
+        "battery#bat2",
+        "pulseaudio",
+        "hyprland/language",
+        "network",
+        // "idle_inhibitor",
+        "custom/vnc",
+        "power-profiles-daemon",
+        "tray",
+        "clock",
+        "custom/exit"
+    ],
+
+    // Modules configuration
+    "hyprland/language": {
+    	"format-hu": " HU",
+    	"format-en": " EN",
+    	"format-us": " US",
+      "on-click": "hyprctl switchxkblayout g19s-gaming-keyboard next",
+    },
+    "disk": {
+      "interval": 30,
+      "format": " {percentage_free}%",
+      "unit": "GB",
+      "path": "/",
+      "states": {
+        "low": 25,
+        "normal": 50,
+        "high": 90
+      }
+    },
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "format": "{icon} {name}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "10": "",
+            "T": "",
+            "Z": "",
+            "U": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "idle_inhibitor": {
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "on-click-right": "hyprlock"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 4
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false,
+        "states": {
+          "low": 25,
+          "normal": 50,
+          "high": 75,
+          "critical": 90
+        }
+    },
+    "memory": {
+        "format": " {}%",
+        "states": {
+          "low": 30,
+          "normal": 50,
+          "high": 75,
+          "critical": 90
+        }
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{icon0}{icon1}{icon2} {temperatureC}°⚠",
+        "format": "{icon} {temperatureC}°",
+        "format-icons": ["", "", "<span color='#f0a000'></span>"]
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "<span color='#f0a000'></span>",
+        "balanced": "<span color='#00a0f0'></span>",
+        "power-saver": "<span color='#00f0a0'></span>"
+      }
+    },
+    "network": {
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": "",
+        "tooltip-format": " {ipaddr}/{cidr} {ifname} via {gwaddr}",
+        "format-linked": " (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "nm-connection-editor"
+    },
+    "pulseaudio": {
+        "format": "{icon}{volume}% {format_source}",
+        "format-bluetooth": "{icon}{volume}% {format_source}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/vnc": {
+      "format": "{}",
+      "return-type": "json",
+      "restart-interval": 1,
+      "exec": "~/.config/waybar/scripts/vnc.sh",
+      "on-click": "systemctl --user restart vnc.service",
+      "on-click-right": "systemctl --user stop vnc.service"
+    },
+    "custom/apps": {
+      "format": "",
+      "on-click": "fuzzel"
+    },
+    "custom/exit": {
+      "format": "",
+      "on-click": "wlogout"
+    }
+}
