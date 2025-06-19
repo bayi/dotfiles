@@ -1,0 +1,31 @@
+font=FiraCode Nerd Medium 10
+format=%s\n%b
+sort=-time
+output=HDMI-A-2
+layer=overlay
+anchor=top-right
+background-color=#101010
+width=512
+height=256
+margin=10
+padding=8
+border-size=2
+border-color=#444444
+border-radius=16
+icons=1
+max-icon-size=64
+default-timeout=15000
+ignore-timeout=0
+
+[urgency=normal]
+border-color=#00a0f0
+
+[urgency=high]
+border-color=#f04040
+default-timeout=0
+
+[summary~="log-.*"]
+border-color=#a3be8c
+
+[app-name=lightcord summary~="(.*(^| )orz|ORZ|sto|STO|otl|OTL( |$).*)"]
+invisible=1
