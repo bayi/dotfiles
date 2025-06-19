@@ -91,6 +91,7 @@ fi
 # Start Hyperland if it is installed and we are on tty1.
 if [[ $(tty) == /dev/tty1 ]]; then
   if command -v hyprctl >/dev/null && command -v uwsm >/dev/null; then
+      echo -e " * Starting Hyprland..."
       if uwsm check may-start; then
           exec uwsm start hyprland.desktop
       fi
