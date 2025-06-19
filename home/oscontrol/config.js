@@ -4,9 +4,9 @@ const machineId             = require('node-machine-id')
 const entityName            = `host-${process.env.HOSTNAME || os.hostname()}`
 
 module.exports = {
-    mqttHost: 'mqtt://10.4.1.212',
-    mqttUser: 'bayi',
-    mqttPassword: 'asstor',
+    mqttHost: process.env.MQTT_HOST || undefined,
+    mqttUser: process.env.MQTT_USER || 'anonymous',
+    mqttPassword: process.env.MQTT_PASSWORD || 'anonymous',
     entityName: entityName,
     rootTopic: `homeassistant/switch/${entityName}`,
     btnRootTopic: `homeassistant/button/${entityName}`,
