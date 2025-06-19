@@ -21,7 +21,7 @@ border-color=#00a0f0
 
 [urgency=high]
 border-color=#f04040
-default-timeout=0
+default-timeout=30000
 
 [summary~="log-.*"]
 border-color=#a3be8c
