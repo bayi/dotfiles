@@ -9,16 +9,6 @@ fi
 
 # Customize to your needs...
 
-# Variables
-export ANDROID_HOME=/home/bayi/Android/Sdk
-export XDG_CURRENT_DESKTOP=GNOME
-export EDITOR=vim
-export PAGER=most
-export TERMINAL=kitty
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XKB_DEFAULT_LAYOUT=hu
-export DEFAULT_USER=bayi
-
 # Disable CTRL+S in terminals
 stty -ixon
 
