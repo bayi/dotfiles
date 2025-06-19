@@ -8,7 +8,7 @@ installfile () {
     TARGET=$2
 
     if [ -e $TARGET ] && [ ! -L $TARGET ]; then
-        echo -e " * \e[31mSkip\e[39m: $TARGET is not a symlink. Skipping."
+        echo -e " * \e[34mSkip\e[39m: $TARGET is not a symlink. Skipping."
         return
     fi
 
