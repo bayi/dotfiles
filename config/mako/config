@@ -1,7 +1,6 @@
 font=FiraCode Nerd Medium 10
 format=%s\n%b
 sort=-time
-output=HDMI-A-2
 layer=overlay
 anchor=top-right
 background-color=#101010
