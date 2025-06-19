@@ -1,0 +1,15 @@
+[Unit]
+Description=Stable Diffusion
+
+[Service]
+ExecStart=/usr/bin/bash /data/SD/SwarmUI/SwarmUI/launch-linux.sh
+WorkingDirectory=/data/SD/SwarmUI/SwarmUI
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sd
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=default.target

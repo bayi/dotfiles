@@ -1,0 +1,12 @@
+[Unit]
+Description=Share screen of VNC
+After=network.target
+After=graphical-session.target
+
+[Service]
+#ExecStart=wayvnc 0.0.0.0 -r -v -g -f 5 -d -o HDMI-A-2
+ExecStart=wayvnc 0.0.0.0 -v -R -r -f 5 -d -o HDMI-A-2
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target

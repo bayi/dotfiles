@@ -1,0 +1,11 @@
+[Unit]
+Description=VNC Server Notifications
+After=network.target
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.bin/vnc-watcher
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target
