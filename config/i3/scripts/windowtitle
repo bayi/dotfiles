@@ -1,3 +1,0 @@
-#!/bin/bash
-#while read xtit; do echo $xtit; done < <($(dirname $0)/xtitle/xtitle -s -e)
-$(dirname $0)/xtitle/xtitle -s -e
