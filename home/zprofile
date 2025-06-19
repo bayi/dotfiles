@@ -40,10 +40,7 @@ fi
 #
 
 # Check if ~/Projektek/Webandmore/Internal exists
-if [[ -d ~/Projektek/Webandmore/Internal ]]; then
-  export WAM_SHARED=$(realpath ~/Projektek/Webandmore/Internal)
-fi
-export WAM_SHARED=$(realpath ~/Projektek/Webandmore/Internal)
+export WAM_SHARED="$HOME/Projektek/Webandmore/Internal"
 export MOZ_ENABLE_WAYLAND=1 
 export GTK_THEME=Adwaita:dark
 export WLR_DRM_DEVICES=/dev/dri/card1
