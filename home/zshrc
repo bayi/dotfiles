@@ -14,7 +14,7 @@ stty -ixon
 
 # Suffix aliases
 alias -s html=chromium
-alias -s php=vim
+alias -s php=nvim
 alias -s jpg=eog
 alias -s jpeg=eog
 alias -s png=eog
@@ -26,12 +26,12 @@ alias -s 3gp=mpv
 alias -s wmv=mpv
 alias -s zip=file-roller
 alias -s pdf=chromium
-alias -s txt=vim
-alias -s c=vim
-alias -s cpp=vim
-alias -s h=vim
-alias -s js=vim
-alias -s json=vim
+alias -s txt=nvim
+alias -s c=nvim
+alias -s cpp=nvim
+alias -s h=nvim
+alias -s js=nvim
+alias -s json=nvim
 
 # Custom functions / aliases
 
@@ -76,6 +76,7 @@ alias tinker="php artisan tinker"
 alias sf="php bin/console"
 
 # Utiilites
+alias vim='nvim'
 alias pp='ps uxaf'
 alias ffs='sudo `fc -n -l -1`'
 alias cpd='popd'
@@ -91,7 +92,7 @@ alias random-pw='cat /dev/urandom | tr -dc A-Za-z0-9@_-_ | head -c 16; echo " "'
 
 ## Git helpers
 function git-diff-view() {
-    git diff --no-ext-diff -w "$@" | vim -R -
+    git diff --no-ext-diff -w "$@" | nvim -R -
 }
 alias gg="git pull && git push"
 alias git-log="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
