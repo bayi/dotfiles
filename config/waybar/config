@@ -171,9 +171,5 @@
       "exec": "~/.config/waybar/scripts/vnc.sh",
       "on-click": "systemctl --user restart vnc.service",
       "on-click-right": "systemctl --user stop vnc.service"
-    },
-    "custom/apps": {
-      "format": "",
-      "on-click": "pkill fuzzel || fuzzel --launch-prefix='uwsm app -- ' --show-actions --counter -l 24 --use-bold --layer-overlay"
     }
 }
