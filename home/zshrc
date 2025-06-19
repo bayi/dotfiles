@@ -70,15 +70,20 @@ if type "qalc" > /dev/null; then
     alias '?'='noglob ='
 fi
 
-alias say='espeak -vhu'
-alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'
+# Dev shortcuts
 alias artisan="php artisan"
 alias tinker="php artisan tinker"
 alias sf="php bin/console"
+
+# Utiilites
 alias pp='ps uxaf'
 alias ffs='sudo `fc -n -l -1`'
 alias cpd='popd'
 alias large-files='sudo du -cha --max-depth=1 | grep --color=always -E "[0-9]+(M|G)"'
+
+# Misc
+alias say='espeak -vhu'
+alias midi='fluidsynth -a alsa -i /usr/share/soundfonts/FluidR3_GM2-2.sf2'
 
 ## Random helpers
 alias random-screen='hexdump -e "64/1 \"%02x \" \"\n\"" < /dev/urandom'
@@ -102,6 +107,14 @@ alias net-open-ports='sudo netstat -lnpt | grep --color=never -E "(tcp|udp)"'
 alias net-open-connections="sudo netstat -ntu"
 alias net-ddos-check="sudo netstat -ntu | awk '{print $5}' | grep -iv \"[address|server]\" | grep -v ::1 | grep -v 127.0.0.1 | grep -v 10.0. | cut -d: -f1 | sort | uniq -c | sort -n"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/mnt/nfs/homes/bayi/.cache/lm-studio/bin"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -117,3 +130,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# pnpm
+export PNPM_HOME="/mnt/nfs/homes/bayi/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
