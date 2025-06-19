@@ -1,0 +1,34 @@
+#!/bin/sh
+
+WAYVNCCTL=${WAYVNCCTL:-wayvncctl}
+NOTIFYID=$(notify-send -e -p -t 1 -u low "VNC" "Watcher Running ...")
+
+connection_count_now() {
+	NOTIFYID=$(notify-send -e -p -t 15000 -u critical -r $NOTIFYID "VNC" "Current clients: <span color='red'>$1</span>")
+}
+
+exec 2>/dev/null
+
+echo "Starting event watcher ..."
+while IFS= read -r EVT; do
+    case "$(jq -r '.method' <<<"$EVT")" in
+        client-*onnected)
+            count=$(jq -r '.params.connection_count' <<<"$EVT")
+            echo "Current connected clients: $count"
+            connection_count_now "$count"
+            ;;
+        wayvnc-shutdown)
+            notify-send -e -t 3000 -u normal "VNC" "no longer running"
+            echo "VNC Stopped."
+            connection_count_now 0
+            ;;
+        wayvnc-startup)
+            echo "VNC Started."
+            notify-send -e -t 3000 -u normal "VNC" "ready"
+            ;;
+        *)
+            sleep 1
+            ;;
+    esac
+done < <("$WAYVNCCTL" --wait --reconnect --json event-receive)
+
