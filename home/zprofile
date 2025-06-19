@@ -88,6 +88,8 @@ if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
+if commands -v hyprctl >/dev/null && commands -v uwsm >/dev/null; then
+    if ! uwsm check is-running hyprland.desktop; then
+        uwsm start hyprland.desktop
+    fi
 fi
