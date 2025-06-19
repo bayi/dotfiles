@@ -174,6 +174,6 @@
     },
     "custom/apps": {
       "format": "",
-      "on-click": "pkill fuzzel || fuzzel"
+      "on-click": "pkill fuzzel || fuzzel --launch-prefix='uwsm app -- ' --show-actions --counter -l 24 --use-bold --layer-overlay"
     }
 }
