@@ -113,7 +113,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/mnt/nfs/homes/bayi/.cache/lm-studio/bin"
+export PATH="$PATH:$HOME/.cache/lm-studio/bin"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -131,7 +131,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # pnpm
-export PNPM_HOME="/mnt/nfs/homes/bayi/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
