@@ -3,7 +3,7 @@ Description=System Control Service
 After=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/node %h/.oscontrol/index.js
+ExecStart=/usr/bin/node --env-file=%h/.oscontrol/.env %h/.oscontrol/index.js
 WorkingDirectory=%h/.oscontrol
 Restart=always
 RestartSec=10
