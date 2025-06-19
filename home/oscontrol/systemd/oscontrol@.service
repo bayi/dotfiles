@@ -1,0 +1,17 @@
+[Unit]
+Description=System Control Service
+
+[Service]
+ExecStart=/usr/bin/node /home/%i/.oscontrol/index.js
+WorkingDirectory=/home/%i/.oscontrol
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=oscontrol
+User=%i
+Group=%i
+Environment=NODE_ENV=production HOSTNAME=
+
+[Install]
+WantedBy=multi-user.target

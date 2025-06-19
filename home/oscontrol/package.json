@@ -1,0 +1,15 @@
+{
+  "name": "oscontrol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bayi",
+  "license": "MIT",
+  "dependencies": {
+    "mqtt": "^5.7.0",
+    "node-machine-id": "^1.1.12"
+  }
+}

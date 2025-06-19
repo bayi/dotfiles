@@ -3,8 +3,8 @@ Description=System Control Service
 After=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/node %h/Projektek/Private/oscontrol2/index.js
-WorkingDirectory=%h/Projektek/Private/oscontrol2
+ExecStart=/usr/bin/node %h/.oscontrol/index.js
+WorkingDirectory=%h/.oscontrol
 Restart=always
 RestartSec=10
 StandardOutput=journal
