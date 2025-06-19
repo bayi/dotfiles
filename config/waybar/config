@@ -174,10 +174,6 @@
     },
     "custom/apps": {
       "format": "",
-      "on-click": "fuzzel"
-    },
-    "custom/exit": {
-      "format": "",
-      "on-click": "wlogout"
+      "on-click": "pkill fuzzel || fuzzel"
     }
 }
