@@ -1,34 +1,38 @@
 [user]
-    email = bayi@bayi.hu
-    name = Bayi
-    signingKey = 383B9BA6C1F2F5643F1B3C30FC1B0679F450C368
-[push]
-    default = simple
-[color]
-    ui = true
-[diff]
-    tool = meld
-[pager]
-    diff =
-[difftool]
-    prompt = false
-[alias]
-    d = difftool
-    cm = !git add -A && git commit -m
-    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
-    amend = commit -a --amend
-    ls = log --pretty=format:"%C(green)%ad\\ %C(yellow)%h%Cred%d\\ %Cblue[%cn]\\ %Creset%s" --decorate --date=short
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
-[credential]
-    helper = /usr/lib/git-core/git-credential-libsecret
-[pull]
-    rebase = true
-[commit]
-    gpgSign = true
-[pack]
-    windowMemory = 100m
-    packSizeLimit = 100m
-    threads = 1
+  email = bayi@bayi.hu
+  name = Bayi
+  signingKey = 383B9BA6C1F2F5643F1B3C30FC1B0679F450C368
 [init]
-    defaultBranch = main
+  defaultBranch = main
+[core]
+	excludesFile = ~/.gitignore
+[push]
+  default = simple
+[pull]
+  rebase = true
+[commit]
+  gpgSign = true
+[color]
+  ui = true
+[diff]
+  tool = meld
+[pager]
+  diff =
+[difftool]
+  prompt = false
+[alias]
+  d = difftool
+  cm = !git add -A && git commit -m
+  up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+  amend = commit -a --amend
+  ls = log --pretty=format:"%C(green)%ad\\ %C(yellow)%h%Cred%d\\ %Cblue[%cn]\\ %Creset%s" --decorate --date=short
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+[credential]
+  helper = /usr/lib/git-core/git-credential-libsecret
+[pack]
+  windowMemory = 100m
+  packSizeLimit = 100m
+  threads = 1
+[safe]
+  directory = *
