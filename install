@@ -7,6 +7,11 @@ installfile () {
     SOURCE=$1
     TARGET=$2
 
+    if [ -e $TARGET ] && [ ! -L $TARGET ]; then
+        echo -e " * \e[31mSkip\e[39m: $TARGET is not a symlink. Skipping."
+        return
+    fi
+
     if [ -e $TARGET ]; then
         echo -e " * \e[31mDelete\e[39m: $TARGET"
         rm -f $TARGET || true
