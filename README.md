@@ -8,31 +8,28 @@ Install to: `~/.dotfiles` and edit `install` file and change the path.
 - To install/update the config files, run: `./install`
 
 # Update
-- git submodule foreach git pull origin master or run `./update-modules`
+- run `./update-modules`
 
 # Configuration
 To enable/disable modules edit `install` file. Also if you want you can set the `path=` variable in `Zsh/zshrc`.
 
-# xorg needed packages:
- - xorg-setxkbmap   -> Keyboard language management
- - xorg-xrandr      -> Multi monitor management
+## Basic requirements
+ - zsh              -> Shell
+ - neovim           -> Text editor
+ - git              -> Version control
+
+## Window manager
+ - uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc fuzzel mako cliphist
 
 # Fonts:
- - ttf-fira-code    -> Main font
+ - ttf-firacode-ned -> Main font
  - ttf-font-awesome -> Icon font
 
 # Apps:
- - zsh              -> Shell
- - i3-gaps          -> Window manager
- - i3blocks         -> Status bar
- - vim/neovim       -> Text editor
  - nautilus         -> File manager
- - qdmenu           -> App launcher
  - alacritty        -> Terminal
  - pipewire         -> Audio
  - mpv              -> Media Player
- - maim             -> Screenshots
- ... bunch of gnome apps
 
 # Optional:
  - libqalculate     -> Calculator support, used as an alias in the shell with "?"
@@ -42,10 +39,5 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 
 ## Official repository
 ```
-pacman -S neovim neovim-symlinks zsh i3-wm i3-gnome i3blocks nautilus mpv alacritty gnome-calendar gnome-clocks gnome-contacts gnome-control-center gnome-disk-utility gnome-flashback gnome-keyring gnome-logs gnome-screenshot gnome-shell gnome-usage gnome-user-share firefox gdm file-roller nautilus xorg-xrandr xorg-setxkbmap xorg-xhost xorg-xprop ttf-fira-code exa bat zoxide ripgrep fzf entr bottom maim
-```
-
-## AUR
-```
-yay -S qdmenu
+    sudo pacman -S zsh git neovim uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc fuzzel mako cliphist ttf-firacode-ned ttf-font-awesome alacritty mpv meld file-roller imv
 ```
