@@ -30,6 +30,11 @@ label.module {
   font-weight: bold;
 }
 
+#window,
+#workspaces {
+    margin: 0 0;
+}
+
 #cpu { color: #00a0f0; }
 #cpu.low { color: #00f0a0; }
 #cpu.normal { color: #f0a000; }
