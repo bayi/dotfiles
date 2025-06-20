@@ -30,25 +30,31 @@ label.module {
   font-weight: bold;
 }
 
-/* #cpu { color: #00a0f0; } */
+#cpu { color: #00a0f0; }
 #cpu.low { color: #00f0a0; }
 #cpu.normal { color: #f0a000; }
 #cpu.high { color: #a04020; }
 #cpu.critical { color: #f04040; }
 
-/* #memory { color: #00a0f0; } */
+#memory { color: #00a0f0; }
 #memory.low { color: #00f0a0; }
 #memory.normal { color: #f0a000; }
 #memory.high { color: #a04020; }
 #memory.critical { color: #f04040; }
 
-/* #temperature { color: #00f0a0; } */
+#temperature { color: #00f0a0; }
 #temperature.critical { color: #f04040; }
 
-/* #disk { color: #00a0f0; } */
-/* #disk.low { color: #00f0a0; } */
-/* #disk. { color: #f0a000; } */
+#disk { color: #00a0f0; }
+#disk.low { color: #00f0a0; }
+#disk. { color: #f0a000; }
 #disk.high { color: #f04040; }
+
+#wireplumber, #pulseaudio { color: #888888; }
+
+#language {
+  color: #007464;
+}
 
 /* Idle Inhibitor */
 #idle_inhibitor {

@@ -12,9 +12,9 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "temperature",
         "cpu",
         "memory",
-        "temperature",
         "disk",
         "backlight",
         "battery",
