@@ -2,6 +2,7 @@
 Description=Random Background timer for %i
 
 [Timer]
+OnBootSec=15min
 OnUnitActiveSec=1h
 
 [Install]
