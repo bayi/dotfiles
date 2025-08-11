@@ -41,11 +41,11 @@ fi
 
 # Check if ~/Projektek/Webandmore/Internal exists
 export WAM_SHARED="$HOME/Projektek/Webandmore/Internal"
-export MOZ_ENABLE_WAYLAND=1 
+#export MOZ_ENABLE_WAYLAND=1 
+#export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export GTK_THEME=Adwaita:dark
 export WLR_DRM_DEVICES=/dev/dri/card1
 export GSK_RENDERER=ngl
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export NVM_DIR="$HOME/.nvm"
 
 #
