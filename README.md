@@ -19,7 +19,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - git              -> Version control
 
 ## Window manager
- - uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc fuzzel mako cliphist
+ - uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc wofi mako cliphist
 
 # Fonts:
  - ttf-firacode-ned -> Main font
