@@ -23,7 +23,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 
 # Fonts:
  - ttf-firacode-ned -> Main font
- - ttf-font-awesome -> Icon font
+ - otf-font-awesome -> Icon font
 
 # Apps:
  - nautilus         -> File manager
@@ -39,5 +39,5 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 
 ## Official repository
 ```
-    sudo pacman -S zsh git neovim uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc fuzzel mako cliphist ttf-firacode-ned ttf-font-awesome alacritty mpv meld file-roller imv
+    sudo pacman -S zsh git neovim uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc fuzzel mako cliphist ttf-firacode-ned otf-font-awesome alacritty mpv meld file-roller imv
 ```
