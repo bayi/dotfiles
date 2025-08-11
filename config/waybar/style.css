@@ -1,6 +1,6 @@
 * {
   font-family: "FiraCode Nerd Font Propo", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 window#waybar {
@@ -32,7 +32,7 @@ label.module {
 
 #window,
 #workspaces {
-    margin: 0 0;
+  margin: 0 0;
 }
 
 #cpu { color: #00a0f0; }
