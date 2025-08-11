@@ -1,4 +1,4 @@
 #/bin/sh
 systemctl --user restart waybar
-#sleep 1
-#systemctl --user restart mako
+sleep 1
+systemctl --user restart mako
