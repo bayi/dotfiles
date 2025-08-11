@@ -1,0 +1,12 @@
+/* CSS variables for Waybar
+@import url("colors.css");
+*/
+
+@define-color foreground #00a0f0;
+@define-color success #00f0a0;
+@define-color warning #f0a000;
+@define-color error   #a04020;
+@define-color urgent #f04040;
+@define-color color0  #323232;
+@define-color color1  #646464;
+@define-color color2  #cccccc;
