@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+directory=${1:-$HOME/Képek}
+monitor=${2:-HDMI-A-1}
+monitors=`hyprctl monitors | grep Monitor | awk '{print $2}'`
+
+if ! echo "$monitors" | grep -q "$monitor"; then
+    monitor=$(echo "$monitors" | head -n 1 | awk '{print $1}')
+fi
+
+images=$(find "$directory" -type f \( -iname "*.jpg" -name "*.jpeg" -o -iname "*.png" \))
+
+if [ -d "$directory" ]; then
+    currentimages=`hyprctl hyprpaper listactive | awk '{print $3}'`
+    image=$(echo "$images" | shuf -n 1)
+    printf " * Selected image: $image\n"
+    while echo "$currentimages" | grep -q "$image"; do
+      image=$(echo "$images" | shuf -n 1)
+      printf " ** Selected image: $image\n"
+    done
+    printf " * Changing background for monitor: $monitor\n"
+    hyprctl hyprpaper unload all > /dev/null
+    hyprctl hyprpaper preload $image > /dev/null
+    hyprctl hyprpaper wallpaper "$monitor, $image" > /dev/null
+fi
+
