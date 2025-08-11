@@ -19,7 +19,7 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
  - git              -> Version control
 
 ## Window manager
- - uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc wofi dunst cliphist
+ - uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc wofi mako cliphist
 
 # Fonts:
  - ttf-firacode-ned -> Main font
@@ -39,5 +39,5 @@ To enable/disable modules edit `install` file. Also if you want you can set the 
 
 ## Official repository
 ```
-    sudo pacman -S zsh git neovim uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc dunst wofi cliphist ttf-firacode-ned otf-font-awesome alacritty mpv meld file-roller imv
+    sudo pacman -S zsh git neovim uwsm hyprland hyprpaper hyprpicker hypridle hyprshot waybar wayvnc mako wofi cliphist ttf-firacode-ned otf-font-awesome alacritty mpv meld file-roller imv
 ```
