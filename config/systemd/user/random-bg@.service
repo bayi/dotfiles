@@ -1,0 +1,11 @@
+[Unit]
+Description=Random Background on %i
+After=graphical-session-pre.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+IOSchedulingClass=idle
+WorkingDirectory=~
+ExecStart=%h/.bin/random-background %h/.dotfiles/assets %i
+StandardOutput=null
