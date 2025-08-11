@@ -45,6 +45,7 @@ export MOZ_ENABLE_WAYLAND=1
 export GTK_THEME=Adwaita:dark
 export WLR_DRM_DEVICES=/dev/dri/card1
 export GSK_RENDERER=ngl
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export NVM_DIR="$HOME/.nvm"
 
 #
