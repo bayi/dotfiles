@@ -10,7 +10,7 @@ if ! echo "$monitors" | grep -q "$monitor"; then
     monitor=$(echo "$monitors" | head -n 1 | awk '{print $1}')
 fi
 
-images=$(find "$directory" -type f \( -iname "*.jpg" -name "*.jpeg" -o -iname "*.png" \))
+images=$(find "$directory" -type f -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png")
 
 if [ -d "$directory" ]; then
     currentimages=`hyprctl hyprpaper listactive | awk '{print $3}'`
