@@ -1,0 +1,15 @@
+[Unit]
+Description=SillyTavern
+
+[Service]
+ExecStart=/usr/bin/bash start.sh
+WorkingDirectory=/mnt/nfs/homes/bayi/Containers/AI/sillytavern/SillyTavern
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ST
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=default.target

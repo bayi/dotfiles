@@ -1,0 +1,13 @@
+[Unit]
+Description=Setup a secure tunnel to %I
+After=network.target
+
+[Service]
+WorkingDirectory=%h
+RestartSec=15
+Restart=always
+KillMode=mixed
+ExecStart=/usr/bin/ssh -F .tunnels/secure-tunnel.config -NT %i
+
+[Install]
+WantedBy=multi-user.target

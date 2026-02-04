@@ -1,0 +1,28 @@
+[Unit]
+Description=phpMyAdmin for %I
+After=network.target
+Requires=ssh-tunnel@%i.service
+PropagatesReloadTo=ssh-tunnel@%i.service
+PropagatesStopTo=ssh-tunnel@%i.service
+
+[Service]
+WorkingDirectory=%h
+Environment=DB_HOST=127.0.0.1
+Environment=DB_PORT=3306
+Environment=DB_USER=app
+Environment=DB_PASSWORD=password
+EnvironmentFile=%h/.tunnels/%i.env
+ExecStart=docker run --rm \
+    --name=pma-%i \
+    --network=host \
+    -e PMA_ARBITRARY=1 \
+    -e PMA_HOST=${DB_HOST} \
+    -e PMA_PORT=${DB_PORT} \
+    -e PMA_USER=${DB_USER} \
+    -e PMA_PASSWORD=${DB_PASSWORD} \
+    phpmyadmin/phpmyadmin:latest
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
