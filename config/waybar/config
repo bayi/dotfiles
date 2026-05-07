@@ -6,7 +6,7 @@
     "modules-left": [
         "custom/apps",
         "hyprland/workspaces",
-        "hyprland/submap",
+        "hyprland/submap"
     ],
     "modules-center": [
         "hyprland/window"
@@ -22,6 +22,7 @@
         "battery#bat2",
         // "idle_inhibitor",
         "custom/vnc",
+        "custom/animbg",
         "power-profiles-daemon",
         "hyprland/language",
         "tray",
@@ -62,7 +63,7 @@
     	"format-hu": " HU",
     	"format-en": " EN",
     	"format-us": " US",
-      "on-click": "hyprctl switchxkblayout g19s-gaming-keyboard next",
+      "on-click": "hyprctl switchxkblayout g19s-gaming-keyboard next"
     },
 
     "idle_inhibitor": {
@@ -93,7 +94,7 @@
       },
       "modules": [
         "cpu",
-        "temperature",
+        "temperature"
       ]
     },
     "cpu": {
@@ -191,7 +192,7 @@
           "<span size='12.5pt'></span>"
         ],
         "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "tooltip": false,
+        "tooltip": false
     },
     "battery": {
         "interval": 10,
@@ -305,5 +306,13 @@
       "exec": "~/.config/waybar/scripts/vnc.sh",
       "on-click": "systemctl --user restart vnc.service",
       "on-click-right": "systemctl --user stop vnc.service"
+    },
+    "custom/animbg": {
+      "format": "{}",
+      "return-type": "json",
+      "restart-interval": 1,
+      "exec": "~/.config/waybar/scripts/animbg.sh",
+      "on-click": "systemctl --user start animated-bg@HDMI-A-2",
+      "on-click-right": "systemctl --user stop animated-bg@HDMI-A-2"
     }
 }
