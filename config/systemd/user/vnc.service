@@ -5,7 +5,8 @@ After=graphical-session.target
 
 [Service]
 #ExecStart=wayvnc 0.0.0.0 -r -v -g -f 5 -d -o HDMI-A-2
-ExecStart=wayvnc 0.0.0.0 5700 -v -R -r -f 5 -d -o HDMI-A-2
+# -d disable input
+ExecStart=env DRI_PRIME=1 MESA_VK_DEVICE_SELECT=10de:2489 __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia wayvnc 0.0.0.0 5700 -v -g -R -r -f 10 -o HDMI-A-2
 Restart=always
 
 [Install]
