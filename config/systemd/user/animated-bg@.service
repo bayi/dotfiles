@@ -1,0 +1,12 @@
+[Unit]
+Description=Animated Wallpaper
+After=graphical-session-pre.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+IOSchedulingClass=idle
+WorkingDirectory=~
+ExecStart=linux-wallpaperengine --fps 30 --scaling fill --screen-root %i 3714859353
+StandardOutput=null
+StandardError=null
