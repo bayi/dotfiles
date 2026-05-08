@@ -56,8 +56,9 @@ if type "entr" > /dev/null; then
     alias watch-c='find . -type f -regex ".*[ch]$" | entr make'
 fi
 
-if type "btm" > /dev/null; then
-    alias top='btm --theme nord'
+if type "btop" > /dev/null; then
+    #alias top='btm --theme nord'
+    alias top='btop -u 100'
 fi
 
 # Calculator
