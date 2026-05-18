@@ -52,6 +52,7 @@
             "default": "",
             "special": "󰍛"
         },
+        "show-special": true,
         "sort-by-number": true,
         "all-outputs": false,
         "persistent_workspaces": {
