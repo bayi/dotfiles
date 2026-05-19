@@ -72,8 +72,7 @@
         "icon": true,
         "icon-size": 16,
         "rewrite": {
-          "(.*) — Mozilla Firefox": "$1",
-          "TeamSpeak 3": "🗣"
+          "(.*) — Mozilla Firefox": "$1"
         }
     },
 
