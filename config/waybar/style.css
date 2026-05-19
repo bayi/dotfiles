@@ -104,6 +104,19 @@ window#waybar > box {
   animation: urgent-pulse 1s ease infinite;
 }
 
+#workspaces .taskbar-window {
+  padding: 0;
+  margin: 0;
+}
+
+#workspaces .taskbar-window.active {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#workspaces .taskbar-window image {
+  margin-top: 0px;
+}
+
 @keyframes urgent-pulse {
   0% { opacity: 0.5; }
   100% { opacity: 1; }

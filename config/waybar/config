@@ -26,8 +26,8 @@
         "power-profiles-daemon",
         "hyprland/language",
         "tray",
-        "clock",
-        "custom/exit"
+        "clock"
+        // "custom/exit"
     ],
 
     // Modules configuration
@@ -38,7 +38,7 @@
       "on-click-right": "wofi"
     },
     "hyprland/workspaces": {
-        "format": "{icon} {name}",
+        "format": "{icon} {name}{windows}",
         "format-icons": {
             "1": "",
             "2": "",
@@ -57,6 +57,23 @@
         "all-outputs": false,
         "persistent_workspaces": {
           "*": 4
+        },
+        "workspace-taskbar": {
+          "enable": true,
+          "update-active-window": true,
+          "format": "{icon}{title:.12}",
+          "icon-size": 16,
+          "ignore-list": [ ".* — Mozilla Firefox" ]
+        }
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 16,
+        "rewrite": {
+          "(.*) — Mozilla Firefox": "$1",
+          "TeamSpeak 3": "🗣"
         }
     },
 
