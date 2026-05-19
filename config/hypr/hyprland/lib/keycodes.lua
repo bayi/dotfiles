@@ -1,0 +1,5 @@
+MouseLeft = "mouse:272"
+MouseRight = "mouse:273"
+MouseMiddle = "mouse:274"
+MouseBack = "mouse:275"
+MouseForward = "mouse:276"
