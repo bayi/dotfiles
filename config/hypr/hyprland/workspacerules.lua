@@ -7,7 +7,7 @@ hl.workspace_rule({
   no_border = true,
   no_shadow = true,
   decorate = false,
-  persistent = true,
+  -- persistent = true,
 })
 
 -- Chat workspace

@@ -25,6 +25,7 @@ hl.window_rule({
   decorate = false,
   no_anim = true,
   rounding = 0,
+  workspace = "3",
   tag = "+focus",
 })
 
@@ -61,7 +62,7 @@ hl.window_rule({
 hl.window_rule({
   name = "Game Rules",
   match = {
-    class = "^(Minecraft.+)$"
+    class = "^(Minecraft.+|PRAGMATA)$"
   },
   tag = "+game",
 })
