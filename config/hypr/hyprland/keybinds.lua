@@ -52,8 +52,8 @@ hl.bind(MainMod .. " + U", hl.dsp.focus({ workspace = "name:U"}), { description 
 hl.bind(MainMod .. " + SHIFT + U", hl.dsp.window.move({ workspace = "name:U"}), { description = "Workspace: Move to U" })
 
 -- Special workspace (scratchpad)
-hl.bind(MainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:special", follow = false }), { description = "Workspace: Move to scratchpad" })
-hl.bind(MainMod .. " + S", hl.dsp.workspace.toggle_special("special"), { description = "Workspace: Focus scratchpad" })
+hl.bind(MainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:", follow = false }), { description = "Workspace: Move to scratchpad" })
+hl.bind(MainMod .. " + S", hl.dsp.workspace.toggle_special(""), { description = "Workspace: Focus scratchpad" })
 
 -- Toggle side monitors with SUPORT + SHIFT + M
 -- local sideMonitors = { "DP-3", "DP-2" }
