@@ -3,7 +3,7 @@
 set -e
 
 directory=${1:-$HOME/Képek}
-monitor=${2:-HDMI-A-1}
+monitor=${2:-HDMI-A-2}
 monitors=`hyprctl monitors | grep Monitor | awk '{print $2}'`
 
 if ! echo "$monitors" | grep -q "$monitor"; then
