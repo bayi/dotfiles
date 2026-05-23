@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+
+hyprctl hyprpaper wallpaper "HDMI-A-2, /mnt/nfs/homes/bayi/.dotfiles/assets/desktop.jpg,fit"
