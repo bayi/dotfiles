@@ -21,7 +21,7 @@ hl.window_rule({
   content = "game",
   -- fullscreen = true,
   maximize = true,
-  immediate = true,
+  -- immediate = true,
   decorate = false,
   no_anim = true,
   rounding = 0,
