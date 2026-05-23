@@ -60,9 +60,17 @@ hl.window_rule({
 -- })
 
 hl.window_rule({
-  name = "Game Rules",
+  name = "Minecraft Rules",
   match = {
-    class = "^(Minecraft.+|PRAGMATA)$"
+    class = "^(Minecraft.+)$"
+  },
+  tag = "+game",
+})
+
+hl.window_rule({
+  name = "Steam Game Rules",
+  match = {
+    class = "^(steam_app_.+)$"
   },
   tag = "+game",
 })
