@@ -4,6 +4,7 @@ require("hyprland.environment")
 require("hyprland.autostart")
 require("hyprland.general")
 require("hyprland.monitors")
--- rules
+require("hyprland.windowrules")
+require("hyprland.workspacerules")
 require("hyprland.colors")
 require("hyprland.keybinds")
