@@ -101,7 +101,7 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
         "format-alt": "{:%Y-%m-%d}",
         "interval": 60,
-        "on-click": "qs ipc call calendar toggle"
+        "on-click": "qs -c bayios ipc call calendar toggle"
     },
     "group/core": {
       "orientation": "inherit",
