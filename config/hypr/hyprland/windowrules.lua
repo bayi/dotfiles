@@ -1,14 +1,17 @@
 -- Tags
+hl.window_rule({
+  match = { tag = "focus" },
+  no_blur = true,
+  no_dim = true,
+  no_shadow = true,
+  opacity = "1.0 1.0 override",
+  opaque = true,
+})
 
 hl.window_rule({
   match = { tag = "floating" },
   float = true,
   persistent_size = true,
-  tag = "+focus",
-})
-
-hl.window_rule({
-  match = { tag = "focus" },
   no_blur = true,
   no_dim = true,
   no_shadow = true,
@@ -26,7 +29,11 @@ hl.window_rule({
   no_anim = true,
   rounding = 0,
   workspace = "3",
-  tag = "+focus",
+  no_blur = true,
+  no_dim = true,
+  no_shadow = true,
+  opacity = "1.0 1.0 override",
+  opaque = true,
 })
 
 -- Rules
@@ -62,7 +69,7 @@ hl.window_rule({
 hl.window_rule({
   name = "Minecraft Rules",
   match = {
-    class = "^Minecraft.+$"
+    title = "^Minecraft.+$"
   },
   tag = "+game",
 })
