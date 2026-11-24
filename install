@@ -39,13 +39,12 @@ wanted() {
         home/z*)                        has zsh ;;
         home/vimrc)                     has vim && ! has nvim ;;
         home/oscontrol)                 desktop && has node ;;
-        config/nvim|config/nvim-new)    has nvim ;;
+        config/nvim)                    has nvim ;;
         config/hypr|config/uwsm)        desktop ;;
         config/mimeapps.list)           desktop ;;
         config/waybar)                  has waybar ;;
         config/mako)                    has mako ;;
         config/wofi)                    has wofi ;;
-        config/fuzzel)                  has fuzzel ;;
         config/systemd)                 has systemctl ;;
         *)                              true ;;
     esac

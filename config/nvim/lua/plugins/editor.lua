@@ -26,7 +26,20 @@ return {
     cmd = "Telescope",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
     keys = {
-      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Fájl keresés" },
+      {
+        "<leader>ff",
+        function()
+          local builtin = require "telescope.builtin"
+          -- rg/fd tiszteli a .gitignore-t. Ha egyik sincs, a telescope sima find-ra esne vissza
+          -- (vendor, node_modules és társai is jönnének) — git repóban ilyenkor a git listáz.
+          if caps.ripgrep or caps.has "fd" then
+            builtin.find_files()
+          elseif not pcall(builtin.git_files, { show_untracked = true }) then
+            builtin.find_files()
+          end
+        end,
+        desc = "Fájl keresés",
+      },
       { "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>", desc = "Fájl keresés (mind)" },
       {
         "<leader>fw",
