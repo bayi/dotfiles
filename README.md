@@ -1,17 +1,24 @@
 
-# Important!
-Install to: `~/.dotfiles` and edit `install` file and change the path.
-
 # Installation
 - `git clone --recursive https://github.com/bayi/dotfiles.git ~/.dotfiles`
-- cd ~/.dotfiles
+- `cd ~/.dotfiles`
 - To install/update the config files, run: `./install`
 
-# Update
-- run `./update-modules`
+The installer only symlinks what makes sense on the given host: `home/<name>` goes to `~/.<name>`,
+`config/<name>` to `~/.config/<name>`, and each entry can have a condition (see `wanted()` in `install`) —
+e.g. the Hyprland config is only linked where Hyprland is installed, the nvim config only where nvim is.
+Real files/directories are never touched, only symlinks.
 
-# Configuration
-To enable/disable modules edit `install` file. Also if you want you can set the `path=` variable in `Zsh/zshrc`.
+- `./install -n` — dry-run, only prints what it would do
+- `./install --prune` — also removes symlinks pointing into `~/.dotfiles` that are not needed on this host
+  or whose source is gone. Careful with a shared (NFS) home: run it on the desktop machine.
+
+# Update
+- `git pull && git submodule update --init --recursive && ./install`
+
+# Wallpapers
+Not stored in the repo. `home/bin/fetch-wallpapers` downloads the files listed in `wallpapers.list`
+into `~/.dotfiles/assets` (only on hosts with Wayland/Hyprland; `./install` runs it).
 
 ## Basic requirements
  - zsh              -> Shell

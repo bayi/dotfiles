@@ -1,34 +1,126 @@
-#!/bin/zsh
+#!/bin/sh
+# Dotfiles telepítő: symlinkeket rak a home-ba, de csak azt, aminek az adott gépen értelme van.
+#
+#   home/<név>    ->  ~/.<név>
+#   config/<név>  ->  ~/.config/<név>
+#
+#   ./install            linkel (ami valódi fájl/mappa a célhelyen, ahhoz nem nyúl)
+#   ./install -n         csak kiírja, mit csinálna (dry-run)
+#   ./install --prune    leszedi azokat a ~/.dotfiles-ba mutató symlinkeket is,
+#                        amik ezen a gépen nem kellenek, vagy a forrásuk megszűnt
+#
+# Törölni kizárólag symlinket töröl, soha nem valódi fájlt.
+#
+# FIGYELEM, közös (NFS) home: ha több gép ugyanazt a home-ot látja, a --prune azt
+# szedi le, ami AZON a gépen nem kell, ahol futtatod — a többi gépről is eltűnik.
+# Ilyenkor a "legtöbbet tudó" gépen (desktop) futtasd.
 
-# Folder where this repository is
-DIR=~/.dotfiles
+DIR=$(cd "$(dirname "$0")" && pwd)
+DRY=0
+PRUNE=0
 
-installfile () {
-    SOURCE=$1
-    TARGET=$2
+for arg in "$@"; do
+    case "$arg" in
+        -n|--dry-run) DRY=1 ;;
+        --prune)      PRUNE=1 ;;
+        -h|--help)    sed -n '2,17p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        *)            echo "Ismeretlen kapcsoló: $arg (lásd: ./install --help)" >&2; exit 2 ;;
+    esac
+done
 
-    if [ -e $TARGET ] && [ ! -L $TARGET ]; then
-        echo -e " * \e[34mSkip\e[39m: $TARGET is not a symlink. Skipping."
+has()     { command -v "$1" >/dev/null 2>&1; }
+desktop() { has hyprctl || has Hyprland; }
+
+# Kell-e ez a bejegyzés ezen a gépen? $1 = "home/<név>" vagy "config/<név>"
+# Ami itt nincs felsorolva, az mindenhova megy.
+wanted() {
+    case "$1" in
+        home/gitconfig|home/gitignore)  has git ;;
+        home/z*)                        has zsh ;;
+        home/vimrc)                     has vim && ! has nvim ;;
+        home/oscontrol)                 desktop && has node ;;
+        config/nvim)                    has nvim ;;
+        config/hypr|config/uwsm)        desktop ;;
+        config/mimeapps.list)           desktop ;;
+        config/waybar)                  has waybar ;;
+        config/mako)                    has mako ;;
+        config/wofi)                    has wofi ;;
+        config/fuzzel)                  has fuzzel ;;
+        config/systemd)                 has systemctl ;;
+        *)                              true ;;
+    esac
+}
+
+say() { printf ' * \033[%sm%s\033[0m: %s\n' "$1" "$2" "$3"; }
+
+# Symlink törlése. Csak akkor nyúl hozzá, ha tényleg symlink.
+unlink_it() {
+    [ -L "$1" ] || return 1
+    [ "$DRY" -eq 1 ] && return 0
+    rm -f -- "$1"
+}
+
+link() {
+    entry=$1 source=$2 target=$3
+
+    if ! wanted "$entry"; then
+        if [ -L "$target" ] && [ "$(readlink "$target")" = "$source" ]; then
+            if [ "$PRUNE" -eq 1 ]; then
+                say 31 'Törlés' "$target (ezen a gépen nem kell)"
+                unlink_it "$target"
+            else
+                say 34 'Maradt' "$target (ezen a gépen nem kell; --prune leszedi)"
+            fi
+        fi
         return
     fi
 
-    if [ -e $TARGET ]; then
-        echo -e " * \e[31mDelete\e[39m: $TARGET"
-        rm -f $TARGET || true
+    if [ -L "$target" ]; then
+        [ "$(readlink "$target")" = "$source" ] && return   # már jó helyre mutat
+        say 31 'Csere' "$target (eddig: $(readlink "$target"))"
+        unlink_it "$target"
+    elif [ -e "$target" ]; then
+        say 34 'Kihagyva' "$target nem symlink, nem nyúlok hozzá"
+        return
     fi
 
-    echo -e " * \e[33mLinking\e[39m: $SOURCE \t->\t $TARGET"
-    ln -s $SOURCE $TARGET
+    say 33 'Link' "$target -> $source"
+    [ "$DRY" -eq 1 ] || ln -s "$source" "$target"
 }
 
-for ENTRY in "$DIR/home"/*; do
-    echo -e "[\e[32mhome\e[39m] installing $ENTRY"
-    installfile $ENTRY ~/.${ENTRY##*/}
+[ "$DRY" -eq 1 ] && echo "Dry-run: semmi nem változik."
+
+for source in "$DIR"/home/*; do
+    name=${source##*/}
+    link "home/$name" "$source" "$HOME/.$name"
 done
 
-mkdir -p ~/.config
+[ "$DRY" -eq 1 ] || mkdir -p "$HOME/.config"
 
-for ENTRY in "$DIR/config"/*; do
-    echo -e "[\e[32m.config\e[39m] installing $ENTRY"
-    installfile $ENTRY ~/.config/${ENTRY##*/}
+for source in "$DIR"/config/*; do
+    name=${source##*/}
+    link "config/$name" "$source" "$HOME/.config/$name"
 done
+
+# Árva linkek: a dotfiles-ba mutatnak, de a forrásuk már nincs meg (átnevezve/törölve a repóban)
+for target in "$HOME"/.* "$HOME"/.config/*; do
+    [ -L "$target" ] || continue
+    [ -e "$target" ] && continue
+    case "$(readlink "$target")" in
+        "$DIR"/*)
+            if [ "$PRUNE" -eq 1 ]; then
+                say 31 'Törlés' "$target (árva: $(readlink "$target"))"
+                unlink_it "$target"
+            else
+                say 34 'Árva' "$target -> $(readlink "$target") (--prune leszedi)"
+            fi
+            ;;
+    esac
+done
+
+# Háttérképek (a script maga dönti el, kell-e ezen a gépen)
+if [ "$DRY" -eq 0 ] && desktop; then
+    "$DIR/home/bin/fetch-wallpapers"
+fi
+
+exit 0

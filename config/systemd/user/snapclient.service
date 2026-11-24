@@ -3,6 +3,7 @@ Description=Snapcast client
 After=network.target sound.target
 Requires=sound.target
 Wants=avahi-daemon.service
+ConditionPathExists=/usr/bin/snapclient
 
 [Service]
 ExecStart=/usr/bin/snapclient
