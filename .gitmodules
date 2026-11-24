@@ -1,8 +1,4 @@
 
-[submodule "home/zprezto"]
-	path = home/zprezto
-	url = https://github.com/sorin-ionescu/prezto.git
-    ignore = dirty
 [submodule "home/zsh/plugins/zsh-autosuggestions"]
 	path = home/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
