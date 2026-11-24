@@ -1,2 +1,4 @@
 *.swp
 home/oscontrol/.env
+# háttérképek: nem a repóban élnek, a home/bin/fetch-wallpapers tölti le (wallpapers.list)
+/assets/

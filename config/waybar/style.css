@@ -374,3 +374,10 @@ tooltip class {
 #battery.plugordie {
   color: @critical;
 }
+
+/* switch uplink figyelő: csak akkor látszik, ha a link visszaesett */
+#custom-uplink.degraded {
+    color: #ff5555;
+    font-weight: bold;
+    padding: 0 8px;
+}

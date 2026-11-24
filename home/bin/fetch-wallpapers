@@ -1,0 +1,37 @@
+#!/bin/sh
+# Háttérképek letöltése a ~/.dotfiles/assets mappába (a képek nincsenek a repóban).
+# Forrás: https://static.bayi.hu/wallpapers/ — a lista: ~/.dotfiles/wallpapers.list
+# Csak ott fut, ahol van Wayland/Hyprland; ami már megvan, azt nem tölti le újra.
+#   fetch-wallpapers          letölti, ami hiányzik
+#   fetch-wallpapers --force  desktop nélküli gépen is letölt
+
+BASE_URL="https://static.bayi.hu/wallpapers"
+DIR="$HOME/.dotfiles"
+LIST="$DIR/wallpapers.list"
+TARGET="$DIR/assets"
+
+if [ "$1" != "--force" ] && [ -z "$WAYLAND_DISPLAY" ] && ! command -v hyprctl >/dev/null 2>&1; then
+    echo " * Nincs Wayland/Hyprland ezen a gépen, a háttérképek nem kellenek."
+    exit 0
+fi
+
+if ! command -v curl >/dev/null 2>&1; then
+    echo " * Nincs curl, a háttérképeket nem tudom letölteni." >&2
+    exit 1
+fi
+
+failed=0
+while IFS= read -r file; do
+    [ -z "$file" ] && continue
+    [ -s "$TARGET/$file" ] && continue
+    echo " * Letöltés: $file"
+    # .part-ba tölt, hogy megszakadt letöltésből ne maradjon fél kép
+    if curl -fsS --create-dirs -o "$TARGET/$file.part" "$BASE_URL/$file"; then
+        mv "$TARGET/$file.part" "$TARGET/$file"
+    else
+        rm -f "$TARGET/$file.part"
+        failed=1
+    fi
+done < "$LIST"
+
+exit $failed

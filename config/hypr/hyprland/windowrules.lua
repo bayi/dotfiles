@@ -91,3 +91,11 @@ hl.window_rule({
   tag = "+focus",
 })
 
+hl.window_rule({
+  name = "TechVox",
+  match = {
+    class = "^(techvox)$"
+  },
+  tag = "+floating"
+})
+

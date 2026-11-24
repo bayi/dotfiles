@@ -2,6 +2,7 @@
 Description=Random Background on %i
 After=graphical-session-pre.target
 PartOf=graphical-session.target
+ConditionPathExists=/etc/run_desktop_services
 
 [Service]
 Type=oneshot

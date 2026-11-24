@@ -1,5 +1,6 @@
 [Unit]
 Description=Random Background timer for %i
+ConditionPathExists=/etc/run_desktop_services
 
 [Timer]
 OnBootSec=15min

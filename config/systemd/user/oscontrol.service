@@ -1,6 +1,7 @@
 [Unit]
 Description=System Control Service
 After=graphical-session.target
+ConditionPathExists=/etc/run_desktop_services
 
 [Service]
 ExecStart=/usr/bin/node --env-file=%h/.oscontrol/.env %h/.oscontrol/index.js

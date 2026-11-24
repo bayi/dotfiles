@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ENABLED=
-DISABLED=
+ENABLED=
+DISABLED=
 
 if systemctl is-active --user --quiet vnc.service; then
     printf '{"text": "%s", "class": "enabled", "tooltip": "VNC Enabled"}\n' "$ENABLED"

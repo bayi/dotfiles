@@ -17,10 +17,11 @@
         "pulseaudio#microphone",
         "group/audio",
         "network",
-        "group/brightness",
+        // "group/brightness",
         "battery",
         "battery#bat2",
         // "idle_inhibitor",
+        "custom/uplink",
         "custom/vnc",
         "custom/animbg",
         "power-profiles-daemon",
@@ -38,7 +39,7 @@
       "on-click-right": "wofi"
     },
     "hyprland/workspaces": {
-        "format": "{icon} {name}{windows}",
+        "format": "{icon} {name}",
         "format-icons": {
             "1": "",
             "2": "",
@@ -316,6 +317,12 @@
       "format-source-muted": "",
       "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
       "tooltip": false
+    },
+    "custom/uplink": {
+      "format": "{}",
+      "return-type": "json",
+      "interval": 5,
+      "exec": "~/.config/waybar/scripts/uplink.sh"
     },
     "custom/vnc": {
       "format": "{}",

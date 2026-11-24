@@ -19,7 +19,7 @@ class MqttSwitch {
         this.stateCb = stateCb
         this.setCb = setCb
         console.log(`* (${this.config.name}) Connecting to MQTT broker ...`)
-        this.client = mqtt.connect('mqtt://10.4.1.212', {
+        this.client = mqtt.connect('mqtt://10.0.0.8', {
             username: config.mqttUser,
             password: config.mqttPassword,
             will: {

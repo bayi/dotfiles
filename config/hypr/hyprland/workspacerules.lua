@@ -21,8 +21,9 @@ hl.workspace_rule({
   no_shadow = true,
 })
 
--- Coding workspace
-hl.workspace_rule({
-  workspace = "name:T",
-  on_created_empty = "alacritty",
-})
+-- Coding workspace: ha üresen jön létre, induljon benne egy terminál
+hl.on("workspace.created", function(ws)
+  if ws and ws.name == "T" and ws.is_empty then
+    hl.exec_cmd("alacritty", { workspace = "name:T" })
+  end
+end)

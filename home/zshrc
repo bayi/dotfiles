@@ -33,6 +33,8 @@ alias -s h=nvim
 alias -s js=nvim
 alias -s json=nvim
 
+setopt clobber
+
 # Custom functions / aliases
 
 if type "exa" > /dev/null; then
@@ -48,8 +50,8 @@ fi
 
 if type "zoxide" > /dev/null; then
     eval "$(zoxide init zsh)"
-    alias cd="z"
-    alias cdb="z -"
+    #alias cd="z"
+    #alias cdb="z -"
 fi
 
 if type "entr" > /dev/null; then
@@ -109,6 +111,8 @@ alias net-open-ports='sudo netstat -lnpt | grep --color=never -E "(tcp|udp)"'
 alias net-open-connections="sudo netstat -ntu"
 alias net-ddos-check="sudo netstat -ntu | awk '{print $5}' | grep -iv \"[address|server]\" | grep -v ::1 | grep -v 127.0.0.1 | grep -v 10.0. | cut -d: -f1 | sort | uniq -c | sort -n"
 
+## Claude WAM
+alias claude-wam='CLAUDE_CONFIG_DIR=~/.claude-wam claude'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

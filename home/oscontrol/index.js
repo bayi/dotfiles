@@ -4,6 +4,7 @@ const MqttSwitch    = require('./switch')
 const systemd     = require('./systemd')
 const shell       = require('./shell')
 const MqttButton = require('./button')
+const MqttWatch  = require('./watch')
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -56,6 +57,9 @@ if (process.env.MQTT_HOST === undefined) {
         () => shell.exceCommand(['hyprctl dispatch \'hl.dsp.dpms("off")\'']),
         { icon: 'mdi:sleep'}
     )
+
+    // A SW-Dolgozo-Gep uplink sebessége (a HA teszi ki MQTT-re) → $XDG_RUNTIME_DIR/oscontrol/uplink_speed; a waybar modul olvassa
+    const uplink = new MqttWatch('uplink_speed', 'homelab/net/uplink_dolgozo/speed')
 
     function update()
     {

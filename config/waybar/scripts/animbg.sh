@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ENABLED=
-DISABLED=
+ENABLED=
+DISABLED=
 
 if systemctl is-active --user --quiet animated-bg@HDMI-A-2.service; then
     printf '{"text": "%s", "class": "enabled", "tooltip": "Enabled"}\n' "$ENABLED"

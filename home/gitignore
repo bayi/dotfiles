@@ -33,3 +33,5 @@ idea/
 
 # General
 *.log
+
+**/.claude/settings.local.json
