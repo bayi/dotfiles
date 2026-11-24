@@ -39,7 +39,7 @@ wanted() {
         home/z*)                        has zsh ;;
         home/vimrc)                     has vim && ! has nvim ;;
         home/oscontrol)                 desktop && has node ;;
-        config/nvim)                    has nvim ;;
+        config/nvim|config/nvim-new)    has nvim ;;
         config/hypr|config/uwsm)        desktop ;;
         config/mimeapps.list)           desktop ;;
         config/waybar)                  has waybar ;;
