@@ -1,1 +1,10 @@
-zprezto/runcoms/zshenv
+# Minden zsh ezt olvassa be elsőnek. Egyetlen dolga: megmondani, hol a config.
+#
+# A zsh config a ~/.zsh mappában él (= ~/.dotfiles/home/zsh): .zprofile, .zshrc, prompt, aliasok.
+# Visszaút a régi prezto configra: a ZDOTDIR sort kikommentelni (akkor a ~/.zshrc & társai mennek).
+[[ -r $HOME/.zsh/.zshrc ]] && ZDOTDIR=$HOME/.zsh
+
+# Nem-login, nem-interaktív shellnek (pl. "ssh gép parancs") is legyen PATH-ja és környezete.
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
