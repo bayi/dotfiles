@@ -46,6 +46,7 @@ wanted() {
         config/mako)                    has mako ;;
         config/wofi)                    has wofi ;;
         config/systemd)                 has systemctl ;;
+        config/pacman)                  has pacman ;;
         *)                              true ;;
     esac
 }
