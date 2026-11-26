@@ -24,25 +24,25 @@ if (process.env.MQTT_HOST === undefined) {
         () => monitor_sides_state,
         async(state) => {
             if (state == 'ON') {
-                // shell.exceCommand(['hyprctl keyword monitor "HDMI-A-2,disable"'])
+                // shell.exceCommand(['hyprctl keyword monitor "HDMI-A-1,disable"'])
                 // await sleep(250)
-                // shell.exceCommand(['hyprctl keyword monitor "DP-3,2560x1440,0x0,1"'])
+                // shell.exceCommand(['hyprctl keyword monitor "DP-1,2560x1440,0x0,1"'])
                 // await sleep(250)
                 // shell.exceCommand(['hyprctl keyword monitor "DP-2,2560x1440,5120x0,1"'])
                 // await sleep(250)
-                // shell.exceCommand(['hyprctl keyword monitor "HDMI-A-2,2560x1440,2560x0,1"'])
+                // shell.exceCommand(['hyprctl keyword monitor "HDMI-A-1,2560x1440,2560x0,1"'])
                 // await sleep(250)
-                shell.exceCommand(['hyprctl eval \'hl.monitor({ output = "DP-3", disabled = false }) hl.monitor({ output = "DP-2", disabled = false })\''])
+                shell.exceCommand(['hyprctl eval \'hl.monitor({ output = "DP-1", disabled = false }) hl.monitor({ output = "DP-2", disabled = false })\''])
                 // shell.exceCommand(['systemctl --user restart waybar'])
                 // shell.exceCommand(['systemctl --user restart mako'])
                 // shell.exceCommand(['systemctl --user restart hyprpaper'])
                 monitor_sides_state = 'ON'
             } else {
-                shell.exceCommand(['hyprctl eval \'hl.monitor({ output = "DP-3", disabled = true }) hl.monitor({ output = "DP-2", disabled = true })\''])
-                // shell.exceCommand(['hyprctl keyword monitor "DP-3,disable"'])
+                shell.exceCommand(['hyprctl eval \'hl.monitor({ output = "DP-1", disabled = true }) hl.monitor({ output = "DP-2", disabled = true })\''])
+                // shell.exceCommand(['hyprctl keyword monitor "DP-1,disable"'])
                 // shell.exceCommand(['hyprctl keyword monitor "DP-2,disable"'])
                 // await sleep(250)
-                // shell.exceCommand(['hyprctl keyword monitor "HDMI-A-2,2560x1440,0x0,1"'])
+                // shell.exceCommand(['hyprctl keyword monitor "HDMI-A-1,2560x1440,0x0,1"'])
                 // shell.exceCommand(['systemctl --user restart waybar'])
                 // shell.exceCommand(['systemctl --user restart mako'])
                 // shell.exceCommand(['systemctl --user restart hyprpaper'])

@@ -56,7 +56,7 @@ hl.bind(MainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:
 hl.bind(MainMod .. " + S", hl.dsp.workspace.toggle_special(""), { description = "Workspace: Focus scratchpad" })
 
 -- Toggle side monitors with SUPORT + SHIFT + M
--- local sideMonitors = { "DP-3", "DP-2" }
+-- local sideMonitors = { "DP-1", "DP-2" }
 -- hl.bind(MainMod .. " + SHIFT + M", function()
 --   for _, output in ipairs(sideMonitors) do
 --     local state = hl.get_monitor(output)

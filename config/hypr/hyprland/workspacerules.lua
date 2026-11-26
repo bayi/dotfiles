@@ -2,7 +2,7 @@
 -- Gaming workspace
 hl.workspace_rule({
   workspace = "3",
-  monitor = "HDMI-A-2",
+  monitor = "HDMI-A-1",
   no_rounding = true,
   no_border = true,
   no_shadow = true,
@@ -13,7 +13,7 @@ hl.workspace_rule({
 -- Chat workspace
 hl.workspace_rule({
   workspace = "10",
-  monitor = "DP-3",
+  monitor = "DP-1",
   default = true,
   persistent = true,
   no_rounding = true,

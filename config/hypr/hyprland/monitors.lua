@@ -1,15 +1,15 @@
--- DP-3: left
+-- DP-1: left
 hl.monitor({
-  output = "DP-3",
+  output = "DP-1",
   mode = "2560x1440",
   position = "0x0",
   scale = 1,
 })
 
--- HDMI-A-2: center
+-- HDMI-A-1: center
 hl.monitor({
-  output = "HDMI-A-2",
-  mode = "2560x1440",
+  output = "HDMI-A-1",
+  mode = "2560x1440@99.95",
   position = "2560x0",
   scale = 1,
 })

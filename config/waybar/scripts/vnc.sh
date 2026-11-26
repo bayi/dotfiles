@@ -3,8 +3,8 @@
 ENABLED=
 DISABLED=
 
-if systemctl is-active --user --quiet vnc.service; then
-    printf '{"text": "%s", "class": "enabled", "tooltip": "VNC Enabled"}\n' "$ENABLED"
+if systemctl is-active --user --quiet stream.service; then
+    printf '{"text": "%s", "class": "enabled", "tooltip": "Stream megy (vnc.bayi.hu)"}\n' "$ENABLED"
 else
-    printf '{"text": "%s", "class": "disabled", "tooltip": "VNC Disabled"}\n' "$DISABLED"
+    printf '{"text": "%s", "class": "disabled", "tooltip": "Stream áll"}\n' "$DISABLED"
 fi

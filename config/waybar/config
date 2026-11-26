@@ -329,15 +329,15 @@
       "return-type": "json",
       "restart-interval": 1,
       "exec": "~/.config/waybar/scripts/vnc.sh",
-      "on-click": "systemctl --user restart vnc.service",
-      "on-click-right": "systemctl --user stop vnc.service"
+      "on-click": "systemctl --user restart stream.service",
+      "on-click-right": "systemctl --user stop stream.service"
     },
     "custom/animbg": {
       "format": "{}",
       "return-type": "json",
       "restart-interval": 1,
       "exec": "~/.config/waybar/scripts/animbg.sh",
-      "on-click": "systemctl --user start animated-bg@HDMI-A-2",
-      "on-click-right": "systemctl --user stop animated-bg@HDMI-A-2"
+      "on-click": "systemctl --user start animated-bg@HDMI-A-1",
+      "on-click-right": "systemctl --user stop animated-bg@HDMI-A-1"
     }
 }

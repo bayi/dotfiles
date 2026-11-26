@@ -1,0 +1,19 @@
+[Unit]
+Description=Screen share: OBS -> vnc.bayi.hu (WHIP, MediaMTX on k7)
+After=graphical-session.target
+ConditionPathExists=/usr/bin/obs
+
+[Service]
+# Ha már fut egy OBS (saját felvétel/stream), nem indítunk mellé másikat.
+ExecCondition=/bin/sh -c '! pgrep -x obs >/dev/null'
+# Az OBS megjegyzi az utoljára használt profilt -> elmentjük a user.ini-t, leállításkor visszarakjuk
+# (különben a kézzel indított OBS is a "vnc" profillal jönne fel).
+ExecStartPre=/usr/bin/cp -f %h/.config/obs-studio/user.ini %h/.config/obs-studio/user.ini.pre-stream
+# A kilépés előtti "az OBS még aktív" megerősítést csak erre a futásra kapcsoljuk ki (a mentett user.ini jön vissza).
+ExecStartPre=/usr/bin/sed -i 's/^ConfirmOnExit=.*/ConfirmOnExit=false/' %h/.config/obs-studio/user.ini
+ExecStart=/usr/bin/obs --profile vnc --collection vnc --scene Megosztas --startstreaming --minimize-to-tray --disable-shutdown-check
+ExecStopPost=/bin/sh -c 'f=%h/.config/obs-studio/user.ini.pre-stream; [ -f "$f" ] && mv -f "$f" %h/.config/obs-studio/user.ini || true'
+KillSignal=SIGINT
+TimeoutStopSec=10
+Restart=no
+SyslogIdentifier=stream
