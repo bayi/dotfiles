@@ -1,0 +1,29 @@
+#!/bin/sh
+# Nézőszám-figyelő a vnc.bayi.hu streamhez (a régi vnc-watcher utódja).
+# A k7 MediaMTX API-ját kérdezi (csak otthonról/VPN-ről érhető el): ha változik a nézők száma, értesít,
+# és kiírja a számot a waybar gombnak ($XDG_RUNTIME_DIR/stream-viewers).
+# A stream.service indítja és állítja le (BindsTo).
+
+API=${STREAM_API:-https://vnc.bayi.hu/v3/paths/get/live}
+OUT="${XDG_RUNTIME_DIR:-/tmp}/stream-viewers"
+last=-1
+id=0
+
+trap 'rm -f "$OUT"; exit 0' INT TERM
+
+while :; do
+    count=$(curl -s -m 5 "$API" | jq -r '.readers | length' 2>/dev/null)
+    case "$count" in
+        ''|*[!0-9]*) ;;  # az API épp nem válaszol: az utolsó ismert szám marad
+        *)
+            echo "$count" > "$OUT"
+            if [ "$count" != "$last" ]; then
+                [ "$last" = -1 ] && [ "$count" = 0 ] || \
+                    id=$(notify-send -e -p -t 15000 -u critical -r "$id" "Stream" "Nézők: <span color='red'>$count</span>")
+                echo "Nézők: $count"
+                last=$count
+            fi
+            ;;
+    esac
+    sleep 3
+done

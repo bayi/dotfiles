@@ -1,0 +1,9 @@
+[Unit]
+Description=Screen share: viewer count notifications (MediaMTX API on k7)
+BindsTo=stream.service
+After=stream.service
+
+[Service]
+ExecStart=%h/.bin/stream-watcher
+Restart=on-failure
+SyslogIdentifier=stream-watcher

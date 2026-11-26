@@ -1,6 +1,7 @@
 [Unit]
 Description=Screen share: OBS -> vnc.bayi.hu (WHIP, MediaMTX on k7)
 After=graphical-session.target
+Wants=stream-watcher.service
 ConditionPathExists=/usr/bin/obs
 
 [Service]
