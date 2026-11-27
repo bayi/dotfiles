@@ -5,7 +5,16 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("jellybeans").setup {}
+      require("jellybeans").setup {
+        on_colors = function(c)
+          c.background = "#0a0a0a"
+        end,
+        on_highlights = function(hl, c)
+          local strong = { fg = c.foreground, bold = true }
+          hl["@markup.strong"] = strong
+          hl.markdownBold = strong
+        end,
+      }
       vim.cmd.colorscheme "jellybeans"
     end,
   },
