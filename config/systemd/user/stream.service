@@ -12,7 +12,8 @@ ExecCondition=/bin/sh -c '! pgrep -x obs >/dev/null'
 ExecStartPre=/usr/bin/cp -f %h/.config/obs-studio/user.ini %h/.config/obs-studio/user.ini.pre-stream
 # A kilépés előtti "az OBS még aktív" megerősítést csak erre a futásra kapcsoljuk ki (a mentett user.ini jön vissza).
 ExecStartPre=/usr/bin/sed -i 's/^ConfirmOnExit=.*/ConfirmOnExit=false/' %h/.config/obs-studio/user.ini
-ExecStart=/usr/bin/obs --profile vnc --collection vnc --scene Megosztas --startstreaming --minimize-to-tray --disable-shutdown-check
+# A jelenetet a ~/.bin/stream-start írja fel: "Megosztas" (csak kép) vagy "Megosztas-hanggal" (kép + a gép hangja).
+ExecStart=/bin/sh -c 'exec /usr/bin/obs --profile vnc --collection vnc --scene "$(cat "$XDG_RUNTIME_DIR/stream-scene" 2>/dev/null || echo Megosztas)" --startstreaming --minimize-to-tray --disable-shutdown-check'
 ExecStopPost=/bin/sh -c 'f=%h/.config/obs-studio/user.ini.pre-stream; [ -f "$f" ] && mv -f "$f" %h/.config/obs-studio/user.ini || true'
 KillSignal=SIGINT
 TimeoutStopSec=10

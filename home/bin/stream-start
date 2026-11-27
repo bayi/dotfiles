@@ -1,0 +1,11 @@
+#!/bin/sh
+# A vnc.bayi.hu stream indítása a waybar gombról.
+#   stream-start          csak kép
+#   stream-start audio    kép + a gép hangja (minden, ami a hangszórón/fülesen szól!)
+# A választott OBS jelenet neve a $XDG_RUNTIME_DIR/stream-scene fájlba kerül, a stream.service onnan olvassa.
+case "$1" in
+    audio) scene=Megosztas-hanggal ;;
+    *)     scene=Megosztas ;;
+esac
+echo "$scene" > "${XDG_RUNTIME_DIR:-/tmp}/stream-scene"
+exec systemctl --user restart stream.service

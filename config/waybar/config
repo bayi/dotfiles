@@ -329,7 +329,8 @@
       "return-type": "json",
       "restart-interval": 1,
       "exec": "~/.config/waybar/scripts/vnc.sh",
-      "on-click": "systemctl --user restart stream.service",
+      "on-click": "~/.bin/stream-start",
+      "on-click-middle": "~/.bin/stream-start audio",
       "on-click-right": "systemctl --user stop stream.service"
     },
     "custom/animbg": {
